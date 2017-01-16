@@ -1,0 +1,339 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'eslint',
+1 verbose cli   '--save',
+1 verbose cli   'dev' ]
+2 info using npm@3.10.8
+3 info using node@v6.9.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData eslint
+8 silly fetchPackageMetaData dev
+9 silly fetchNamedPackageData eslint
+10 silly mapToRegistry name eslint
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'eslint',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   escapedName: 'eslint',
+13 silly mapToRegistry   name: 'eslint',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/eslint
+15 silly fetchNamedPackageData dev
+16 silly mapToRegistry name dev
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry data Result {
+19 silly mapToRegistry   raw: 'dev',
+19 silly mapToRegistry   scope: null,
+19 silly mapToRegistry   escapedName: 'dev',
+19 silly mapToRegistry   name: 'dev',
+19 silly mapToRegistry   rawSpec: '',
+19 silly mapToRegistry   spec: 'latest',
+19 silly mapToRegistry   type: 'tag' }
+20 silly mapToRegistry uri https://registry.npmjs.org/dev
+21 verbose request uri https://registry.npmjs.org/dev
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 2:51:42 PM
+24 verbose request id 104cb1a5204ae82b
+25 http request GET https://registry.npmjs.org/dev
+26 verbose request uri https://registry.npmjs.org/eslint
+27 verbose request no auth needed
+28 info attempt registry request try #1 at 2:51:42 PM
+29 verbose etag W/"585536f8-62bf9"
+30 verbose lastModified Sat, 17 Dec 2016 13:00:40 GMT
+31 http request GET https://registry.npmjs.org/eslint
+32 http 200 https://registry.npmjs.org/dev
+33 verbose headers { server: 'nginx/1.10.1',
+33 verbose headers   'content-type': 'application/json',
+33 verbose headers   'last-modified': 'Mon, 17 Oct 2016 16:12:14 GMT',
+33 verbose headers   etag: 'W/"5804f85e-22be"',
+33 verbose headers   'content-encoding': 'gzip',
+33 verbose headers   'cache-control': 'max-age=300',
+33 verbose headers   'content-length': '1252',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Mon, 16 Jan 2017 13:51:43 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   age: '0',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-hhn1520-HHN',
+33 verbose headers   'x-cache': 'HIT',
+33 verbose headers   'x-cache-hits': '1',
+33 verbose headers   'x-timer': 'S1484574703.902165,VS0,VE1',
+33 verbose headers   vary: 'Accept-Encoding' }
+34 silly get cb [ 200,
+34 silly get   { server: 'nginx/1.10.1',
+34 silly get     'content-type': 'application/json',
+34 silly get     'last-modified': 'Mon, 17 Oct 2016 16:12:14 GMT',
+34 silly get     etag: 'W/"5804f85e-22be"',
+34 silly get     'content-encoding': 'gzip',
+34 silly get     'cache-control': 'max-age=300',
+34 silly get     'content-length': '1252',
+34 silly get     'accept-ranges': 'bytes',
+34 silly get     date: 'Mon, 16 Jan 2017 13:51:43 GMT',
+34 silly get     via: '1.1 varnish',
+34 silly get     age: '0',
+34 silly get     connection: 'keep-alive',
+34 silly get     'x-served-by': 'cache-hhn1520-HHN',
+34 silly get     'x-cache': 'HIT',
+34 silly get     'x-cache-hits': '1',
+34 silly get     'x-timer': 'S1484574703.902165,VS0,VE1',
+34 silly get     vary: 'Accept-Encoding' } ]
+35 verbose get saving dev to C:\Users\fbjig\AppData\Roaming\npm-cache\registry.npmjs.org\dev\.cache.json
+36 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+37 http 200 https://registry.npmjs.org/eslint
+38 verbose headers { server: 'nginx/1.10.1',
+38 verbose headers   'content-type': 'application/json',
+38 verbose headers   'last-modified': 'Sun, 15 Jan 2017 11:15:12 GMT',
+38 verbose headers   etag: 'W/"587b59c0-6486c"',
+38 verbose headers   'content-encoding': 'gzip',
+38 verbose headers   'cache-control': 'max-age=300',
+38 verbose headers   'content-length': '25191',
+38 verbose headers   'accept-ranges': 'bytes',
+38 verbose headers   date: 'Mon, 16 Jan 2017 13:51:43 GMT',
+38 verbose headers   via: '1.1 varnish',
+38 verbose headers   age: '174',
+38 verbose headers   connection: 'keep-alive',
+38 verbose headers   'x-served-by': 'cache-hhn1539-HHN',
+38 verbose headers   'x-cache': 'HIT',
+38 verbose headers   'x-cache-hits': '5',
+38 verbose headers   'x-timer': 'S1484574703.903659,VS0,VE0',
+38 verbose headers   vary: 'Accept-Encoding' }
+39 silly get cb [ 200,
+39 silly get   { server: 'nginx/1.10.1',
+39 silly get     'content-type': 'application/json',
+39 silly get     'last-modified': 'Sun, 15 Jan 2017 11:15:12 GMT',
+39 silly get     etag: 'W/"587b59c0-6486c"',
+39 silly get     'content-encoding': 'gzip',
+39 silly get     'cache-control': 'max-age=300',
+39 silly get     'content-length': '25191',
+39 silly get     'accept-ranges': 'bytes',
+39 silly get     date: 'Mon, 16 Jan 2017 13:51:43 GMT',
+39 silly get     via: '1.1 varnish',
+39 silly get     age: '174',
+39 silly get     connection: 'keep-alive',
+39 silly get     'x-served-by': 'cache-hhn1539-HHN',
+39 silly get     'x-cache': 'HIT',
+39 silly get     'x-cache-hits': '5',
+39 silly get     'x-timer': 'S1484574703.903659,VS0,VE0',
+39 silly get     vary: 'Accept-Encoding' } ]
+40 verbose get saving eslint to C:\Users\fbjig\AppData\Roaming\npm-cache\registry.npmjs.org\eslint\.cache.json
+41 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+42 silly install normalizeTree
+43 silly loadCurrentTree Finishing
+44 silly loadIdealTree Starting
+45 silly install loadIdealTree
+46 silly cloneCurrentTree Starting
+47 silly install cloneCurrentTreeToIdealTree
+48 silly cloneCurrentTree Finishing
+49 silly loadShrinkwrap Starting
+50 silly install loadShrinkwrap
+51 silly loadShrinkwrap Finishing
+52 silly loadAllDepsIntoIdealTree Starting
+53 silly install loadAllDepsIntoIdealTree
+54 silly resolveWithNewModule dev@0.1.3 checking installable status
+55 silly cache add args [ 'dev', null ]
+56 verbose cache add spec dev
+57 silly resolveWithNewModule eslint@3.13.1 checking installable status
+58 silly cache add args [ 'eslint', null ]
+59 verbose cache add spec eslint
+60 silly cache add parsed spec Result {
+60 silly cache add   raw: 'dev',
+60 silly cache add   scope: null,
+60 silly cache add   escapedName: 'dev',
+60 silly cache add   name: 'dev',
+60 silly cache add   rawSpec: '',
+60 silly cache add   spec: 'latest',
+60 silly cache add   type: 'tag' }
+61 silly addNamed dev@latest
+62 verbose addNamed "latest" is being treated as a dist-tag for dev
+63 info addNameTag [ 'dev', 'latest' ]
+64 silly mapToRegistry name dev
+65 silly mapToRegistry using default registry
+66 silly mapToRegistry registry https://registry.npmjs.org/
+67 silly mapToRegistry data Result {
+67 silly mapToRegistry   raw: 'dev',
+67 silly mapToRegistry   scope: null,
+67 silly mapToRegistry   escapedName: 'dev',
+67 silly mapToRegistry   name: 'dev',
+67 silly mapToRegistry   rawSpec: '',
+67 silly mapToRegistry   spec: 'latest',
+67 silly mapToRegistry   type: 'tag' }
+68 silly mapToRegistry uri https://registry.npmjs.org/dev
+69 verbose addNameTag registry:https://registry.npmjs.org/dev not in flight; fetching
+70 silly cache add parsed spec Result {
+70 silly cache add   raw: 'eslint',
+70 silly cache add   scope: null,
+70 silly cache add   escapedName: 'eslint',
+70 silly cache add   name: 'eslint',
+70 silly cache add   rawSpec: '',
+70 silly cache add   spec: 'latest',
+70 silly cache add   type: 'tag' }
+71 silly addNamed eslint@latest
+72 verbose addNamed "latest" is being treated as a dist-tag for eslint
+73 info addNameTag [ 'eslint', 'latest' ]
+74 silly mapToRegistry name eslint
+75 silly mapToRegistry using default registry
+76 silly mapToRegistry registry https://registry.npmjs.org/
+77 silly mapToRegistry data Result {
+77 silly mapToRegistry   raw: 'eslint',
+77 silly mapToRegistry   scope: null,
+77 silly mapToRegistry   escapedName: 'eslint',
+77 silly mapToRegistry   name: 'eslint',
+77 silly mapToRegistry   rawSpec: '',
+77 silly mapToRegistry   spec: 'latest',
+77 silly mapToRegistry   type: 'tag' }
+78 silly mapToRegistry uri https://registry.npmjs.org/eslint
+79 verbose addNameTag registry:https://registry.npmjs.org/eslint not in flight; fetching
+80 verbose get https://registry.npmjs.org/dev not expired, no request
+81 silly addNameTag next cb for dev with tag latest
+82 silly addNamed dev@0.1.3
+83 verbose addNamed "0.1.3" is a plain semver version for dev
+84 silly mapToRegistry name dev
+85 silly mapToRegistry using default registry
+86 silly mapToRegistry registry https://registry.npmjs.org/
+87 silly mapToRegistry data Result {
+87 silly mapToRegistry   raw: 'dev',
+87 silly mapToRegistry   scope: null,
+87 silly mapToRegistry   escapedName: 'dev',
+87 silly mapToRegistry   name: 'dev',
+87 silly mapToRegistry   rawSpec: '',
+87 silly mapToRegistry   spec: 'latest',
+87 silly mapToRegistry   type: 'tag' }
+88 silly mapToRegistry uri https://registry.npmjs.org/dev
+89 verbose addRemoteTarball https://registry.npmjs.org/dev/-/dev-0.1.3.tgz not in flight; adding
+90 verbose addRemoteTarball [ 'https://registry.npmjs.org/dev/-/dev-0.1.3.tgz',
+90 verbose addRemoteTarball   '89fdc08705e0e7eaef92d012e26751e4d744322a' ]
+91 verbose get https://registry.npmjs.org/eslint not expired, no request
+92 silly addNameTag next cb for eslint with tag latest
+93 silly addNamed eslint@3.13.1
+94 verbose addNamed "3.13.1" is a plain semver version for eslint
+95 silly mapToRegistry name eslint
+96 silly mapToRegistry using default registry
+97 silly mapToRegistry registry https://registry.npmjs.org/
+98 silly mapToRegistry data Result {
+98 silly mapToRegistry   raw: 'eslint',
+98 silly mapToRegistry   scope: null,
+98 silly mapToRegistry   escapedName: 'eslint',
+98 silly mapToRegistry   name: 'eslint',
+98 silly mapToRegistry   rawSpec: '',
+98 silly mapToRegistry   spec: 'latest',
+98 silly mapToRegistry   type: 'tag' }
+99 silly mapToRegistry uri https://registry.npmjs.org/eslint
+100 verbose addRemoteTarball https://registry.npmjs.org/eslint/-/eslint-3.13.1.tgz not in flight; adding
+101 verbose addRemoteTarball [ 'https://registry.npmjs.org/eslint/-/eslint-3.13.1.tgz',
+101 verbose addRemoteTarball   '564d2646b5efded85df96985332edd91a23bff25' ]
+102 info retry fetch attempt 1 at 2:51:42 PM
+103 info attempt registry request try #1 at 2:51:42 PM
+104 http fetch GET https://registry.npmjs.org/eslint/-/eslint-3.13.1.tgz
+105 info retry fetch attempt 1 at 2:51:42 PM
+106 info attempt registry request try #1 at 2:51:42 PM
+107 http fetch GET https://registry.npmjs.org/dev/-/dev-0.1.3.tgz
+108 http fetch 200 https://registry.npmjs.org/dev/-/dev-0.1.3.tgz
+109 http fetch 200 https://registry.npmjs.org/eslint/-/eslint-3.13.1.tgz
+110 silly fetchAndShaCheck shasum 89fdc08705e0e7eaef92d012e26751e4d744322a
+111 verbose addTmpTarball C:\Users\fbjig\AppData\Local\Temp\npm-21444-21c59147\registry.npmjs.org\dev\-\dev-0.1.3.tgz not in flight; adding
+112 verbose addTmpTarball already have metadata; skipping unpack for dev@0.1.3
+113 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+114 silly cache afterAdd dev@0.1.3
+115 verbose afterAdd C:\Users\fbjig\AppData\Roaming\npm-cache\dev\0.1.3\package\package.json not in flight; writing
+116 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+117 verbose afterAdd C:\Users\fbjig\AppData\Roaming\npm-cache\dev\0.1.3\package\package.json written
+118 silly fetchAndShaCheck shasum 564d2646b5efded85df96985332edd91a23bff25
+119 verbose addTmpTarball C:\Users\fbjig\AppData\Local\Temp\npm-21444-21c59147\registry.npmjs.org\eslint\-\eslint-3.13.1.tgz not in flight; adding
+120 verbose addTmpTarball already have metadata; skipping unpack for eslint@3.13.1
+121 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+122 silly cache afterAdd eslint@3.13.1
+123 verbose afterAdd C:\Users\fbjig\AppData\Roaming\npm-cache\eslint\3.13.1\package\package.json not in flight; writing
+124 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+125 verbose afterAdd C:\Users\fbjig\AppData\Roaming\npm-cache\eslint\3.13.1\package\package.json written
+126 silly fetchNamedPackageData inotify
+127 silly mapToRegistry name inotify
+128 silly mapToRegistry using default registry
+129 silly mapToRegistry registry https://registry.npmjs.org/
+130 silly mapToRegistry data Result {
+130 silly mapToRegistry   raw: 'inotify',
+130 silly mapToRegistry   scope: null,
+130 silly mapToRegistry   escapedName: 'inotify',
+130 silly mapToRegistry   name: 'inotify',
+130 silly mapToRegistry   rawSpec: '',
+130 silly mapToRegistry   spec: 'latest',
+130 silly mapToRegistry   type: 'tag' }
+131 silly mapToRegistry uri https://registry.npmjs.org/inotify
+132 verbose request uri https://registry.npmjs.org/inotify
+133 verbose request no auth needed
+134 info attempt registry request try #1 at 2:51:43 PM
+135 http request GET https://registry.npmjs.org/inotify
+136 http 200 https://registry.npmjs.org/inotify
+137 verbose headers { server: 'nginx/1.10.1',
+137 verbose headers   'content-type': 'application/json',
+137 verbose headers   'last-modified': 'Thu, 05 May 2016 10:35:46 GMT',
+137 verbose headers   etag: 'W/"572b2202-71ee"',
+137 verbose headers   'content-encoding': 'gzip',
+137 verbose headers   'cache-control': 'max-age=300',
+137 verbose headers   'content-length': '5762',
+137 verbose headers   'accept-ranges': 'bytes',
+137 verbose headers   date: 'Mon, 16 Jan 2017 13:51:44 GMT',
+137 verbose headers   via: '1.1 varnish',
+137 verbose headers   age: '0',
+137 verbose headers   connection: 'keep-alive',
+137 verbose headers   'x-served-by': 'cache-hhn1539-HHN',
+137 verbose headers   'x-cache': 'HIT',
+137 verbose headers   'x-cache-hits': '1',
+137 verbose headers   'x-timer': 'S1484574704.233561,VS0,VE1',
+137 verbose headers   vary: 'Accept-Encoding' }
+138 silly get cb [ 200,
+138 silly get   { server: 'nginx/1.10.1',
+138 silly get     'content-type': 'application/json',
+138 silly get     'last-modified': 'Thu, 05 May 2016 10:35:46 GMT',
+138 silly get     etag: 'W/"572b2202-71ee"',
+138 silly get     'content-encoding': 'gzip',
+138 silly get     'cache-control': 'max-age=300',
+138 silly get     'content-length': '5762',
+138 silly get     'accept-ranges': 'bytes',
+138 silly get     date: 'Mon, 16 Jan 2017 13:51:44 GMT',
+138 silly get     via: '1.1 varnish',
+138 silly get     age: '0',
+138 silly get     connection: 'keep-alive',
+138 silly get     'x-served-by': 'cache-hhn1539-HHN',
+138 silly get     'x-cache': 'HIT',
+138 silly get     'x-cache-hits': '1',
+138 silly get     'x-timer': 'S1484574704.233561,VS0,VE1',
+138 silly get     vary: 'Accept-Encoding' } ]
+139 verbose get saving inotify to C:\Users\fbjig\AppData\Roaming\npm-cache\registry.npmjs.org\inotify\.cache.json
+140 verbose correctMkdir C:\Users\fbjig\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+141 silly resolveWithNewModule inotify@1.4.1 checking installable status
+142 silly rollbackFailedOptional Starting
+143 silly rollbackFailedOptional Finishing
+144 silly runTopLevelLifecycles Finishing
+145 silly install printInstalled
+146 verbose stack Error: Unsupported platform for inotify@1.4.1: wanted {"name":"inotify","version":"1.4.1","author":{"name":"Camilo Aguilar","email":"camilo.aguilar@gmail.com"},"email":"camilo.aguilar@gmail.com","keywords":["inotify","watch","monitor","watch files","watch directories"],"license":"MIT","description":"inotify bindings for v8 javascript engine","repository":{"type":"git","url":"git+ssh://git@github.com/c4milo/node-inotify.git"},"os":["linux"],"engines":{"node":">=0.8"},"main":"inotify","dependencies":{"bindings":"^1.2.1","nan":"^2.3.3"},"scripts":{"test":"node-gyp configure build","install":"node-gyp rebuild"},"gypfile":true,"contributors":[{"name":"Adrian Estrada","email":"edsadr@gmail.com"},{"name":"Alexander Makarenko","email":"estliberitas@gmail.com"},{"name":"Brian Ingalls","email":"bingalls@compete.com"},{"name":"Brian White","email":"mscdex@mscdex.net"},{"name":"Camilo Aguilar","email":"camilo.aguilar@gmail.com"},{"name":"Dan VerWeire","email":"dverweire@gmail.com"},{"name":"FrozenCow","email":"frozencow@gmail.com"},{"name":"Michael Boe","email":"mschuylerb@gmail.com"},{"name":"Yannick Croissant","email":"k1der.country@free.fr"},{"name":"ikokostya","email":"ikokostya@gmail.com"}],"gitHead":"c1416dfada3ca4f3fb40e65eededc52461822ec5","bugs":{"url":"https://github.com/c4milo/node-inotify/issues"},"homepage":"https://github.com/c4milo/node-inotify#readme","_id":"inotify@1.4.1","_shasum":"8abdeb7ee9cbc291542a252df00d848b2a8f9287","_from":"inotify@>= 0.1.6","_npmVersion":"3.8.6","_nodeVersion":"5.11.0","_npmUser":{"name":"c4milo","email":"camilo.aguilar@gmail.com"},"maintainers":[{"name":"camilo","email":"camilo@cloudescape.com"},{"name":"c4milo","email":"camilo.aguilar@gmail.com"}],"dist":{"shasum":"8abdeb7ee9cbc291542a252df00d848b2a8f9287","tarball":"https://registry.npmjs.org/inotify/-/inotify-1.4.1.tgz"},"_npmOperationalInternal":{"host":"packages-16-east.internal.npmjs.com","tmp":"tmp/inotify-1.4.1.tgz_1462444544613_0.7660284182056785"},"directories":{},"_resolved":"https://registry.npmjs.org/inotify/-/inotify-1.4.1.tgz","_requested":{"raw":"inotify@>= 0.1.6","scope":null,"escapedName":"inotify","name":"inotify","rawSpec":">= 0.1.6","spec":">=0.1.6","type":"range"},"_spec":"inotify@>= 0.1.6","_where":"D:\\GREENFOX\\CLASH of SPACE\\node_modules\\dev","_args":[[{"raw":"inotify@>= 0.1.6","scope":null,"escapedName":"inotify","name":"inotify","rawSpec":">= 0.1.6","spec":">=0.1.6","type":"range"},"D:\\GREENFOX\\CLASH of SPACE\\node_modules\\dev"]],"readme":"ERROR: No README data found!"} (current: {"os":"win32","cpu":"x64"})
+146 verbose stack     at checkPlatform (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-install-checks\index.js:45:14)
+146 verbose stack     at thenWarnEngineIssues (C:\Program Files\nodejs\node_modules\npm\lib\install\validate-args.js:41:5)
+146 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\iferr\index.js:13:50
+146 verbose stack     at checkEngine (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-install-checks\index.js:24:10)
+146 verbose stack     at module.exports.isInstallable (C:\Program Files\nodejs\node_modules\npm\lib\install\validate-args.js:38:3)
+146 verbose stack     at resolveWithNewModule (C:\Program Files\nodejs\node_modules\npm\lib\install\deps.js:494:10)
+146 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\install\deps.js:437:9
+146 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\iferr\index.js:13:50
+146 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\fetch-package-metadata.js:37:12
+146 verbose stack     at addRequestedAndFinish (C:\Program Files\nodejs\node_modules\npm\lib\fetch-package-metadata.js:67:5)
+147 verbose pkgid inotify@1.4.1
+148 verbose cwd D:\GREENFOX\CLASH of SPACE
+149 error Windows_NT 10.0.14393
+150 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "eslint" "--save" "dev"
+151 error node v6.9.1
+152 error npm  v3.10.8
+153 error code EBADPLATFORM
+154 error notsup Unsupported platform for inotify@1.4.1: wanted {"os":"linux","arch":"any"} (current: {"os":"win32","arch":"x64"})
+155 error notsup Valid OS:    linux
+155 error notsup Valid Arch:  any
+155 error notsup Actual OS:   win32
+155 error notsup Actual Arch: x64
+156 verbose exit [ 1, true ]
