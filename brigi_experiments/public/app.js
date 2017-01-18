@@ -79,6 +79,7 @@
         "kingdom": $scope.kingdom,
         "password": $scope.password
       };
+      console.log($scope.regData);
 
       $http({
         method: 'POST',
