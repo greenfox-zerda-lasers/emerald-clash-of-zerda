@@ -14,6 +14,10 @@
         templateUrl: 'views/signup.html',
         controller: 'RegistrationController'
       }).
+      when('/overview', {
+        templateUrl: 'views/overview.html',
+        //controller: 'OverviewController'
+      }).
       otherwise({
         redirectTo: '/login'
       });
