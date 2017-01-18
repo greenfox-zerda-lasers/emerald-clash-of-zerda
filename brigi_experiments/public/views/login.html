@@ -1,9 +1,15 @@
 
 <section id="login-site" ng-controller = "LoginController">
   <button class="registration-button" onclick="location.href='#!/signup'">Register</button>
-  <form class="login-window" ng-submit="userLogin()" ng-init="username='gabor'; password='jelszo'">
-    <input id="login-name" type="text" placeholder="Username" ng-model="username"></input>
-    <input id="login-password" type="password" placeholder="Password" ng-model="password"></input>
-    <input id="login-button" type="submit" value="Log in"></input>
+  <form name="loginForm" class="login-window" ng-submit="userLogin()" novalidate>
+    <input name="username" id="login-name" type="text" placeholder="Username" ng-model="username" ng-required="true">
+    <div ng-show="loginForm.username.$touched && contactForm.username.$invalid">
+      <small>Enter a valid name</small>
+    </div>
+    <input name="password" id="login-password" type="password" placeholder="Password" ng-model="password" ng-required="true">
+    <div ng-show="loginForm.password.$touched && contactForm.password.$invalid">
+      <small>Enter a valid name</small>
+    </div>
+    <input id="login-button" type="submit" value="Log in" ng-disabled="loginForm.$invalid">
   </form>
 </section>
