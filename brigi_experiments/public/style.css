@@ -122,8 +122,20 @@ input {
   justify-content: space-around;
 }
 
+.overview-container .column {
+  width: 30%;
+  border: 1px solid black;
+  display: flex;
+}
 
+.overview-container h1 {
+  padding-bottom: 20px;
+  text-align: center;
+}
 
+.overview-container .list-text {
+
+}
 
 
 @media (max-width: 1400px) {

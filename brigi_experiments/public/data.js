@@ -4,7 +4,7 @@ var userData = {
   username: undefined,
   kingdom: undefined,
   buildings: [],
-  troops: undefined,
+  troops: 20,
   resources: [],
   points: undefined
 

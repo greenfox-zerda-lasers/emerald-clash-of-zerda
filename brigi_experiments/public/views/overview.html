@@ -5,19 +5,19 @@
   <header ng-include="'views/menu.html'"></header>
 
   <div class="overview-container">
-    <div class="overview-buildings">
+    <div class="overview-buildings column">
       <h1>Buildings</h1>
-        <div class="overview-buildings-img" ng-repeat="building in buildingTypes"></div>
+      <div class="overview-buildings list-text" ng-repeat="building in buildingTypes">{{building}}</div>
     </div>
 
-    <div class="overview-troops">
+    <div class="overview-troops column">
       <h1>Troops</h1>
-      <div></div>
+      <div class="overview-troops">{{troops}}</div>
     </div>
 
-    <div class="overview-resources">
+    <div class="overview-resources column">
       <h1>Resources</h1>
-      <div></div>
+      <div class="overview-resources list-text" ng-repeat="resource in resourcesTypes">{{resource}}</div>
     </div>
   </div>
 

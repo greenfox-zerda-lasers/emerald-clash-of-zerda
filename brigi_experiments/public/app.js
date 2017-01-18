@@ -102,20 +102,43 @@
 
     $scope.getUserData = function() {
       console.log("function fired")
+
       $http({
         method: 'GET',
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
       }).then(function(response){
         console.log(response.data);
-        //console.log(userData.userId)
+        response.data.buildings = userData.buildings
       });
+
+      $http({
+        method: 'GET',
+        url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/resources'
+      }).then(function(response){
+        console.log(response.data);
+        //response.data.buildings = userData.buildings
+      });
+
+
+      $http({
+        method: 'GET',
+        url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/troops'
+      }).then(function(response){
+        console.log(response.data);
+        //response.data.buildings = userData.buildings
+      });
+
     };
+
 
   }]);
 
 
   app.controller("OverviewController", ['$scope', '$http', function($scope, $http) {
 
+    $scope.buildingTypes = buildingTypes;
+    $scope.troops = userData.troops;
+    $scope.resourcesTypes = resourcesTypes;
 
   }]);
 
