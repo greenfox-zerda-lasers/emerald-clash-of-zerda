@@ -108,7 +108,7 @@
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
       }).then(function(response){
         console.log(response.data);
-        response.data.buildings = userData.buildings
+        userData.buildings = response.data.buildings
       });
 
       $http({
@@ -116,7 +116,7 @@
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/resources'
       }).then(function(response){
         console.log(response.data);
-        //response.data.buildings = userData.buildings
+        userData.resources = response.data.resources
       });
 
 
@@ -125,7 +125,7 @@
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/troops'
       }).then(function(response){
         console.log(response.data);
-        //response.data.buildings = userData.buildings
+        userData.troops = response.data.troops
       });
 
     };

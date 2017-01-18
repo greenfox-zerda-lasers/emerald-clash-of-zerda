@@ -126,6 +126,7 @@ input {
   width: 30%;
   border: 1px solid black;
   display: flex;
+  flex-direction: column;
 }
 
 .overview-container h1 {
@@ -134,7 +135,7 @@ input {
 }
 
 .overview-container .list-text {
-
+  width: 50%;
 }
 
 
