@@ -1,6 +1,7 @@
+
 <section id="login-site" ng-controller = "LoginController">
   <button class="registration-button" onclick="location.href='#!/signup'">Register</button>
-  <form class="login-window" ng-submit="userLogin()">
+  <form class="login-window" ng-submit="userLogin()" ng-init="username='gabor'; password='jelszo'">
     <input id="login-name" type="text" placeholder="Username" ng-model="username"></input>
     <input id="login-password" type="password" placeholder="Password" ng-model="password"></input>
     <input id="login-button" type="submit" value="Log in"></input>
