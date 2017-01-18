@@ -4,17 +4,18 @@ var userData = {
   username: undefined,
   kingdom: undefined,
   buildings: [],
-  troops: 20,
+  troops: undefined,
+  troopsNumber: undefined,
   resources: [],
   points: undefined
 
 };
 
 var buildingTypes = [
-  {type: "Townhall", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/5841-200.png"},
-  {type: "Mine", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/543-200.png"},
-  {type: "Farm", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/25362-200.png"},
-  {type: "Barracks", image: "https://cdn3.iconfinder.com/data/icons/ahasoft-war/512/barracks-512.png"}
+  {type: "Townhall", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/5841-200.png", number: 0},
+  {type: "Mine", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/543-200.png", number: 0},
+  {type: "Farm", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/25362-200.png", number: 0},
+  {type: "Barracks", image: "https://cdn3.iconfinder.com/data/icons/ahasoft-war/512/barracks-512.png", number: 0}
 ];
 
 var resourcesTypes = [

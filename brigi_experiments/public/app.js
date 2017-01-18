@@ -109,6 +109,7 @@
       }).then(function(response){
         console.log(response.data);
         userData.buildings = response.data.buildings
+        console.log(userData.buildings, "userdata")
       });
 
       $http({
@@ -126,6 +127,7 @@
       }).then(function(response){
         console.log(response.data);
         userData.troops = response.data.troops
+        console.log(userData.troops, "userdata.troops")
       });
 
     };
@@ -136,9 +138,41 @@
 
   app.controller("OverviewController", ['$scope', '$http', function($scope, $http) {
 
-    $scope.buildingTypes = buildingTypes;
-    $scope.troops = userData.troops;
     $scope.resourcesTypes = resourcesTypes;
+
+    $http({
+      method: 'GET',
+      url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
+    }).then(function(response){
+      $scope.buildingTypes = buildingTypes;
+      var data = response.data.buildings;
+      userData.buildings = data;
+
+      for(var b = 0; b < data.length; b++) {
+        if(data[b].type === "townhall") {
+          buildingTypes[0].number += 1;
+        } else if(data[b].type === "mine") {
+          buildingTypes[1].number += 1;
+        } else if (data[b].type === "farm") {
+          buildingTypes[2].number += 1;
+        } else if (data[b].type === "barack") {
+          buildingTypes[3].number += 1;
+        };
+      };
+    });
+
+
+    $http({
+      method: 'GET',
+      url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/troops'
+    }).then(function(response){
+      var data = response.data.troops;
+      userData.troops = data;
+      userData.troopsNumber = data.length;
+      userData.buildings = data.buildings;
+      userData.resources = data.resources;
+      $scope.troops = userData.troopsNumber;
+    });
 
   }]);
 
