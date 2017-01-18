@@ -62,7 +62,9 @@
         url: 'https://giant-idea.gomix.me/login',
         data: $scope.userData,
       }).then(function(response){
-        console.log(response);
+        console.log(response.data)
+        var data = response.data
+        userData.userId = data.userId;
       });
 
       $scope.username = "";
@@ -86,13 +88,29 @@
         url: 'https://giant-idea.gomix.me/register',
         data: $scope.regData,
       }).then(function(response){
-        console.log(response);
+        console.log(response.data);
       });
 
       $scope.username = "";
       $scope.kingdom = "";
       $scope.password = "";
     };
+  }]);
+
+
+  app.controller("MenuController", ['$scope', '$http', function($scope, $http) {
+
+    $scope.getUserData = function() {
+      console.log("function fired")
+      $http({
+        method: 'GET',
+        url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
+      }).then(function(response){
+        console.log(response.data);
+        //console.log(userData.userId)
+      });
+    };
+
   }]);
 
 

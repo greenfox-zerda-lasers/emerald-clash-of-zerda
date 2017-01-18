@@ -4,8 +4,21 @@
 
   <header ng-include="'views/menu.html'"></header>
 
-  <div class="overview-buildings"></div>
-  <div class="overview-resources"></div>
-  <div class="overview-troops"></div>
+  <div class="overview-container">
+    <div class="overview-buildings">
+      <h1>Buildings</h1>
+        <div class="overview-buildings-img" ng-repeat="building in buildingTypes"></div>
+    </div>
+
+    <div class="overview-troops">
+      <h1>Troops</h1>
+      <div></div>
+    </div>
+
+    <div class="overview-resources">
+      <h1>Resources</h1>
+      <div></div>
+    </div>
+  </div>
 
 </section>

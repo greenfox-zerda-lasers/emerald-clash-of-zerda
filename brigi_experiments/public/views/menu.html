@@ -1,9 +1,9 @@
-<section id="menu-bar">
+<section id="menu-bar" ng-controller="MenuController">
 
   <div class="menu">
 
     <ul class="menu-list">
-      <a ng-href={{'#!/overview'}} class="menu-elem"><li>Overview</li></a>
+      <a ng-href={{'#!/overview'}} class="menu-elem" ng-click="getUserData()"><li>Overview</li></a>
       <a ng-href={{'#!/map'}} class="menu-elem"><li>Map</li></a>
       <a ng-href={{'#!/buildings'}} class="menu-elem"><li>Buildings</li></a>
       <a ng-href={{'#!/troops'}} class="menu-elem"><li>Troops</li></a>
@@ -12,10 +12,8 @@
       <a ng-href={{'#!/history'}} class="menu-elem"><li>History</li></a>
     </ul>
 
-    <a ng-href={{''}} class="menu-logout">Log out</a>
+    <a ng-href={{'#!/login'}} class="menu-logout">Log out</a>
 
   </div>
-
-
 
 </section>
