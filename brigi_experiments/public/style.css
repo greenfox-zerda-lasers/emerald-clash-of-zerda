@@ -76,6 +76,10 @@ input {
 
 /* MENU */
 
+#menu-bar {
+  background-color: white;
+}
+
 .menu {
   list-style: none;
   display: flex;
@@ -88,7 +92,6 @@ input {
   margin-bottom: 50px;
   margin-right: 25px;
   margin-left: 25px;
-  border-bottom: 1px solid black;
 }
 
 .menu-list {
@@ -116,15 +119,26 @@ input {
 
 /* OVERVIEW SCREEN */
 
+#overview-site {
+  background-image: url("http://pixelatedaudio.com/wp-content/uploads/2015/12/new-PA-background-web.jpg");
+  height: 100%;
+}
+
 .overview-container {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  padding-left: 8%;
+  padding-right: 8%;
 }
 
 .overview-container .column {
   width: 30%;
-  border: 1px solid black;
+  background-color: rgba(240, 240, 240, 1);
+  border-radius: 10px;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -132,10 +146,35 @@ input {
 .overview-container h1 {
   padding-bottom: 20px;
   text-align: center;
+  font-size: 2em;
 }
 
-.overview-container .list-text {
+.overview-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.overview-buildings-thumb, .overview-resources-thumb {
+  width: 25%;
+  padding-bottom: 25%;
+  margin: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+}
+
+.overview-buildings-name, .overview-resources-name {
   width: 50%;
+  font-weight: normal;
+  padding-top: 15%;
+}
+
+.overview-troops-num {
+  font-size: 72px;
+  text-align: center;
+  font-weight: bold;
 }
 
 
