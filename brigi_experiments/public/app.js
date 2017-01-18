@@ -16,7 +16,31 @@
       }).
       when('/overview', {
         templateUrl: 'views/overview.html',
-        //controller: 'OverviewController'
+        controller: 'OverviewController'
+      }).
+      when('/map', {
+        templateUrl: 'views/map.html',
+        controller: 'MapController'
+      }).
+      when('/map', {
+        templateUrl: 'views/buildings.html',
+        controller: 'BuildingsController'
+      }).
+      when('/troops', {
+        templateUrl: 'views/troops.html',
+        controller: 'TroopsController'
+      }).
+      when('/resources', {
+        templateUrl: 'views/resources.html',
+        controller: 'ResourcesController'
+      }).
+      when('/leaderboard', {
+        templateUrl: 'views/leaderboard.html',
+        controller: 'LeaderboardController'
+      }).
+      when('/history', {
+        templateUrl: 'views/history.html',
+        controller: 'HistoryController'
       }).
       otherwise({
         redirectTo: '/login'
@@ -68,6 +92,12 @@
       $scope.kingdom = "";
       $scope.password = "";
     };
+  }]);
+
+
+  app.controller("OverviewController", ['$scope', '$http', function($scope, $http) {
+
+
   }]);
 
 

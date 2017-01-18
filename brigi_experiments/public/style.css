@@ -73,6 +73,27 @@ input {
   color: white;
 }
 
+
+/* MENU */
+
+.menu {
+  list-style: none;
+  padding: 10px;
+}
+
+.menu-elem {
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+
+
+
+
 @media (max-width: 1400px) {
   .login-window {
     width: 30%;
