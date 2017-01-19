@@ -17,11 +17,15 @@
 
     <div class="drop-down-menu">
 
-      <div class="drop-down-menu-hamburger" ng-init="open = false" ng-click="open = !open"></div>
-
-      <ul class"drop-down-menu-body" ng-show="open === true">
-        <li class="drop-down-menu-row drop-down-menu-user">Profile</li>
-        <li class="drop-down-menu-row drop-down-menu-logout">Log out</li>
+      <div class="drop-down-menu-hamburger" ng-init="open = false" ng-click="open = !open">
+        <div class="drop-down-menu-hamburger-line hamburger-top"></div>
+        <div class="drop-down-menu-hamburger-line hamburger-top"></div>
+        <div class="drop-down-menu-hamburger-line hamburger-top"></div>
+      </div>
+      <div class="clearfix"></div>
+      <ul class="drop-down-menu-body" ng-show="open === true">
+        <li class="drop-down-menu-row drop-down-menu-user" ng-click="">Profile</li>
+        <li class="drop-down-menu-row drop-down-menu-logout" ng-click="">Log out</li>
       </ul>
 
     </div>
