@@ -51,7 +51,8 @@
   app.controller("LoginController", ['$scope', '$http', function($scope, $http){
 
     //objektumkent megadni + stringify
-    $scope.userLogin = function() {
+    $scope.userLogin = function($location) {
+      console.log($location);
       $scope.userData = {
         "username": $scope.username,
         "password": $scope.password
@@ -64,12 +65,15 @@
       }).then(function(response){
         console.log(response.data)
         userData.userId = response.data.userId;
-        //var path = $location.path('/overview')
+        $location.path('/overview');
       });
 
       $scope.username = "";
       $scope.password = "";
+
+
     };
+
   }]);
 
 
