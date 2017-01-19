@@ -48,11 +48,10 @@
   }]);
 
 
-  app.controller("LoginController", ['$scope', '$http', function($scope, $http){
+  app.controller("LoginController", ['$scope', '$http', '$location', function($scope, $http, $location){
 
     //objektumkent megadni + stringify
-    $scope.userLogin = function($location) {
-      console.log($location);
+    $scope.userLogin = function() {
       $scope.userData = {
         "username": $scope.username,
         "password": $scope.password
@@ -65,6 +64,7 @@
       }).then(function(response){
         console.log(response.data)
         userData.userId = response.data.userId;
+        ("fire")
         $location.path('/overview');
       });
 
@@ -102,18 +102,18 @@
   }]);
 
 
-  app.controller("MenuController", ['$scope', '$http', function($scope, $http) {
+  app.controller("MenuController", ['$scope', '$http', '$location', function($scope, $http, $location) {
 
     $scope.getUserData = function() {
-      console.log("function fired")
+      console.log("function fired");
 
       $http({
         method: 'GET',
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
       }).then(function(response){
         console.log(response.data);
-        userData.buildings = response.data.buildings
-        console.log(userData.buildings, "userdata")
+        userData.buildings = response.data.buildings;
+        console.log(userData.buildings, "userdata");
       });
 
       $http({
@@ -121,7 +121,7 @@
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/resources'
       }).then(function(response){
         console.log(response.data);
-        userData.resources = response.data.resources
+        userData.resources = response.data.resources;
       });
 
 
@@ -130,9 +130,14 @@
         url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/troops'
       }).then(function(response){
         console.log(response.data);
-        userData.troops = response.data.troops
-        console.log(userData.troops, "userdata.troops")
+        userData.troops = response.data.troops;
+        console.log(userData.troops, "userdata.troops");
       });
+    };
+
+    $scope.logOut = function() {
+      console.log("logout fire");
+      $location.path('/login');
     };
   }]);
 
