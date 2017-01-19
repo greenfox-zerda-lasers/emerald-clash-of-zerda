@@ -2,9 +2,11 @@
 
   <header ng-include="'views/menu.html'"></header>
 
+  <h1 class="overview-kingdom-name">Kingdom</h1>
+
   <div class="overview-container">
 
-    <div class="overview-buildings column">
+    <div class="overview-buildings column" ng-click="">
       <h1>Buildings</h1>
       <div class="overview-list" ng-repeat="building in buildingTypes">
         <div class="overview-buildings-thumb" ng-style="{'background-image': 'url({{building.image}})'}"></div>
@@ -14,7 +16,7 @@
       </div>
     </div>
 
-    <div class="overview-troops column">
+    <div class="overview-troops column" ng-click="">
       <h1>Troops</h1>
       <span class="overview-troops-num">{{troops}}</span>
     </div>
@@ -24,7 +26,7 @@
       <div class="overview-list" ng-repeat="resource in resourcesTypes">
         <div class="overview-resources-thumb" ng-style="{'background-image': 'url({{resource.image}})'}"></div>
         <h2 class= "overview-resources-name">
-          {{resource.type}}
+          {{resource.type}}: {{resource.amount}}
         </h2>
       </div>
     </div>

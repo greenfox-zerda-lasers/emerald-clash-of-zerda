@@ -22,7 +22,7 @@
         templateUrl: 'views/map.html',
         controller: 'MapController'
       }).
-      when('/map', {
+      when('/buildings', {
         templateUrl: 'views/buildings.html',
         controller: 'BuildingsController'
       }).
@@ -63,8 +63,8 @@
         data: $scope.userData,
       }).then(function(response){
         console.log(response.data)
-        var data = response.data
-        userData.userId = data.userId;
+        userData.userId = response.data.userId;
+        //var path = $location.path('/overview')
       });
 
       $scope.username = "";
@@ -129,16 +129,11 @@
         userData.troops = response.data.troops
         console.log(userData.troops, "userdata.troops")
       });
-
     };
-
-
   }]);
 
 
   app.controller("OverviewController", ['$scope', '$http', function($scope, $http) {
-
-    $scope.resourcesTypes = resourcesTypes;
 
     $http({
       method: 'GET',
@@ -155,8 +150,26 @@
           buildingTypes[1].number += 1;
         } else if (data[b].type === "farm") {
           buildingTypes[2].number += 1;
-        } else if (data[b].type === "barack") {
+        } else if (data[b].type === "barack") { //javitani barracks-ra
           buildingTypes[3].number += 1;
+        };
+      };
+    });
+
+    $http({
+      method: 'GET',
+      url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/resources'
+    }).then(function(response){
+      $scope.resourcesTypes = resourcesTypes;
+      var data = response.data.resources;
+      console.log(data, "resources response")
+      userData.resources = data;
+
+      for(var r = 0; r < data.length; r++) {
+        if(data[r].type === "food") {
+          resourcesTypes[0].amount = data[r].amount;
+        } else if(data[r].type === "gold") {
+          resourcesTypes[1].amount = data[r].amount;
         };
       };
     });

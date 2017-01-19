@@ -19,6 +19,6 @@ var buildingTypes = [
 ];
 
 var resourcesTypes = [
-  {type: "Food", image: "http://icons.iconarchive.com/icons/icons8/windows-8/128/Food-Doughnut-icon.png"},
-  {type: "Gold", image: "https://cdn1.iconfinder.com/data/icons/jewery/500/gold-512.png"}
+  {type: "Food", image: "http://icons.iconarchive.com/icons/icons8/windows-8/128/Food-Doughnut-icon.png", amount: 0},
+  {type: "Gold", image: "https://cdn1.iconfinder.com/data/icons/jewery/500/gold-512.png", amount: 0}
 ];

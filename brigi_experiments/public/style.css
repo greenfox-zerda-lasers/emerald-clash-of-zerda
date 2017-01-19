@@ -126,8 +126,18 @@ input {
 /* OVERVIEW SCREEN */
 
 #overview-site {
-  background-image: url("http://pixelatedaudio.com/wp-content/uploads/2015/12/new-PA-background-web.jpg");
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
   height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overview-kingdom-name {
+  text-align: center;
+  color: white;
+  padding-bottom: 30px;
+  font-size: 3em;
 }
 
 .overview-container {
@@ -140,7 +150,7 @@ input {
 
 .overview-container .column {
   width: 30%;
-  background-color: rgba(240, 240, 240, 1);
+  background-color: rgba(240, 240, 240, 0.8);
   border-radius: 10px;
   padding: 15px;
   padding-top: 20px;
