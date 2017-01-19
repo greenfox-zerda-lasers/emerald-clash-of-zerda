@@ -64,7 +64,6 @@
       }).then(function(response){
         console.log(response.data)
         userData.userId = response.data.userId;
-        ("fire")
         $location.path('/overview');
       }).catch(function() {
         console.log("ERROR");
