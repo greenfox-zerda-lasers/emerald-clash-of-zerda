@@ -62,11 +62,11 @@
         url: 'https://giant-idea.gomix.me/login',
         data: $scope.userData,
       }).then(function(response){
-        console.log(response)
-        if (response.status == 200) {
-          userData.userId = response.data.userId;
-          $location.path('/overview');
-        }
+        console.log(response.data)
+        userData.userId = response.data.userId;
+        $location.path('/overview');
+      }).catch(function() {
+        console.log("ERROR");
       });
 
       $scope.username = "";
