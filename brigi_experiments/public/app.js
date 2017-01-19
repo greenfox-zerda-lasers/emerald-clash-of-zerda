@@ -188,9 +188,8 @@
     }).then(function(response){
       var data = response.data.troops;
       userData.troops = data;
+      console.log(data, "troops data")
       userData.troopsNumber = data.length;
-      userData.buildings = data.buildings;
-      userData.resources = data.resources;
       $scope.troops = userData.troopsNumber;
     });
 
