@@ -150,7 +150,7 @@
           buildingTypes[1].number += 1;
         } else if (data[b].type === "farm") {
           buildingTypes[2].number += 1;
-        } else if (data[b].type === "barack") { //javitani barracks-ra
+        } else if (data[b].type === "barrack") { //javitani barracks-ra
           buildingTypes[3].number += 1;
         };
       };

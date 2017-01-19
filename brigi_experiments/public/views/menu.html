@@ -12,8 +12,19 @@
       <a ng-href={{'#!/history'}} class="menu-elem"><li>History</li></a>
     </ul>
 
-    <a ng-href={{'#!/login'}} class="menu-logout">Log out</a>
+    <!--
+    <a ng-href={{'#!/login'}} class="menu-logout">Log out</a>-->
 
+    <div class="drop-down-menu">
+
+      <div class="drop-down-menu-hamburger" ng-init="open = false" ng-click="open = !open"></div>
+
+      <ul class"drop-down-menu-body" ng-show="open === true">
+        <li class="drop-down-menu-row drop-down-menu-user">Profile</li>
+        <li class="drop-down-menu-row drop-down-menu-logout">Log out</li>
+      </ul>
+
+    </div>
   </div>
 
 </section>
