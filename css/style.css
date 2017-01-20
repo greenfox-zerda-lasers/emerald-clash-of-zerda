@@ -16,7 +16,7 @@ body, html, main {
   height: 100%;
   padding-top: 20%;
   background-size: cover;
-  background-image: url("./../img/isometric_bg.gif");
+  background-image: url("http://vignette2.wikia.nocookie.net/crazykings/images/3/3f/Wiley-fox.gif/revision/latest?cb=20150831173444");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -61,7 +61,7 @@ input {
 #login-button, #reg-button {
   margin-top: 10px;
   border-radius: 5px;
-  background-color: rgba(231, 160, 170, 1);
+  background-color: black;
   color: white;
   font-weight: bold;
 }
@@ -75,7 +75,7 @@ input {
   padding-right: 10px;
   border-radius: 3px;
   border: 0px solid rgba(0, 0, 0, 0);
-  background-color: rgba(231, 160, 170, 1);
+  background-color: black;
   color: white;
 }
 
