@@ -147,13 +147,20 @@ input {
 .drop-down-menu-avatar {
   width: 50px;
   height: 50px;
-  background-image: url("http://i2.wp.com/www.fox.ra.it/images/avatar-fox.png");
+  background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
   background-size:cover;
   background-position: center center;
   display: inline-block;
 }
 
+.drop-down-menu-link {
+  text-decoration: none;
+  color: black;
+}
 
+.drop-down-menu-link:hover {
+  color: purple;
+}
 
 .drop-down-menu-body {
   position: absolute;
@@ -212,7 +219,7 @@ input {
 }
 
 .overview-container h1 {
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   text-align: center;
   font-size: 2em;
 }
@@ -224,23 +231,39 @@ input {
 }
 
 .overview-buildings-thumb, .overview-resources-thumb {
-  width: 25%;
-  padding-bottom: 25%;
-  margin: 10px;
+  width: 20%;
+  padding-bottom: 20%;
+  margin: 20px;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+}
 
+.overview-troops-imageContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.overview-troops-image {
+  width: 20%;
+  padding-bottom: 20%;
+  margin: 10px;
+  background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .overview-buildings-name, .overview-resources-name {
-  width: 50%;
+  width: 60%;
   font-weight: normal;
-  padding-top: 15%;
+  padding-top: 10%;
 }
 
 .overview-troops-num {
-  font-size: 72px;
+  font-size: 60px;
   text-align: center;
   font-weight: bold;
 }

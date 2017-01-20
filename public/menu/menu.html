@@ -23,8 +23,8 @@
       </div>
 
       <ul class="drop-down-menu-body" ng-show="open === true">
-        <li class="drop-down-menu-row drop-down-menu-user" ng-click="">Profile</li>
-        <li class="drop-down-menu-row drop-down-menu-logout" ng-click="logOut()">Log out</li>
+        <li class="drop-down-menu-row drop-down-menu-user"><a class="drop-down-menu-link" ng-href={{'#!/profile'}}>Profile</a></li>
+        <li class="drop-down-menu-row drop-down-menu-logout" ng-click="logOut()"><a ng-href={{'#!/login'}} class="drop-down-menu-link">Log out</a></li>
       </ul>
 
     </div>

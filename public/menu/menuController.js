@@ -34,6 +34,8 @@ angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$lo
 
   $scope.logOut = function() {
     console.log("logout fire");
-    $location.path('/login');
+    //$location.path('/login'); --> ng-hreffel megadtam a path-ot. itt csak a data torlest kell megcsinalni
   };
+
+
 }]);
