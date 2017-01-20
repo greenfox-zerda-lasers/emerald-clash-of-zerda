@@ -38,8 +38,8 @@ input {
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
-input:-webkit-autofill:focus
-input:-webkit-autofill  {
+input:-webkit-autofill:focus,
+input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 100px rgba(255, 255, 255, 0.9) inset;
 }
 
