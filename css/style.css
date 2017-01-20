@@ -16,7 +16,7 @@ body, html, main {
   height: 100%;
   padding-top: 20%;
   background-size: cover;
-  background-image: url("http://vignette2.wikia.nocookie.net/crazykings/images/3/3f/Wiley-fox.gif/revision/latest?cb=20150831173444");
+  background-image: url("./../img/fox2.gif");
   background-repeat: no-repeat;
   background-position: center;
 }
