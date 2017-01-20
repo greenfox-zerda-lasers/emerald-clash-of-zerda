@@ -4,11 +4,11 @@
   <form name="loginForm" class="login-window" ng-submit="userLogin()" novalidate>
     <input name="username" id="login-name" type="text" placeholder="Username" ng-model="username" ng-required="true">
     <div ng-show="loginForm.username.$touched && contactForm.username.$invalid">
-      <small>Enter a valid name</small>
+      <!--<small>Enter a valid name</small>-->
     </div>
     <input name="password" id="login-password" type="password" placeholder="Password" ng-model="password" ng-required="true">
     <div ng-show="loginForm.password.$touched && contactForm.password.$invalid">
-      <small>Enter a valid name</small>
+      <!--<small>Enter a valid name</small>-->
     </div>
     <input id="login-button" type="submit" value="Log in" ng-disabled="loginForm.$invalid">
   </form>
