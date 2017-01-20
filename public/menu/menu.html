@@ -1,0 +1,33 @@
+<section id="menu-bar" ng-controller="MenuController">
+
+  <div class="menu">
+
+    <ul class="menu-list">
+      <a ng-href={{'#!/overview'}} class="menu-elem" ng-click="getUserData()"><li>Overview</li></a>
+      <a ng-href={{'#!/map'}} class="menu-elem"><li>Map</li></a>
+      <a ng-href={{'#!/buildings'}} class="menu-elem"><li>Buildings</li></a>
+      <a ng-href={{'#!/troops'}} class="menu-elem"><li>Troops</li></a>
+      <a ng-href={{'#!/resources'}} class="menu-elem"><li>Resources</li></a>
+      <a ng-href={{'#!/leaderboard'}} class="menu-elem"><li>Leaderboard</li></a>
+      <a ng-href={{'#!/history'}} class="menu-elem"><li>History</li></a>
+    </ul>
+
+    <!--
+    <a ng-href={{'#!/login'}} class="menu-logout">Log out</a>-->
+
+    <div class="drop-down-menu">
+
+      <div class="drop-down-menu-icon" ng-init="open = false" ng-click="open = !open">
+        <a class="drop-down-menu-username">username</a>
+        <div class="drop-down-menu-avatar"></div>
+      </div>
+
+      <ul class="drop-down-menu-body" ng-show="open === true">
+        <li class="drop-down-menu-row drop-down-menu-user" ng-click="">Profile</li>
+        <li class="drop-down-menu-row drop-down-menu-logout" ng-click="logOut()">Log out</li>
+      </ul>
+
+    </div>
+  </div>
+
+</section>

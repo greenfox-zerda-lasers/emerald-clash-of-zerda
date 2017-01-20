@@ -128,20 +128,29 @@ input {
 
 /*DROP DROWN MENU*/
 
-.drop-down-menu-hamburger {
-  width: 50px;
+.drop-down-menu-icon {
+  width: auto;
   height: 50px;
-
-  padding-top: 7px;
 }
 
-.drop-down-menu-hamburger-line {
-  width: 70%;
-  height: 5px;
-  background-color: black;
-  margin: 5px;
-  margin-left: auto;
-  margin-right: auto;
+.drop-down-menu-username {
+  display: inline-block;
+  height: 50px;
+  width: auto;
+  padding: 5px;
+  padding-right: 10px;
+  vertical-align: top;
+  line-height: 40px;
+
+}
+
+.drop-down-menu-avatar {
+  width: 50px;
+  height: 50px;
+  background-image: url("http://i2.wp.com/www.fox.ra.it/images/avatar-fox.png");
+  background-size:cover;
+  background-position: center center;
+  display: inline-block;
 }
 
 

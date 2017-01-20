@@ -52,17 +52,18 @@
 
     //objektumkent megadni + stringify
     $scope.userLogin = function() {
+      
       $scope.userData = {
         "username": $scope.username,
         "password": $scope.password
       };
+
 
       $http({
         method: 'POST',
         url: 'https://giant-idea.gomix.me/login',
         data: $scope.userData,
       }).then(function(response){
-        console.log(response.data)
         userData.userId = response.data.userId;
         $location.path('/overview');
       }).catch(function() {
@@ -146,9 +147,15 @@
       method: 'GET',
       url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/buildings'
     }).then(function(response){
+
       $scope.buildingTypes = buildingTypes;
       var data = response.data.buildings;
       userData.buildings = data;
+
+      buildingTypes[0].number = 0;
+      buildingTypes[1].number = 0;
+      buildingTypes[2].number = 0;
+      buildingTypes[3].number = 0;
 
       for(var b = 0; b < data.length; b++) {
         if(data[b].type === "townhall") {
@@ -186,6 +193,7 @@
       method: 'GET',
       url: 'https://giant-idea.gomix.me/kingdom/' + userData.userId + '/troops'
     }).then(function(response){
+      console.log(response)
       var data = response.data.troops;
       userData.troops = data;
       console.log(data, "troops data")

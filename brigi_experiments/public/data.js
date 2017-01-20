@@ -1,6 +1,6 @@
 var userData = {
 
-  userId: 2,
+  userId: "unknown",
   username: undefined,
   kingdom: undefined,
   buildings: [],
