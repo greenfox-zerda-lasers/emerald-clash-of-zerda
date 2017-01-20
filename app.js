@@ -43,6 +43,10 @@
         templateUrl: './public/history/history.html',
         controller: 'HistoryController'
       }).
+      when('/profile', {
+        templateUrl: './public/profile/profile.html',
+        controller: 'ProfileController'
+      }).
       otherwise({
         redirectTo: '/login'
       });

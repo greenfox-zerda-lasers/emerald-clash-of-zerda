@@ -7,6 +7,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
 
   console.log($localStorage.userObj.userId);
 
+//BUILDINGS
   $http({
     method: 'GET',
     url: 'https://giant-idea.gomix.me/kingdom/' + 1 + '/buildings'
@@ -16,10 +17,10 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     var data = response.data.buildings;
 
     $scope.buildingTypes = [
-      {type: "Townhall", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/5841-200.png", amount: 0},
-      {type: "Mine", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/543-200.png", amount: 0},
-      {type: "Farm", image: "https://d30y9cdsu7xlg0.cloudfront.net/png/25362-200.png", amount: 0},
-      {type: "Barracks", image: "https://cdn3.iconfinder.com/data/icons/ahasoft-war/512/barracks-512.png", amount: 0}
+      {type: "Townhall", image: "http://image.flaticon.com/icons/svg/288/288698.svg", amount: 0},
+      {type: "Mine", image: "http://image.flaticon.com/icons/svg/234/234785.svg", amount: 0},
+      {type: "Farm", image: "http://image.flaticon.com/icons/svg/284/284493.svg", amount: 0},
+      {type: "Barracks", image: "http://image.flaticon.com/icons/svg/284/284425.svg", amount: 0}
     ];
 
     for(var b = 0; b < data.length; b++) {
@@ -35,6 +36,8 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     };
   });
 
+
+//RESOURCES
   $http({
     method: 'GET',
     url: 'https://giant-idea.gomix.me/kingdom/' + 1 + '/resources'
@@ -43,11 +46,9 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     var data = response.data.resources;
 
     $scope.resourceTypes = [
-      {type: "Food", image: "http://icons.iconarchive.com/icons/icons8/windows-8/128/Food-Doughnut-icon.png"},
-      {type: "Gold", image: "https://cdn1.iconfinder.com/data/icons/jewery/500/gold-512.png"}
+      {type: "Food", image: "http://image.flaticon.com/icons/svg/168/168559.svg"},
+      {type: "Gold", image: "http://image.flaticon.com/icons/svg/199/199533.svg"}
     ];
-
-    console.log(data, "resources response")
 
     for(var r = 0; r < data.length; r++) {
       if(data[r].type === "food") {
@@ -59,14 +60,15 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
   });
 
 
+//TROOPS
   $http({
     method: 'GET',
     url: 'https://giant-idea.gomix.me/kingdom/' + 1 + '/troops'
   }).then(function(response){
-    console.log(response)
     var data = response.data.troops;
-    console.log(data, "troops data")
-    $scope.troops = data.length;
+    $scope.troopsAmount = data.length;
+    $scope.troops = data
+    console.log($scope.troops, "troops")
   });
 
 }]);

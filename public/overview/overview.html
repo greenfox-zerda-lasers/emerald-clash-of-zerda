@@ -7,7 +7,7 @@
   <div class="overview-container">
 
     <div class="overview-buildings column" ng-click="">
-      <h1>Buildings</h1>
+      <h1 class="overview-name">Buildings</h1>
       <div class="overview-list" ng-repeat="building in buildingTypes">
         <div class="overview-buildings-thumb" ng-style="{'background-image': 'url({{building.image}})'}"></div>
         <h2 class= "overview-buildings-name">
@@ -17,12 +17,15 @@
     </div>
 
     <div class="overview-troops column" ng-click="">
-      <h1>Troops</h1>
-      <span class="overview-troops-num">{{troops}}</span>
+      <h1 class="overview-name">Troops</h1>
+      <span class="overview-troops-num">{{troopsAmount}}</span>
+      <div class="overview-troops-imageContainer">
+        <div class="overview-troops-image" ng-repeat="troop in troops"></div>
+      </div>
     </div>
 
     <div class="overview-resources column">
-      <h1>Resources</h1>
+      <h1 class="overview-name">Resources</h1>
       <div class="overview-list" ng-repeat="resource in resourceTypes">
         <div class="overview-resources-thumb" ng-style="{'background-image': 'url({{resource.image}})'}"></div>
         <h2 class= "overview-resources-name">
