@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$location', function($scope, $http, $location) {
+angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$location', '$localStorage', function($scope, $http, $location, $localStorage) {
 
 
   $scope.getUserData = function() {
@@ -34,6 +34,8 @@ angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$lo
 
   $scope.logOut = function() {
     console.log("logout fire");
+    $localStorage.userObj = {};
+    console.log($localStorage.userObj);
     $location.path('/login');
   };
 }]);

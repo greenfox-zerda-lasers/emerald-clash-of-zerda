@@ -1,7 +1,7 @@
 
-angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', function($scope, $http) {
+angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', function($scope, $http, $localStorage) {
 
-  console.log("r")
+  console.log($localStorage.userObj.userId);
 
   $http({
     method: 'GET',

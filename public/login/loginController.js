@@ -1,6 +1,6 @@
 
 
-angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$location', '$route', function($scope, $http, $location, $route){
+angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$location', '$route', '$localStorage', function($scope, $http, $location, $route, $localStorage){
 
   console.log("loginn")
 
@@ -18,7 +18,11 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       url: 'https://giant-idea.gomix.me/login',
       data: $scope.userData,
     }).then(function(response){
-      console.log(response.data.userId) //elmenteni!!!
+
+      console.log(response.data);
+      $localStorage.userObj = {userId: response.data.userId, kingdom: response.data.kingdom, username: response.data.username, points: response.data.points};
+      console.log($localStorage.userObj);
+      debugger
       $location.path('/overview');
     }).catch(function() {
       console.log("ERROR");
