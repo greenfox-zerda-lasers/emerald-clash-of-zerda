@@ -1,0 +1,31 @@
+{
+  "name": "emerald-clash-of-zerda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/greenfox-zerda-lasers/emerald-clash-of-zerda.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/greenfox-zerda-lasers/emerald-clash-of-zerda/issues"
+  },
+  "homepage": "https://github.com/greenfox-zerda-lasers/emerald-clash-of-zerda#readme",
+  "devDependencies": {
+    "angular": "^1.6.1",
+    "angular-mocks": "^1.6.1",
+    "angular-ui-router": "^0.4.1",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.4.0",
+    "karma-chrome-launcher": "^2.0.0",
+    "karma-jasmine": "^1.1.0"
+  }
+}

@@ -3,7 +3,6 @@
   var app = angular.module("ClashApp", ['ngRoute', 'ngStorage']);
   console.log("app")
 
-
   app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
