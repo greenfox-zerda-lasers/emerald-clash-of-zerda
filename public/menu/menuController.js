@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$location', function($scope, $http, $location) {
+angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$location', '$localStorage', function($scope, $http, $location, $localStorage) {
 
 
   $scope.getUserData = function() {
@@ -35,6 +35,9 @@ angular.module("ClashApp").controller("MenuController", ['$scope', '$http', '$lo
   $scope.logOut = function() {
     console.log("logout fire");
     //$location.path('/login'); --> ng-hreffel megadtam a path-ot. itt csak a data torlest kell megcsinalni
+
+    $localStorage.userObj = {};
+    console.log($localStorage.userObj);
   };
 
 

@@ -1,6 +1,6 @@
 (function() {
 
-  var app = angular.module("ClashApp", ['ngRoute']);
+  var app = angular.module("ClashApp", ['ngRoute', 'ngStorage']);
   console.log("app")
 
 
