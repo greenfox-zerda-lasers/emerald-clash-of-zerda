@@ -3,6 +3,8 @@
 angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$location', '$route', '$localStorage', function($scope, $http, $location, $route, $localStorage){
 
   console.log("loginn")
+  $localStorage.userObj.userId = 0;
+  console.log($localStorage.userObj.userId);
 
   //objektumkent megadni + stringify
   $scope.userLogin = function() {
