@@ -5,6 +5,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     $location.path('/login');
   } else {
     console.log($localStorage.userObj.userId);
+    $scope.kingdom = $localStorage.userObj.kingdom;
 
     //BUILDINGS
     $http({
