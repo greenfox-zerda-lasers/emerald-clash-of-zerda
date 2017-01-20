@@ -36,9 +36,16 @@ input {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus
+input:-webkit-autofill  {
+  -webkit-box-shadow: 0 0 0px 100px rgba(255, 255, 255, 0.9) inset;
+}
+
 #login-site input.ng-invalid.ng-touched {
   /*background-color: rgba(255, 0, 0, .9);                       /* please replace it with a real color :) */
-  border: 2px solid red !important;
+  border: 2px solid rgba(211, 111, 53, 1) !important;
 
 }
 
