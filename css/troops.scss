@@ -1,8 +1,59 @@
-.troops {
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#troops {
   margin-left: auto;
   margin-right: auto;
+  display: flex;
+  flex-direction: column;
   .title {
     text-align: center;
     color: pink;
+  }
+  .amount {
+    text-align: center;
+  }
+  .troopsContainer {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    .troop {
+      $troopwidth: 100px;
+      width: $troopwidth;
+      margin: 15px;
+      .imageHolder {
+        //background: rgba(250, 250, 250, 1);
+        background-image: url("../img/fox_without_bg.svg");
+        background-size: cover;
+        border: 1px solid black;
+        width: $troopwidth;
+        height: $troopwidth;
+      }
+      .troopData {
+        position: absolute;
+        width: $troopwidth;
+        height: 50px;
+        background: white;
+        border: 1px solid black;
+        border-top: 0px solid black;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        .hp, .attack, .defense, .level {
+          width: 25%;
+        }
+      }
+
+    }
+
   }
 }

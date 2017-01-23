@@ -1,17 +1,21 @@
 <header ng-include="'public/menu/menu.html'"></header>
 
-<section class="troops">
+<section id="troops">
 
   <h1 class="title">Troops</h1>
   <span class="amount">{{troopsAmount}}</span>
 
-  <article class="container" ng-repeat="troop in troops">
-    <div class="imageHolder" ng-click="getTroopData()"></div>
-    <div class="troopData" >
-      <div class="hp">{{troop.hp}}</div>
-      <div class="attack">{{troop.attack}}</div>
-      <div class="defense">{{troop.defense}}</div>
-    </div>
-  </article>
+
+  <div class="troopsContainer">
+    <article class="troop" ng-repeat="troop in troops">
+      <div class="imageHolder" id="{{troop.id}}" ng-click='getTroopData(troop.id)'></div>
+      <div class="troopData" ng-show="open" ng-repeat="troopData in troopResponse">
+        <div class="hp">{{troopData.hp}}</div>
+        <div class="attack">{{troopData.attack}}</div>
+        <div class="defense">{{troopData.defense}}</div>
+        <div class="level">{{troopData.level}}</div>
+      </div>
+    </article>
+  </div>
 
 </section>

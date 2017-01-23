@@ -63,20 +63,26 @@
 /******/ 	__webpack_require__.p = "";
 
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports) {
+
+module.exports = "\"data:image/svg+xml;charset=utf8,%3C?xml version='1.0' encoding='utf-8'?%3E %3C!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E %3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E %3Cstyle type='text/css'%3E .st0%7Bfill:%23E6E6E6;%7D .st1%7Bfill:%23CCCCCC;%7D .st2%7Bfill:%23F5F5F5;%7D .st3%7Bfill:%23242424;%7D .st4%7Bfill:%23CC803D;%7D .st5%7Bfill:%23B37035;%7D .st6%7Bfill:%23B36624;%7D %3C/style%3E %3Cpath class='st0' d='M386,276.2c-5.5-14.3-10-33.7-10-68.6H256H136c0,34.9-4.5,54.3-10,68.6c-5.5,14.3,11.2,26.6,22.9,35.6 C194.5,347,198.5,384,256,384s61.5-37,107.1-72.2C374.8,302.8,391.5,290.5,386,276.2z'/%3E %3Cpath class='st1' d='M386,276.2c-5.5-14.3-10-33.7-10-68.6h-12c0,34.9,4.5,54.3,10,68.6c5.5,14.3-11.2,26.6-22.9,35.6 c-44,33.9-49.3,69.5-101.1,72c1.9,0.1,3.9,0.2,6,0.2c57.5,0,61.5-37,107.1-72.2C374.8,302.8,391.5,290.5,386,276.2z'/%3E %3Ccircle class='st2' cx='299' cy='257' r='20'/%3E %3Ccircle class='st3' cx='299' cy='257' r='12'/%3E %3Ccircle class='st2' cx='211' cy='257' r='20'/%3E %3Ccircle class='st3' cx='211' cy='257' r='12'/%3E %3Cpath class='st4' d='M403.1,99c-1.9-1.9-4.5-3-7.1-3c-29.8,0-79.8,19.1-111.4,47.8c-8-4.8-17.8-7.8-28.6-7.8s-20.6,3-28.6,7.8 C195.8,115.1,145.8,96,116,96c-2.7,0-5.3,1.1-7.1,3c-1.9,1.9-2.9,4.5-2.9,7.2c0.5,23.6,11.4,52.2,21.1,77.4c3.2,8.4,6.3,28.5,8.9,36 c106-2,100,95,100,126.4h40.1c0-31.3-6-128.3,99.9-126.4v-12c2.6-7.5,5.7-15.6,8.9-24.1c9.7-25.2,20.6-53.8,21.1-77.4 C406,103.5,405,100.9,403.1,99z'/%3E %3Cg%3E %3Cpath class='st5' d='M280.4,147.6c1.4-1.3,2.9-2.5,4.4-3.8c-7.7-4.7-19-7.8-28.8-7.8c-2,0-4,0.1-6,0.3 C258.4,137.2,273.9,143.7,280.4,147.6z'/%3E %3Cpath class='st5' d='M403.1,99c-1.9-1.9-4.5-3-7.1-3c-2.8,0-5.8,0.2-8.9,0.5c1.5,0.5,2.9,1.3,4,2.5c1.9,1.9,2.9,4.5,2.9,7.2 c-0.5,23.6-11.4,52.2-21.1,77.4c-3.2,8.4-6.4,16.6-8.9,24.1v12c-105.9-1.9-99.9,95-99.9,126.4h12c0-31.3-6-128.3,99.9-126.4v-12 c2.6-7.5,5.7-15.6,8.9-24.1c9.7-25.2,20.6-53.8,21.1-77.4C406,103.5,405,100.9,403.1,99z'/%3E %3Cpath class='st5' d='M219.2,147.6c2.4-1.4,5.5-2.7,8.2-3.8C195.1,114.7,145.5,96,116,96c-1.1,0-2.1,0.2-3.1,0.5 C143,99.7,190.6,121.5,219.2,147.6z'/%3E %3C/g%3E %3Cpath class='st3' d='M256,376c-10-10-20-19-20-30c0-11,9-20,20-20c11,0,20,9,20,20C276,357,266,366,256,376z'/%3E %3Cg%3E %3Cpath class='st6' d='M386,116c-10,0-60,10-70,30c10,10,50,40,50,40C376,166,386,126,386,116z'/%3E %3Cpath class='st6' d='M126,116c10,0,60,10,70,30c-10,10-50,40-50,40C136,166,126,126,126,116z'/%3E %3C/g%3E %3C/svg%3E\""
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(1);
+var content = __webpack_require__(2);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(3)(content, {});
+var update = __webpack_require__(4)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -93,21 +99,21 @@ if(false) {
 }
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(2)();
+exports = module.exports = __webpack_require__(3)();
 // imports
 
 
 // module
-exports.push([module.i, ".troops {\n  margin-left: auto;\n  margin-right: auto; }\n  .troops .title {\n    text-align: center;\n    color: pink; }\n", ""]);
+exports.push([module.i, "* {\n  margin: 0px;\n  padding: 0px;\n  box-sizing: border-box; }\n\n#troops {\n  margin-left: auto;\n  margin-right: auto;\n  display: flex;\n  flex-direction: column; }\n  #troops .title {\n    text-align: center;\n    color: pink; }\n  #troops .amount {\n    text-align: center; }\n  #troops .troopsContainer {\n    width: 90%;\n    margin-left: auto;\n    margin-right: auto;\n    display: flex;\n    justify-content: flex-start;\n    flex-direction: row;\n    flex-wrap: wrap;\n    text-align: center; }\n    #troops .troopsContainer .troop {\n      width: 100px;\n      margin: 15px; }\n      #troops .troopsContainer .troop .imageHolder {\n        background-image: url(" + __webpack_require__(0) + ");\n        background-size: cover;\n        border: 1px solid black;\n        width: 100px;\n        height: 100px; }\n      #troops .troopsContainer .troop .troopData {\n        position: absolute;\n        width: 100px;\n        height: 50px;\n        background: white;\n        border: 1px solid black;\n        border-top: 0px solid black;\n        display: flex;\n        flex-direction: row;\n        flex-wrap: nowrap;\n        align-items: center; }\n        #troops .troopsContainer .troop .troopData .hp, #troops .troopsContainer .troop .troopData .attack, #troops .troopsContainer .troop .troopData .defense, #troops .troopsContainer .troop .troopData .level {\n          width: 25%; }\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 /*
@@ -163,7 +169,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 /*
@@ -415,10 +421,11 @@ function updateLink(linkElement, obj) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var css = __webpack_require__(0)
+var css = __webpack_require__(1)
+var fox1 = __webpack_require__(0)
 
 
 /***/ })

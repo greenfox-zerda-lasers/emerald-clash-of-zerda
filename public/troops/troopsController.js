@@ -11,7 +11,6 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
     method: 'GET',
     url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops'
   }).then(function(response){
-    console.log(response, "troops")
     var data = response.data.troops;
     $scope.troopsAmount = data.length;
     $scope.troops = data
@@ -19,14 +18,19 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
   });
 
 
-  $getTroopData = function() {
-    //Spec szerint. Id-t honnan?
+  $scope.getTroopData = function(id) {
+    console.log("click");
+    console.log(id);
+    $scope.open = false;
+
     $http({
       method: 'GET',
-      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops/' + 2 //2 helyett troopId
+      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops/' + id //2 helyett troopId
     }).then(function(response){
-      console.log(response, "troopsId")
-      var data = response
+      $scope.troopResponse = response.data
+      console.log(response)
+      if ()
+      $scope.open = true
     });
 
   };
