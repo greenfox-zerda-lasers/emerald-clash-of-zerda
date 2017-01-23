@@ -29,8 +29,7 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
     }).then(function(response){
       $scope.troopResponse = response.data
       console.log(response)
-      if ()
-      $scope.open = true
+      //$scope.open = true
     });
 
   };
