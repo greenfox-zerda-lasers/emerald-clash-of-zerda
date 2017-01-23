@@ -4,7 +4,6 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
   if ($localStorage.userObj.userId === 0) {
     $location.path('/login');
   } else {
-    console.log($localStorage.userObj.userId);
     $scope.kingdom = $localStorage.userObj.kingdom;
 
     //BUILDINGS

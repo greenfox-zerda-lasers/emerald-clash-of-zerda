@@ -9,7 +9,7 @@
     <div class="overview-buildings column" ng-click="">
       <h1 class="overview-name">Buildings</h1>
       <div class="overview-list" ng-repeat="building in buildingTypes">
-        <div class="overview-buildings-thumb" ng-style="{'background-image': 'url({{building.image}})'}"></div>
+        <div class="overview-buildings-thumb {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
         <h2 class= "overview-buildings-name">
           {{building.type}}: {{building.amount}}
         </h2>

@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/greenfox-zerda-lasers/emerald-clash-of-zerda.git"
   },
-  "author": "",
+  "author": "brigi, gabi",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/greenfox-zerda-lasers/emerald-clash-of-zerda/issues"
@@ -23,9 +23,20 @@
     "angular": "^1.6.1",
     "angular-mocks": "^1.6.1",
     "angular-ui-router": "^0.4.1",
+    "css-loader": "^0.26.1",
     "jasmine-core": "^2.5.2",
     "karma": "^1.4.0",
     "karma-chrome-launcher": "^2.0.0",
-    "karma-jasmine": "^1.1.0"
+    "karma-jasmine": "^1.1.0",
+    "node-sass": "^4.3.0",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.0"
+  },
+  "dependencies": {
+    "angular-resource": "^1.6.1",
+    "node": "0.0.0",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0"
   }
 }
