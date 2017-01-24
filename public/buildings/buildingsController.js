@@ -1,3 +1,3 @@
-angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', function($scope, $http, $location, $route){
+angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route' , '$localStorage', function($scope, $http, $location, $route, $localStorage){
 
 }]);
