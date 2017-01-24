@@ -19,8 +19,9 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       url: 'http://localhost:8000/login',
       data: $scope.userData,
     }).then(function(response){
+      console.log(response, "login")
       $localStorage.userObj = {
-        userId: response.userId,
+        userId: response.data.id,
         kingdom: response.data.kingdom,
         username: response.data.username,
         points: response.data.points
