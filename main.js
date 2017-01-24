@@ -1,2 +1,2 @@
-var css = require('./css/main.scss')
+var css = require('./sass/main.scss')
 var fox1 = require('./img/fox_without_bg.svg')

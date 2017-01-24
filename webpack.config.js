@@ -1,3 +1,6 @@
+//https://github.com/kevlened/copy-webpack-plugin
+
+
 module.exports = {
 
   entry: './main.js',
@@ -11,7 +14,10 @@ module.exports = {
     loaders: [
       {
         test:/\.scss$/,
-        loader: ["style-loader", "css-loader", "sass-loader"]
+        use: ["style-loader", {
+          loader: 'css-loader',
+          options: { url: false }
+        }, "sass-loader"]
       },
       {
         test: /\.css$/,
@@ -20,8 +26,10 @@ module.exports = {
       {
         test: /\.svg/,
         loader: 'svg-url-loader'
-      }
+      },
+
     ]
   }
+
 
 };

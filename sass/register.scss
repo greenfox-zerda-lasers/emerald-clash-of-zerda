@@ -1,0 +1,58 @@
+#reg-site {
+  width: 100%;
+  height: 100%;
+  padding-top: 20%;
+  background-size: cover;
+  background-image: url("img/fox2.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .login-button {
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 3px;
+    border: 0px solid rgba(0, 0, 0, 0);
+    background-color: black;
+    color: white;
+  }
+
+  .reg-window {
+    width: 20%;
+    margin: auto;
+    border-radius: 5px;
+    transform-origin: center center;
+
+    input {
+      width: 100%;
+      display: block;
+      padding: 10px;
+      border: 0px solid white;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    #reg-name {
+      border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    #reg-kingdom {
+      border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+    }
+    #reg-password {
+      border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+    #reg-button {
+      margin-top: 10px;
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      font-weight: bold;
+    }
+  }
+}

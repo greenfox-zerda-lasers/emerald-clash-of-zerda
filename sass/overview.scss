@@ -1,0 +1,86 @@
+#overview-site {
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  .kingdom {
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    font-size: 3em;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-left: 8%;
+    padding-right: 8%;
+
+    .column {
+      width: 30%;
+      background-color: rgba(240, 240, 240, 0.8);
+      border-radius: 10px;
+      padding: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        padding-bottom: 40px;
+        text-align: center;
+        font-size: 2em;
+      }
+      .list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .buildings-type {
+          width: 20%;
+          padding-bottom: 20%;
+          margin: 20px;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+
+        .Townhall {}
+        .Barracks {}
+        .Mine {}
+        .Farm {}
+        .buildings-name {}
+      }
+
+    }
+
+    .troops {
+      .name {
+        width: 60%;
+        font-weight: normal;
+        padding-top: 10%;
+      }
+      .troops-num {
+        font-size: 60px;
+        text-align: center;
+        font-weight: bold;
+      }
+      .troops-imageContainer {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: wrap;
+        .troops-image {
+          width: 20%;
+          padding-bottom: 20%;
+          margin: 10px;
+          background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+        }
+      }
+    }
+  }
+}
