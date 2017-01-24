@@ -1,4 +1,3 @@
-
 angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', function($scope, $http, $localStorage, $location) {
 
   if ($localStorage.userObj.userId === false) {
