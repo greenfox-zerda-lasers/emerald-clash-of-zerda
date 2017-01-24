@@ -9,11 +9,12 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     //BUILDINGS
     $http({
       method: 'GET',
-      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/buildings'
+      url: 'http://localhost:8000/kingdom/' + 1 + '/buildings'
     }).then(function(response){
 
       console.log(response, "buildings")
       var data = response.data.buildings;
+
 
       $scope.buildingTypes = [
         {type: "Townhall", image: "http://image.flaticon.com/icons/svg/288/288698.svg", amount: 0},
@@ -41,6 +42,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       method: 'GET',
       url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/resources'
     }).then(function(response){
+      console.log(response, "resources")
 
       var data = response.data.resources;
 
@@ -64,10 +66,11 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       method: 'GET',
       url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
     }).then(function(response){
-      var data = response.data.troops;
-      $scope.troopsAmount = data.length;
-      $scope.troops = data
-      console.log($scope.troops, "troops")
+      console.log(response, "troops")
+      // var data = response.data.troops;
+      // $scope.troopsAmount = data.length;
+      // $scope.troops = data
+      // console.log($scope.troops, "troops")
     });
 
   };

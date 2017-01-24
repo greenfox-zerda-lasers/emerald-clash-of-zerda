@@ -26,7 +26,7 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
         username: response.data.username,
         points: response.data.points
       };
-      console.log($localStorage.userObj);
+      //console.log($localStorage.userObj);
       $location.path('/overview');
     }).catch(function() {
       console.log("ERROR");
