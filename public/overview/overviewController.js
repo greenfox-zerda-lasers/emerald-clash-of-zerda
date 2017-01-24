@@ -9,10 +9,10 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     //BUILDINGS
     $http({
       method: 'GET',
-      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/buildings'
+      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/buildings'
     }).then(function(response){
 
-
+      console.log(response, "buildings")
       var data = response.data.buildings;
 
       $scope.buildingTypes = [
@@ -39,7 +39,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     //RESOURCES
     $http({
       method: 'GET',
-      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/resources'
+      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/resources'
     }).then(function(response){
 
       var data = response.data.resources;
@@ -62,7 +62,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     //TROOPS
     $http({
       method: 'GET',
-      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops'
+      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
     }).then(function(response){
       var data = response.data.troops;
       $scope.troopsAmount = data.length;

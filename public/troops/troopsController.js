@@ -21,15 +21,22 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
   $scope.getTroopData = function(id) {
     console.log("click");
     console.log(id);
-    $scope.open = false;
+    $scope.troopResponse = {}
+    $scope.troopResponse.open = false;
 
     $http({
       method: 'GET',
-      url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops/' + id //2 helyett troopId
+      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops/' + id //2 helyett troopId
     }).then(function(response){
-      $scope.troopResponse = response.data
-      console.log(response)
-      $scope.open = true
+      $scope.troopResponse.id = response.data.troop.id;
+      $scope.troopResponse.hp = response.data.troop.hp;
+      $scope.troopResponse.attack = response.data.troop.attack;
+      $scope.troopResponse.defense = response.data.troop.defense;
+      $scope.troopResponse.level = response.data.troop.level;
+      //$scope.troopResponse.open = false;
+      $scope.troopResponse.open = true
+      console.log($scope.troopResponse)
+      //$scope.open = true
     });
 
   };
