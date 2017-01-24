@@ -10,10 +10,10 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
 
     $http({
       method: 'POST',
-      url: 'https://giant-idea.gomix.me/register',
+      url: 'http://localhost:8000/register',
       data: $scope.regData,
     }).then(function(response){
-      console.log(response.data);
+      console.log(response, "registration");
     });
 
     $scope.username = "";

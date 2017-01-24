@@ -1,7 +1,7 @@
 
 angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', function($scope, $http, $localStorage, $location) {
 
-  if ($localStorage.userObj.userId === 0) {
+  if ($localStorage.userObj.userId === false) {
     $location.path('/login');
   } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
@@ -9,7 +9,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     //BUILDINGS
     $http({
       method: 'GET',
-      url: 'http://localhost:8000/kingdom/' + 1 + '/buildings'
+      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId
     }).then(function(response){
 
       console.log(response, "buildings")

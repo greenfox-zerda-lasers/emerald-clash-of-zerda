@@ -4,7 +4,7 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       $localStorage.userObj = {}
   }
 
-  $localStorage.userObj.userId = 0;
+  $localStorage.userObj.userId = false;
 
   //objektumkent megadni + stringify
   $scope.userLogin = function() {
