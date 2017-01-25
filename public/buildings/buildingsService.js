@@ -1,6 +1,6 @@
-angular.module("ClashApp").factory("BuildingsService", function($resource) {
-  var buildings = $resource('http://localhost:8000/kingdom/:id/buildings/', {id: 0});
+angular.module("ClashApp").factory("BuildingsService", function($resource, $localStorage) {
 
-  var buildings = "epulet";
+  var getBuildingsByUserId = $resource('http://localhost:8000/kingdom/:id/buildings/', {id: $localStorage.userObj.userId});
   return buildings;
-})
+
+});
