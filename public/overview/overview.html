@@ -7,33 +7,32 @@
   <div class="container">
 
     <div class="buildings column" ng-click="">
-      <h1>Buildings</h1>
-
+      <h2 class="name" >Buildings</h2>
       <div class="list" ng-repeat="building in buildingTypes">
-
-        <div class="buildings-type {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
-
-        <h2 class= "buildings-name">
-          {{building.type}}: {{building.amount}}
-        </h2>
+        <div class="thumb {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
+        <div class="type">
+          <h3>{{building.type}}:</h3>
+          <h3>{{building.amount}}</h3>
+        </div>
       </div>
     </div>
 
     <div class="troops column" ng-click="">
-      <h1 class="name">Troops</h1>
+      <h2 class="name">Troops</h2>
       <span class="troops-num">{{troopsAmount}}</span>
       <div class="troops-imageContainer">
         <div class="troops-image" ng-repeat="troop in troops"></div>
       </div>
     </div>
 
-    <div class="overview-resources column">
-      <h1 class="overview-name">Resources</h1>
-      <div class="overview-list" ng-repeat="resource in resourceTypes">
-        <div class="overview-resources-thumb" ng-style="{'background-image': 'url({{resource.image}})'}"></div>
-        <h2 class= "overview-resources-name">
-          {{resource.type}}: {{resource.amount}}
-        </h2>
+    <div class="resources column">
+      <h2 class="name">Resources</h1>
+      <div class="list" ng-repeat="resource in resourceTypes">
+        <div class="thumb" ng-style="{'background-image': 'url({{resource.image}})'}"></div>
+        <div class="type">
+          <h3>{{resource.type}}:</h3>
+          <h3>{{resource.amount}}</h3>
+        </div>
       </div>
     </div>
 
