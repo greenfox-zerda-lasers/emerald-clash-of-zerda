@@ -1,6 +1,6 @@
 angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', function($scope, $http, $location, $route, $localStorage){
 
-  if ($localStorage.userObj.userId === 0) {
+  if ($localStorage.userObj.userId === false) {
     $location.path('/login');
   } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
@@ -9,9 +9,10 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
 
   $http({
     method: 'GET',
-    url: 'https://giant-idea.gomix.me/kingdom/' + $localStorage.userObj.userId + '/troops'
+    url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
   }).then(function(response){
-    var data = response.data.troops;
+    console.log(response)
+    var data = response.data;
     $scope.troopsAmount = data.length;
     $scope.troops = data
     //console.log($scope.troops, "troops")

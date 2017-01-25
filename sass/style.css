@@ -1,0 +1,308 @@
+*, input {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: Helvetica;
+}
+
+
+body, html, main {
+  width: 100%;
+  height: 100%;
+}
+
+#login-site, #reg-site {
+  width: 100%;
+  height: 100%;
+  padding-top: 20%;
+  background-size: cover;
+  background-image: url("./../img/fox2.gif");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.login-window, .reg-window {
+  width: 20%;
+  margin: auto;
+  border-radius: 5px;
+  transform-origin: center center;
+}
+
+input {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: 0px solid white;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 100px rgba(255, 255, 255, 0.9) inset;
+}
+
+#login-site input.ng-invalid.ng-touched {
+  /*background-color: rgba(255, 0, 0, .9);                       /* please replace it with a real color :) */
+  border: 2px solid rgba(211, 111, 53, 1) !important;
+
+}
+
+#login-name, #reg-name {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+#login-password, #reg-password {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+#reg-kingdom {
+  border-bottom: 1px solid rgba(150, 150, 150, 0.7);
+}
+
+#login-button, #reg-button {
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.registration-button, .login-button {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  padding: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 3px;
+  border: 0px solid rgba(0, 0, 0, 0);
+  background-color: black;
+  color: white;
+}
+
+
+/* MENU */
+
+#menu-bar {
+  background-color: white;
+  height: 60px;
+  margin-bottom: 40px;
+  padding: 5px;
+}
+
+.menu {
+  height: 50px;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  padding-right: 20px;
+  padding-left: 10px;
+  margin-right: 25px;
+  margin-left: 25px;
+
+}
+
+.menu-list {
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.menu-elem {
+  list-style: none;
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+}
+
+.menu-logout {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+/*DROP DROWN MENU*/
+
+.drop-down-menu-icon {
+  width: auto;
+  height: 50px;
+}
+
+.drop-down-menu-username {
+  display: inline-block;
+  height: 50px;
+  width: auto;
+  padding: 5px;
+  padding-right: 10px;
+  vertical-align: top;
+  line-height: 40px;
+
+}
+
+.drop-down-menu-avatar {
+  width: 50px;
+  height: 50px;
+  background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+  background-size:cover;
+  background-position: center center;
+  display: inline-block;
+}
+
+.drop-down-menu-link {
+  text-decoration: none;
+  color: black;
+}
+
+.drop-down-menu-link:hover {
+  color: purple;
+}
+
+.drop-down-menu-body {
+  position: absolute;
+  top: 60px;
+  right: 50px;
+}
+
+.drop-down-menu-row {
+  height: 40px;
+  width: 150px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  padding:12px;
+  list-style: none;
+}
+
+.drop-down-menu-row:first-child {
+  border-bottom: 1px solid white;
+}
+
+
+/* OVERVIEW SCREEN */
+
+#overview-site {
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overview-kingdom-name {
+  text-align: center;
+  color: white;
+  padding-bottom: 30px;
+  font-size: 3em;
+}
+
+.overview-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: 8%;
+  padding-right: 8%;
+}
+
+.Townhall {
+  background: red;
+}
+
+.overview-container .column {
+  width: 30%;
+  background-color: rgba(240, 240, 240, 0.8);
+  border-radius: 10px;
+  padding: 15px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.overview-container h1 {
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 2em;
+}
+
+.overview-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.overview-buildings-thumb, .overview-resources-thumb {
+  width: 20%;
+  padding-bottom: 20%;
+  margin: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.overview-troops-imageContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.overview-troops-image {
+  width: 20%;
+  padding-bottom: 20%;
+  margin: 10px;
+  background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.overview-buildings-name, .overview-resources-name {
+  width: 60%;
+  font-weight: normal;
+  padding-top: 10%;
+}
+
+.overview-troops-num {
+  font-size: 60px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+@media (max-width: 1400px) {
+  .login-window {
+    width: 30%;
+  }
+  #login-site {
+    padding-top: 25%;
+  }
+}
+
+@media (max-width: 1000px) {
+  .login-window {
+    width: 40%;
+  }
+  #login-site {
+    padding-top: 30%;
+  }
+}
+
+@media (max-width: 600px) {
+  .login-window {
+    width: 60%;
+  }
+  #login-site {
+    padding-top: 50%;
+  }
+}

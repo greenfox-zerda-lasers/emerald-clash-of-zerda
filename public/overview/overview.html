@@ -2,25 +2,28 @@
 
   <header ng-include="'public/menu/menu.html'"></header>
 
-  <h1 class="overview-kingdom-name">{{kingdom}}</h1>
+  <h1 class="kingdom">{{kingdom}}</h1>
 
-  <div class="overview-container">
+  <div class="container">
 
-    <div class="overview-buildings column" ng-click="">
-      <h1 class="overview-name">Buildings</h1>
-      <div class="overview-list" ng-repeat="building in buildingTypes">
-        <div class="overview-buildings-thumb {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
-        <h2 class= "overview-buildings-name">
+    <div class="buildings column" ng-click="">
+      <h1>Buildings</h1>
+
+      <div class="list" ng-repeat="building in buildingTypes">
+
+        <div class="buildings-type {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
+
+        <h2 class= "buildings-name">
           {{building.type}}: {{building.amount}}
         </h2>
       </div>
     </div>
 
-    <div class="overview-troops column" ng-click="">
-      <h1 class="overview-name">Troops</h1>
-      <span class="overview-troops-num">{{troopsAmount}}</span>
-      <div class="overview-troops-imageContainer">
-        <div class="overview-troops-image" ng-repeat="troop in troops"></div>
+    <div class="troops column" ng-click="">
+      <h1 class="name">Troops</h1>
+      <span class="troops-num">{{troopsAmount}}</span>
+      <div class="troops-imageContainer">
+        <div class="troops-image" ng-repeat="troop in troops"></div>
       </div>
     </div>
 
