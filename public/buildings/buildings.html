@@ -1,5 +1,24 @@
-<header ng-include="'public/menu/menu.html'"></header>
+<section id="buildings-site">
+  <header ng-include="'public/menu/menu.html'"></header>
 
-<h1>buildings</h1>
-<!-- <p>{{buildings}}</p> -->
-<button type="button" name="button" ng-click="getBuildings()">GOMB</button>
+  <h1 class="building-title">Buildings</h1>
+
+  <div class="container">
+    <article class="building row">
+      <div class="building-item" id="{{building.id}}">
+        <!-- <i class="img"></i> -->
+        <div class="type">Bulding type</div>
+        <div class="level">Level</div>
+        <div class="hp">HP</div>
+      </div>
+    </article>
+    <article class="building row" ng-repeat="building in buildingsList">
+      <div class="building-item" id="{{building.id}}">
+        <!-- <i class="img"></i> -->
+        <div class="type">{{building.type}}</div>
+        <div class="level">{{building.level}}</div>
+        <div class="hp">{{building.hp}}</div>
+      </div>
+    </article>
+  </div>
+</section>

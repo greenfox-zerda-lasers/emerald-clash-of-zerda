@@ -1,0 +1,58 @@
+#buildings-site {
+
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .building-title{
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    font-size: 3em;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-left: 8%;
+    padding-right: 8%;
+
+    .building {
+      margin-bottom: 20px;
+      font-size: 2em;
+
+      .building-item {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .type {
+        text-transform: capitalize;
+        width: 100%;
+      }
+
+      .hp {
+        flex: 0 0 40px;
+        padding-left: 60px;
+      }
+
+      .level {
+        flex: 0 0 40px;
+        padding-left: 60px;
+      }
+    }
+
+    .row {
+      background-color: rgba(240, 240, 240, 0.8);
+      border-radius: 10px;
+      padding: 15px;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
