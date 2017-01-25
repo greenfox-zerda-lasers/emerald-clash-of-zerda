@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', function($scope, $http, $location, $route, $localStorage){
+angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService', function($scope, $http, $location, $route, $localStorage, TroopsService){
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
@@ -7,16 +7,22 @@ angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$
   }
 
 
-  $http({
-    method: 'GET',
-    url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
-  }).then(function(response){
-    console.log(response)
-    var data = response.data;
-    $scope.troopsAmount = data.length;
-    $scope.troops = data
-    //console.log($scope.troops, "troops")
-  });
+  //length?
+  var getTroops = (function() {
+    $scope.troops = TroopsService.query();
+  })();
+
+
+  // $http({
+  //   method: 'GET',
+  //   url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
+  // }).then(function(response){
+  //   console.log(response)
+  //   var data = response.data;
+  //   $scope.troopsAmount = data.length;
+  //   $scope.troops = data
+  //   //console.log($scope.troops, "troops")
+  // });
 
 
   $scope.getTroopData = function(id) {
