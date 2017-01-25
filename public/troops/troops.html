@@ -9,11 +9,11 @@
   <div class="troopsContainer">
     <article class="troop" ng-repeat="troop in troops" >
       <div class="imageHolder" id="{{troop.id}}" ng-click='getTroopData(troop.id)'></div>
-      <div class="troopData" ng-show="{{t.open}}" ng-repeat="t in troopResponse">
+      <div class="troopData" ng-show="{{t.open}}" ng-repeat="t in troopResponse"> <!--
         <div class="hp">{{t.hp}}</div>
         <div class="attack">{{troopResponse.attack}}</div>
         <div class="defense">{{troopResponse.defense}}</div>
-        <div class="level">{{troopResponse.level}}</div>
+        <div class="level">{{troopResponse.level}}</div>-->
       </div>
     </article>
   </div>
