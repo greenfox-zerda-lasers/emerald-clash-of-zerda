@@ -43,7 +43,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     }).then(function(response){
       console.log(response, "resources")
 
-      var data = response.data.resources;
+      var data = response.data;
 
       $scope.resourceTypes = [
         {type: "Food", image: "http://image.flaticon.com/icons/svg/168/168559.svg"},
@@ -66,9 +66,9 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
     }).then(function(response){
       console.log(response, "troops")
-      // var data = response.data.troops;
-      // $scope.troopsAmount = data.length;
-      // $scope.troops = data
+      var data = response.data;
+      $scope.troopsAmount = data.length;
+      $scope.troops = data
       // console.log($scope.troops, "troops")
     });
 
