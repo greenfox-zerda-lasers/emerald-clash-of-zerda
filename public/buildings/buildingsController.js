@@ -5,5 +5,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       console.log("button works");
       $scope.buildingsList = BuildingsService.query();
       console.log($scope.buildingsList);
+      
     };
 }]);
