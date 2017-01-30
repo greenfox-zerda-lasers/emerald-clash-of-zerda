@@ -11,12 +11,24 @@ angular
   }
 
 
-  //length?
+
   var getTroops = (function() {
-    $scope.troops = TroopsService.query();
-    console.log($scope.troops, "troops")
-    console.log($scope.troops.$promise.$$state.value)
+    $scope.troopsData = TroopsService.query()
+      .$promise.then(function(result) {
+        $scope.troops = result;
+      });
   })();
+
+  $scope.trainTroop = function(id) {
+    console.log(id, "id");
+    $scope.troop = TroopsService.get({troopId: id})
+      .$promise.then(function(result) {
+        $scope.troopData = result;
+        $scope.troopData.level += 1;
+        $scope.troopData.$save({troopId: id});
+      })
+  }
+
 
 
 

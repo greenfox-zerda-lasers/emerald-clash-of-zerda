@@ -10,22 +10,36 @@
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding-right: 20px;
-    padding-left: 10px;
+    padding-right: 10px;
+    //padding-left: 10px;
     margin-right: 25px;
-    margin-left: 25px;
+    margin-left: 10px;
     .menu-list {
       width: 80%;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       .menu-elem {
+        font-family: "Barrio";
+        line-height: 22px;
+        font-size: 1.2em;
+        border-radius: 3px;
         list-style: none;
         margin: 5px;
         padding: 10px;
         text-decoration: none;
         background-color: black;
         color: white;
+        transition: all 0.3s;
+        li {
+          transition: all 0.3s;
+        }
+        &:hover {
+          background-color: #DC713D;
+          li {
+            line-height: 45px;
+          }
+        }
       }
     }
     .drop-down-menu {

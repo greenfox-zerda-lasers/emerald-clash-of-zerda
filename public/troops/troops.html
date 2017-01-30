@@ -2,14 +2,12 @@
 
 <section id="troops">
 
-  <h1 class="title">{{username}}'s troops</h1>
-  <span class="amount">{{troopsAmount}}</span>
-
+  <h1 class="title">{{username}} has<span>{{troops.length}}</span>troops</h1>
 
   <div class="troopsContainer">
     <article class="troop" ng-repeat="troop in troops" >
-      <img src="img/fox (2).svg" class="imageHolder" id="{{troop.id}}"></img>
-      <button class="train">Train!</button>
+      <img src="img/fox (2).svg" class="imageHolder"></img>
+      <button class="train" ng-click="trainTroop(troop.id)">Make me stronger!</button>
       <div class="troopData">
         <div class="hp">
           <div class="data">{{troop.hp}}</div>
@@ -25,10 +23,12 @@
         </div>
         <div class="level">
           <div class="data">{{troop.level}}</div>
-          <img src="img/level.svg"></img>
+          <img src="img/medal.svg"></img>
         </div>
       </div>
     </article>
+
+
   </div>
 
 </section>

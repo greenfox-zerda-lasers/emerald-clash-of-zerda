@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "angular-resource": "^1.6.1",
+    "hover.css": "^2.0.2",
     "html-webpack-plugin": "^2.26.0",
     "node": "0.0.0",
     "resolve-url-loader": "^1.6.1",
