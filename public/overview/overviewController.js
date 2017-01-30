@@ -1,9 +1,22 @@
-angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', function($scope, $http, $localStorage, $location) {
+angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewService', function($scope, $http, $localStorage, $location, $resource, OverviewService) {
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
   } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
+
+    var getKingdomData = (function () {
+      $scope.kingdomData = OverviewService.get()
+        .$promise.then( function(result) {
+          $scope.buildings = result.buildinds;
+          console.log(result.buildings);
+        });
+      // console.log($scope.kingdomData);
+    })();
+
+    console.log($scope.buildings);
+    console.log($scope.kingdomData);
+    console.log($scope.kingdom);
 
     //BUILDINGS
     $http({
