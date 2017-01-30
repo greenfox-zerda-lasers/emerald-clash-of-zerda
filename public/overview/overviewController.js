@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', function($scope, $http, $localStorage, $location) {
+angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewService', function($scope, $http, $localStorage, $location, $resource, OverviewService) {
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
