@@ -5,23 +5,27 @@
 }
 
 main {
-  background-image: url("http://wallup.net/wp-content/uploads/2016/05/25/237102-digital_art-low_poly-animals-fox-blue_background-simple_background-geometry-triangle.png");
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+
 }
 
 #troops {
-  height: 100%;
+  height: calc(100% - 60px);
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
+  background-image: url("http://wallup.net/wp-content/uploads/2016/05/25/237102-digital_art-low_poly-animals-fox-blue_background-simple_background-geometry-triangle.png");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   .title {
+    margin-top: 30px;
+    margin-bottom: 30px;
     text-align: center;
     color: white;
     font-size: 1.5em;
+    text-transform: capitalize;
   }
 
   .amount {
@@ -30,7 +34,7 @@ main {
 
   .troopsContainer {
     width: 90%;
-    height: 100%;
+    height: 80%;
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -41,7 +45,7 @@ main {
 
     .troop {
       width: 20%;
-      height: 30%;
+      height: 400px;
       margin: 15px;
       background-color: rgba(255, 255, 255, 0.8);
       text-align: center;
@@ -54,7 +58,7 @@ main {
       .imageHolder {
         width: 33%;
         //height: 33%;
-        margin-top: 15%;
+        margin-top: 10%;
         margin-bottom: 5%;
         border: 0px solid white;
       }
@@ -71,7 +75,7 @@ main {
 
       .troopData {
         width: 100%;
-        margin-top: 5%;
+        //margin-top: 5%;
         height: 30%;
         color: black;
         display: flex;
