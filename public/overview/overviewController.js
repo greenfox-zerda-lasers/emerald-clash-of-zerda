@@ -9,7 +9,11 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       $scope.kingdomData = OverviewService.get()
         .$promise.then( function(result) {
           $scope.buildings = result.buildinds;
+          $scope.troops2 = result.troops;
+          $scope.resources = result.resources;
           console.log(result.buildings);
+          console.log(result.troops);
+          console.log(result.resources);
         });
       // console.log($scope.kingdomData);
     })();
