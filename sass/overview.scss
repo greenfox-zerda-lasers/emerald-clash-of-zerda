@@ -80,10 +80,25 @@
           background-position: center center;
         }
 
-        .Townhall {}
-        .Barracks {}
-        .Mine {}
-        .Farm {}
+        .townhall {
+          background-image: url("http://image.flaticon.com/icons/svg/288/288698.svg");
+        }
+        .mine {
+          background-image: url("http://image.flaticon.com/icons/svg/234/234785.svg");
+        }
+        .farm {
+          background-image: url("http://image.flaticon.com/icons/svg/284/284493.svg");
+        }
+        .barrack {
+          background-image: url("http://image.flaticon.com/icons/svg/284/284425.svg");
+        }
+        .food {
+          background-image: url("http://image.flaticon.com/icons/svg/168/168559.svg");
+        }
+        .gold {
+          background-image: url("http://image.flaticon.com/icons/svg/199/199533.svg");
+        }
+
         .buildings-name {}
       }
     }

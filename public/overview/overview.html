@@ -8,18 +8,40 @@
 
     <div class="buildings column" ng-click="">
       <h2 class="name" >Buildings</h2>
-      <div class="list" ng-repeat="building in buildingTypes">
-        <div class="thumb {{building.type}}" ng-style="{'background-image': 'url({{building.image}})'}"></div>
+      <div class="list">
+        <div class="thumb townhall"></div>
         <div class="type">
-          <h3>{{building.type}}:</h3>
-          <h3>{{building.amount}}</h3>
+          <h3>Townhall</h3>
+          <h3>{{buildingTypes.townhall}}</h3>
         </div>
       </div>
+      <div class="list">
+        <div class="thumb mine"></div>
+        <div class="type">
+          <h3>Mines</h3>
+          <h3>{{buildingTypes.mine}}</h3>
+        </div>
+      </div>
+      <div class="list">
+        <div class="thumb farm"></div>
+        <div class="type">
+          <h3>Farms</h3>
+          <h3>{{buildingTypes.farm}}</h3>
+        </div>
+      </div>
+      <div class="list">
+        <div class="thumb barrack"></div>
+        <div class="type">
+          <h3>Barracks</h3>
+          <h3>{{buildingTypes.barrack}}</h3>
+        </div>
+      </div>
+
     </div>
 
     <div class="troops column" ng-click="">
       <h2 class="name">Troops</h2>
-      <span class="troops-num">{{troopsAmount}}</span>
+      <span class="troops-num">{{troops.length}}</span>
       <div class="troops-imageContainer">
         <div class="troops-image" ng-repeat="troop in troops"></div>
       </div>
@@ -27,11 +49,18 @@
 
     <div class="resources column">
       <h2 class="name">Resources</h1>
-      <div class="list" ng-repeat="resource in resourceTypes">
-        <div class="thumb" ng-style="{'background-image': 'url({{resource.image}})'}"></div>
+      <div class="list">
+        <div class="thumb food"></div>
         <div class="type">
-          <h3>{{resource.type}}:</h3>
-          <h3>{{resource.amount}}</h3>
+          <h3>Food</h3>
+          <h3>{{resourceTypes.food}}</h3>
+        </div>
+      </div>
+      <div class="list">
+        <div class="thumb gold"></div>
+        <div class="type">
+          <h3>Gold</h3>
+          <h3>{{resourceTypes.gold}}</h3>
         </div>
       </div>
     </div>
