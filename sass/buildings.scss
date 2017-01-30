@@ -19,6 +19,9 @@
     padding-left: 8%;
     padding-right: 8%;
 
+    .create-button {
+      width: 140px;
+    }
     .building {
       margin-bottom: 20px;
       font-size: 2em;
@@ -28,6 +31,7 @@
         flex-direction: row;
         justify-content: space-between;
       }
+
 
       .type {
         text-transform: capitalize;
@@ -42,6 +46,11 @@
       .level {
         flex: 0 0 40px;
         padding-left: 60px;
+      }
+
+      .upgrade {
+        flex: 0 0 50px;
+        margin-left: 30px;
       }
     }
 
