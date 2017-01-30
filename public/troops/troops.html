@@ -8,12 +8,25 @@
 
   <div class="troopsContainer">
     <article class="troop" ng-repeat="troop in troops" >
-      <div class="imageHolder" id="{{troop.id}}" ng-click='getTroopData(troop.id)'></div>
-      <div class="troopData" ng-show="{{t.open}}" ng-repeat="t in troopResponse"> <!--
-        <div class="hp">{{t.hp}}</div>
-        <div class="attack">{{troopResponse.attack}}</div>
-        <div class="defense">{{troopResponse.defense}}</div>
-        <div class="level">{{troopResponse.level}}</div>-->
+      <img src="img/fox (2).svg" class="imageHolder" id="{{troop.id}}"></img>
+      <button class="train">Train!</button>
+      <div class="troopData">
+        <div class="hp">
+          <div class="data">{{troop.hp}}</div>
+          <img src="img/hp.svg"></img>
+        </div>
+        <div class="attack">
+          <div class="data">{{troop.attack}}</div>
+          <img src="img/attack.svg"></img>
+        </div>
+        <div class="defence">
+          <div class="data">{{troop.defence}}</div>
+          <img src="img/defence.svg"></img>
+        </div>
+        <div class="level">
+          <div class="data">{{troop.level}}</div>
+          <img src="img/level.svg"></img>
+        </div>
       </div>
     </article>
   </div>
