@@ -5,6 +5,19 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
   } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
 
+    var getKingdomData = (function () {
+      $scope.kingdomData = OverviewService.get()
+        .$promise.then( function(result) {
+          $scope.buildings = result.buildinds;
+          console.log(result.buildings);
+        });
+      // console.log($scope.kingdomData);
+    })();
+
+    console.log($scope.buildings);
+    console.log($scope.kingdomData);
+    console.log($scope.kingdom);
+
     //BUILDINGS
     $http({
       method: 'GET',
