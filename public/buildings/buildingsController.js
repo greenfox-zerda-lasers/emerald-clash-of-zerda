@@ -15,8 +15,13 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       BuildingsService.save($scope.postData)
         .$promise.then( function (response) {
           console.log(response);
-          console.log($scope.buildingsList);
+
           $scope.buildingsList.push(response);
+        })
+        .catch( function(error) {
+          console.log(error);
+          $scope.errorMessage = error.data.errors.upgrade;
+          $scope.error = true;
         });
     };
 
@@ -28,15 +33,17 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         "building_id": id,
         "level": level+1
       };
-      console.log($scope.updateBuilding);
+
       BuildingsService.update($scope.updateBuilding)
         .$promise
         .then( function (response) {
           $scope.buildingsList[id] = response;
+          console.log(response);
         })
         .catch(function(error){
+          console.log(error);
           $scope.errorMessage = error.data.errors.upgrade;
-          $scope.error = true
+          $scope.error = true;
         });
     };
 
