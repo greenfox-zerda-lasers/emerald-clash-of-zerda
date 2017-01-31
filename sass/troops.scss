@@ -5,25 +5,44 @@
 }
 
 #troops {
+  //background-color: #40767D;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/c7/38/41/c738418d2c1b2757c1b05059777067b1.gif");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
   flex-direction: column;
 
+
   .title {
-    text-align: center;
-    color: black;
-    font-size: 1.5em;
+    font-family: "barrio";
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 5%;
+    padding-left: 15px;
+    text-align: left;
+    color: white;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    span {
+      font-size: 2em;
+      color: rgb(50, 50, 50);
+      padding: 2px;
+    }
   }
 
-  .amount {
-    text-align: center;
-  }
 
   .troopsContainer {
     width: 90%;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
+    padding-left: auto;
+    padding-right: auto;
     display: flex;
     justify-content: flex-start;
     flex-direction: row;
@@ -31,32 +50,110 @@
     text-align: center;
 
     .troop {
-      $troopwidth: 100px;
-      width: $troopwidth;
-      margin: 15px;
+      width: calc(100% / 5 - 20px);
+      height: 360px;
+      margin: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 5px;
+      @media (max-width: 1400px) {
+        height: 300px;
+      }
+      @media (max-width: 1200px) {
+        height: 250px;
+      }
+      @media (max-width: 1000px) {
+        width: calc(100% / 4 - 20px);
+        height: 220px;
+      }
 
       .imageHolder {
-        //background: rgba(250, 250, 250, 1);
-        background-image: url("img/fox (2).svg");
-        background-size: cover;
-        width: $troopwidth;
-        height: $troopwidth;
-        margin-top: 20px;
+        width: 55%;
+        //height: 33%;
+        margin-top: 10%;
+        //margin-bottom: 5%;
+        border: 0px solid white;
+        @media (max-width: 1400px) {
+          width: 50%;
+        }
+        @media (max-width: 1200px) {
+
+        }
       }
-      
+
+      button {
+        width: 40%;
+        border: 0px solid white;
+        padding: 2%;
+        text-align: center;
+        white-space: nowrap;
+        background-color: rgb(50, 50, 50);
+        color: white;
+        border-radius: 2px;
+        transition: all 0.3s;
+        &:hover {
+          background-color: #DC713D;
+        }
+      }
+
       .troopData {
-        position: absolute;
-        width: $troopwidth;
-        height: 50px;
-        background: white;
-        border: 1px solid black;
-        border-top: 0px solid black;
+        width: 100%;
+        height: 25%;
+        color: black;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
-        .hp, .attack, .defense, .level {
+        background-color: rgba(200, 200, 220, 0.3);
+        border-top: 1px solid white;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        .hp, .attack, .defence, .level {
           width: 25%;
+          border-right: 1px solid white;
+          font-size: 0.8em;
+          height: 100%;
+          transition: all 0.3s;
+          &:hover {
+            background-color: rgb(50, 50, 50);
+            //border: 0px solid white;
+            img {
+              //width: 45%;
+              opacity: 0.5;
+              padding-top: 5%;
+            }
+            .data {
+              color: white;
+              font-size: 2.2em;
+              padding-top: 8%;
+              padding-right: 0px;
+              text-align: center;
+            }
+          }
+        }
+        .level {
+          border: 0px solid white;
+          &:hover {
+            border-bottom-right-radius: 5px;
+          }
+        }
+        .hp:hover {
+          border-bottom-left-radius: 5px;
+        }
+        img {
+          width: 50%;
+          padding-top: 15%;
+          transition: all 0.2s;
+          transform-origin: center center;
+        }
+        .data {
+          text-align: right;
+          padding-top: 5%;
+          padding-right: 5%;
         }
       }
     }
