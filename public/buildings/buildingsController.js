@@ -5,12 +5,21 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       console.log($scope.buildingsList);
     })();
 
-    $scope.addNewBuilding = function () {
+    $scope.setBuildingType = function () {
+      console.log('upgrade button clicked');
       
-      console.log("new building added");
+
     };
 
+    $scope.addNewBuilding = function () {
+      $scope.postData = {
+        "user_id": $localStorage.userObj.userId,
+        "type": ""
+      }
+      BuildingsService.save($scope.postData);
+      console.log("new building added");
 
+    };
 
     // $scope.upgradeBuilding = function () {
     //   console.log("upgrade + ");
