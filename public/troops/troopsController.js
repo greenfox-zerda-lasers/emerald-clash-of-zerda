@@ -10,8 +10,6 @@ angular
     $scope.username = $localStorage.userObj.username;
   }
 
-
-
   var getTroops = (function() {
     $scope.troopsData = TroopsService.query()
       .$promise.then(function(result) {
@@ -21,18 +19,17 @@ angular
 
   $scope.trainTroop = function(id) {
     console.log(id, "id");
+
     $scope.troop = TroopsService.get({troopId: id})
       .$promise.then(function(result) {
         $scope.troopData = result;
+        console.log(result, "result")
         $scope.troopData.level += 1;
-        $scope.troopData.$save({troopId: id});
+        $scope.troops.level = $scope.troopData.level
+        console.log($scope.troopData.level, "level")
+        TroopsService.update({troopId: id}, {level:$scope.troopData.level});
       })
+
+
   }
-
-
-
-
-
-
-
 }]);
