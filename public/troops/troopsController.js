@@ -24,12 +24,19 @@ angular
       .$promise.then(function(result) {
         $scope.troopData = result;
         console.log(result, "result")
-        $scope.troopData.level += 1;
-        $scope.troops.level = $scope.troopData.level
-        console.log($scope.troopData.level, "level")
-        TroopsService.update({troopId: id}, {level:$scope.troopData.level});
+        $scope.troopData.level = $scope.troopData.level + 1;
+        $scope.troops.level = $scope.troopData.level ;
+        TroopsService.update({troopId: id}, {level:$scope.troopData.level})
+          .$promise.then(function(response) {
+           $scope.troops[id] = response;
+        }, function(error) {
+            if(error.status === 400) {
+              $scope.errorMessage = error.data.errors.upgrade
+              $scope.error = true;
+            }
+        }
+      );
+
       })
-
-
   }
 }]);
