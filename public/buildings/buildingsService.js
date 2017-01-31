@@ -3,7 +3,7 @@
  * @desc Handles API of buildings
  * @author Bencso
  */
- 
+
 angular
   .module("ClashApp")
   .factory("BuildingsService",
