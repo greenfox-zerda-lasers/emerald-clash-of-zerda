@@ -2,7 +2,7 @@
   <header ng-include="'public/menu/menu.html'"></header>
 
   <h1 class="building-title">Buildings</h1>
-
+  <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <div class="container">
     <article class="new-building">
       <h2>New building:</h2>
