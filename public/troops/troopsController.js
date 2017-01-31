@@ -1,52 +1,37 @@
-angular.module("ClashApp").controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService', function($scope, $http, $location, $route, $localStorage, TroopsService){
+angular
+  .module("ClashApp")
+  .controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService',
+  function($scope, $http, $location, $route, $localStorage, TroopsService){
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
   } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
+    $scope.username = $localStorage.userObj.username;
   }
 
 
-  //length?
+
   var getTroops = (function() {
-    $scope.troops = TroopsService.query();
+    $scope.troopsData = TroopsService.query()
+      .$promise.then(function(result) {
+        $scope.troops = result;
+      });
   })();
 
-
-  // $http({
-  //   method: 'GET',
-  //   url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops'
-  // }).then(function(response){
-  //   console.log(response)
-  //   var data = response.data;
-  //   $scope.troopsAmount = data.length;
-  //   $scope.troops = data
-  //   //console.log($scope.troops, "troops")
-  // });
+  $scope.trainTroop = function(id) {
+    console.log(id, "id");
+    $scope.troop = TroopsService.get({troopId: id})
+      .$promise.then(function(result) {
+        $scope.troopData = result;
+        $scope.troopData.level += 1;
+        $scope.troopData.$save({troopId: id});
+      })
+  }
 
 
-  $scope.getTroopData = function(id) {
-    console.log("click");
-    console.log(id);
-    $scope.troopResponse = {}
-    $scope.troopResponse.open = false;
 
-    $http({
-      method: 'GET',
-      url: 'http://localhost:8000/kingdom/' + $localStorage.userObj.userId + '/troops/' + id //2 helyett troopId
-    }).then(function(response){
-      $scope.troopResponse.id = response.data.troop.id;
-      $scope.troopResponse.hp = response.data.troop.hp;
-      $scope.troopResponse.attack = response.data.troop.attack;
-      $scope.troopResponse.defense = response.data.troop.defense;
-      $scope.troopResponse.level = response.data.troop.level;
-      //$scope.troopResponse.open = false;
-      $scope.troopResponse.open = true
-      console.log($scope.troopResponse)
-      //$scope.open = true
-    });
 
-  };
 
 
 

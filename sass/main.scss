@@ -1,8 +1,9 @@
+$darkgrey: rgb(50, 50, 50);
+
 *, input {
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
-  font-family: Helvetica;
 }
 
 body, html, main {
@@ -10,9 +11,15 @@ body, html, main {
   height: 100%;
 }
 
+main {
+  font-family: 'Open sans', sans-serif;
+  font-weight: normal;
+}
+
 @import "troops";
 @import "overview";
 @import "login";
 @import "register";
 @import "menu";
-@import "buildings"
+@import "buildings";
+@import "map";

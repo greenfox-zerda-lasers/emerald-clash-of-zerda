@@ -2,20 +2,33 @@
 
 <section id="troops">
 
-  <h1 class="title">Troops</h1>
-  <span class="amount">{{troopsAmount}}</span>
-
+  <h1 class="title">{{username}} has<span>{{troops.length}}</span>troops</h1>
 
   <div class="troopsContainer">
     <article class="troop" ng-repeat="troop in troops" >
-      <div class="imageHolder" id="{{troop.id}}" ng-click='getTroopData(troop.id)'></div>
-      <div class="troopData" ng-show="{{t.open}}" ng-repeat="t in troopResponse"> <!--
-        <div class="hp">{{t.hp}}</div>
-        <div class="attack">{{troopResponse.attack}}</div>
-        <div class="defense">{{troopResponse.defense}}</div>
-        <div class="level">{{troopResponse.level}}</div>-->
+      <img src="img/fox (2).svg" class="imageHolder"></img>
+      <button class="train" ng-click="trainTroop(troop.id)">Make me stronger!</button>
+      <div class="troopData">
+        <div class="hp">
+          <div class="data">{{troop.hp}}</div>
+          <img src="img/hp.svg"></img>
+        </div>
+        <div class="attack">
+          <div class="data">{{troop.attack}}</div>
+          <img src="img/attack.svg"></img>
+        </div>
+        <div class="defence">
+          <div class="data">{{troop.defence}}</div>
+          <img src="img/defence.svg"></img>
+        </div>
+        <div class="level">
+          <div class="data">{{troop.level}}</div>
+          <img src="img/medal.svg"></img>
+        </div>
       </div>
     </article>
+
+
   </div>
 
 </section>
