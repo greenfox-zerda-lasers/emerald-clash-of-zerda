@@ -1,0 +1,45 @@
+#leaderboard-page {
+
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .leaderboard-title {
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    font-size: 3em;
+  }
+
+  .container {
+    padding-left: 8%;
+    padding-right: 8%;
+
+    .list-item {
+      padding-bottom: 30px;
+
+      .thumb {
+        width: 28%;
+        padding-top: 28%;
+        margin-left: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+
+      .username {
+        text-transform: capitalize;
+        display: block;
+      }
+
+      .townhall {
+        background-image: url("http://image.flaticon.com/icons/svg/288/288698.svg");
+      }
+    }
+  }
+
+}

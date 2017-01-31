@@ -1,3 +1,15 @@
-<header ng-include="'public/menu/menu.html'"></header>
+<section id="leaderboard-page">
+  <header ng-include="'public/menu/menu.html'"></header>
 
-<h1>Leaderboard</h1>
+  <h1 class="leaderboard-title">Leaderboard</h1>
+
+  <div class="container">
+    <article class="list-item" ng-repeat="user in userList">
+      <div class="tumb townhall"></div>
+      <div class=""></div>
+      <div class="username">{{user.username}} | {{user.kingdom}}</div>
+      <div class="points">{{user.points}} points</div>
+    </article>
+  </div>
+
+</section>
