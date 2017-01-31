@@ -9,6 +9,9 @@ angular
   .factory("BuildingsService",
     function($resource, $localStorage) {
       return $resource('http://localhost:8000/kingdom/:id/buildings/',
-        {id: $localStorage.userObj.userId}
+        {id: $localStorage.userObj.userId},
+        {
+          "update": { method: 'PUT'}
+        }
     );
 });
