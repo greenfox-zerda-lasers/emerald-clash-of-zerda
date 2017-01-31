@@ -4,6 +4,11 @@
   <h1 class="building-title">Buildings</h1>
 
   <div class="container">
+    <article class="new-building">
+      <h2>New building:</h2>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('farm')">Farm</button>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')">Mine</button>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barrack')">Barrack</button>
     </article>
     <article class="building row" ng-repeat="building in buildingsList">
       <div class="building-item" id="{{building.id}}">
@@ -14,6 +19,5 @@
         <button class="upgrade" type="button" name="upgrade" ng-click="upgradeBuilding()">Upgrade</button>
       </div>
     </article>
-    <button class="row create-button" type="button" name="Create building" ng-click="setBuildingType()">Create new building</button>
   </div>
 </section>
