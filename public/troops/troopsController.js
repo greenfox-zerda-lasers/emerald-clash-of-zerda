@@ -23,9 +23,10 @@ angular
     $scope.troop = TroopsService.get({troopId: id})
       .$promise.then(function(result) {
         $scope.troopData = result;
-        console.log(result, "result")
+        //console.log(result, "result")
         $scope.troopData.level = $scope.troopData.level + 1;
-        $scope.troops.level = $scope.troopData.level ;
+        //$scope.troops.level = $scope.troopData.level ;
+        
         TroopsService.update({troopId: id}, {level:$scope.troopData.level})
           .$promise.then(function(response) {
            $scope.troops[id] = response;

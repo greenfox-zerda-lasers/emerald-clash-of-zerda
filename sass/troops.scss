@@ -18,6 +18,16 @@
   flex-direction: column;
 
 
+  .error {
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    color: #DC713D;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
   .title {
     font-family: "barrio";
     margin-top: 30px;
@@ -35,6 +45,15 @@
     }
   }
 
+  .addTroops {
+    position: absolute;
+    width: auto;
+    top: 100px;
+    left: 90%;
+    margin-right: 50px;
+    padding: 10px;
+    background-color: white;
+  }
 
   .troopsContainer {
     width: 90%;
@@ -90,7 +109,7 @@
         border: 0px solid white;
         padding: 2%;
         text-align: center;
-        white-space: nowrap;
+        //white-space: nowrap;
         background-color: rgb(50, 50, 50);
         color: white;
         border-radius: 2px;
