@@ -15,8 +15,8 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       BuildingsService.save($scope.postData);
     };
 
-    // $scope.upgradeBuilding = function () {
-    //   console.log("upgrade + ");
-    // };
+    $scope.upgradeBuilding = function () {
+      console.log("upgrade + ");
+    };
 
 }]);
