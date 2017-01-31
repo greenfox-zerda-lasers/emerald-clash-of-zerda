@@ -1,3 +1,5 @@
+$darkgrey: rgb(50, 50, 50);
+
 *, input {
   box-sizing: border-box;
   margin: 0px;
@@ -19,4 +21,5 @@ main {
 @import "login";
 @import "register";
 @import "menu";
-@import "buildings"
+@import "buildings";
+@import "map";
