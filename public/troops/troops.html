@@ -3,11 +3,14 @@
 <section id="troops">
 
   <h1 class="title">{{username}} has<span>{{troops.length}}</span>troops</h1>
+  <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
+
+  <div class="addTroops">Add troop</div>
 
   <div class="troopsContainer">
     <article class="troop" ng-repeat="troop in troops" >
       <img src="img/fox (2).svg" class="imageHolder"></img>
-      <button class="train" ng-click="trainTroop(troop.id)">Make me stronger!</button>
+      <button class="train" ng-click="trainTroop(troop.id, troop.level)">Make me stronger!</button>
       <div class="troopData">
         <div class="hp">
           <div class="data">{{troop.hp}}</div>
