@@ -12,6 +12,13 @@
       <a ng-href={{'#!/history'}} class="menu-elem"><li>History</li></a>
     </ul>
 
+    <div class="resources">
+      <span>{{food}}</span>
+      <img src="http://image.flaticon.com/icons/svg/168/168559.svg" alt="food"></img>
+      <span>{{gold}}</span>
+      <img src="http://image.flaticon.com/icons/svg/199/199533.svg" alt="gold"></img>
+    </div>
+
 
     <div class="drop-down-menu">
       <div class="drop-down-menu-icon" ng-init="open = false" ng-click="open = !open">
@@ -23,7 +30,7 @@
         <li class="drop-down-menu-row drop-down-menu-logout" ng-click="logOut()"><a ng-href={{'#!/login'}} class="drop-down-menu-link">Log out</a></li>
       </ul>
     </div>
-    
+
   </div>
 
 </section>
