@@ -5,12 +5,14 @@
   <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <h1 class="title">{{username}} has<span>{{troops.length}}</span>troops</h1>
 
-  <div class="addTroops">Add troop</div>
+  <button class="addTroops" ng-click="addTroop()">Add troop</button>
 
   <div class="troopsContainer">
+
     <article class="troop" ng-repeat="troop in troops" >
       <img src="img/fox (2).svg" class="imageHolder"></img>
       <button class="train" ng-click="trainTroop(troop.id, troop.level)">Make me stronger!</button>
+
       <div class="troopData">
         <div class="hp">
           <div class="data">{{troop.hp}}</div>
@@ -29,6 +31,7 @@
           <img src="img/medal.svg"></img>
         </div>
       </div>
+
     </article>
 
 
