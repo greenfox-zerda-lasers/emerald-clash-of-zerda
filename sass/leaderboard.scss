@@ -17,28 +17,45 @@
     padding-left: 8%;
     padding-right: 8%;
 
+    li {
+      list-style: none;
+    }
+
     .list-item {
       padding-bottom: 30px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      counter-reset: order;
+      color: white;
 
-      .thumb {
-        width: 28%;
-        padding-top: 28%;
-        margin-left: 15px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        background-size: contain;
-        background-repeat: no-repeat;
+      .avatar {
+        width: 50px;
+        height: 50px;
+        background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+        background-size:cover;
         background-position: center center;
+        display: inline-block;
+        flex: 0 0 50px;
+
+      }
+
+      .username:before {
+        counter-increment: order;
+        content: "# "counter(order);
+        padding-right: 20px;
       }
 
       .username {
         text-transform: capitalize;
         display: block;
+        padding-left: 30px;
       }
 
-      .townhall {
-        background-image: url("http://image.flaticon.com/icons/svg/288/288698.svg");
+      .points {
+        padding-left: 60px;
       }
+
     }
   }
 

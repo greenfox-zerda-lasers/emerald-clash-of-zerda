@@ -4,12 +4,17 @@
   <h1 class="leaderboard-title">Leaderboard</h1>
 
   <div class="container">
-    <article class="list-item" ng-repeat="user in userList">
-      <div class="tumb townhall"></div>
-      <div class=""></div>
-      <div class="username">{{user.username}} | {{user.kingdom}}</div>
-      <div class="points">{{user.points}} points</div>
-    </article>
+    <ul>
+      <li ng-repeat="user in userList">
+        <ul class="list-item" >
+          <li class="avatar"></li>
+          <li class="username">{{user.username}} | {{user.kingdom}}</li>
+          <li class="points">{{user.points}} points</li>
+          <!-- <li><button type="button" name="button">Fight</button></li> -->
+        </ul>
+      </li>
+    </ul>
+
   </div>
 
 </section>
