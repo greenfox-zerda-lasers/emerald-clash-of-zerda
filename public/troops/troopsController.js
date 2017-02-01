@@ -48,6 +48,7 @@ angular
     TroopsService.save().$promise.then(function(response) {
       console.log(response, "addtroop")
       $scope.troops.push(response)
+      updateMenu()
     },function(error) {
         if(error.status === 400) {
           $scope.errorMessage = error.data.errors.upgrade
