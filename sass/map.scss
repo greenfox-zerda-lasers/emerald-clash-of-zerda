@@ -1,9 +1,48 @@
 #map {
   background-color: $darkgrey;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
 
-  svg {
-    position: relative;
-    top: 100px;
-    left: 100px;
+  .board {
+    width: 700px;
+    height: 700px;
+    //padding-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    //border: 1px solid white;
+
+    .board-row {
+      width: 100%;
+      height: calc(100% / 7);
+      display: flex;
+      flex-direction: row;
+      //border: 1px solid white;
+
+      .board-elem {
+        width: calc(100% / 7);
+        height: 100%;
+        border: 1px solid white;
+        color: white;
+      }
+      .tile1 {
+        background-color: pink;
+      }
+      .kingdom {
+        background-color: orange;
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+      }
+      .kingdomEnemy {
+        background-color: tomato;
+        color: white;
+        text-align: center;
+        padding-top: 30px;
+      }
+    }
   }
 }
