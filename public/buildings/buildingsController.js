@@ -47,4 +47,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         });
     };
 
+    // valami
+
 }]);
