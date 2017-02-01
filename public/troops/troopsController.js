@@ -17,42 +17,55 @@ angular
       });
   })();
 
-  $scope.valami = true;
+  $scope.stop = true;
+  $scope.error = false;
 
   $scope.trainTroop = function(id) {
 
-    if($scope.valami) {
-      $scope.troop = TroopsService.get({troopId: id})
-        .$promise.then(function(result) {
-          $scope.troopData = result;
-          $scope.troopData.level = $scope.troopData.level + 1;
-          TroopsService.update({troopId: id}, {level:$scope.troopData.level})
-            .$promise.then(function(response) {
-             $scope.troops[id] = response;
-          }, function(error) {
-              if(error.status === 400) {
-                $scope.errorMessage = error.data.errors.upgrade
-                $scope.error = true;
-                $scope.valami = false
-              }}
-            )})
-    } else {
-      console.log("elfogyott a peeeenzed!!")
+    if($scope.stop) {
+      TroopsService.get({troopId: id}).$promise.then(function(result) {
+        $scope.troopData = result;
+        $scope.troopData.level = $scope.troopData.level + 1;
+        TroopsService.update({troopId: id}, {level:$scope.troopData.level})
+        .$promise.then(function(response) {
+          $scope.troops[id] = response;
+        },function(error) {
+            if(error.status === 400) {
+              $scope.errorMessage = error.data.errors.upgrade
+              $scope.error = true;
+              $scope.stop = false
+              console.log("elfogyott a peeeenzed!!")
+            }
+          }
+        )
+      })
     }
+    updateMenu()
+  };
 
+  //only clickable if user has barracks
+  $scope.addTroop = function() {
+    TroopsService.save().$promise.then(function(response) {
+      console.log(response, "addtroop")
+      $scope.troops.push(response)
+    },function(error) {
+        if(error.status === 400) {
+          $scope.errorMessage = error.data.errors.upgrade
+          $scope.error = true;
+          $scope.stop = false
+          console.log("elfogyott a peeeenzed!!")
+        }
+      })
+  }
+
+
+  function updateMenu() {
     MenuService.query().$promise.then(function(result) {
-        console.log("lefut")
-        $scope.food = result[0].amount;
-        $scope.gold = result[1].amount;
-        $rootScope.$broadcast('sendFood', $scope.food)
-        $rootScope.$broadcast('sendGold', $scope.gold)
-      });
-    }
-
-
-    $scope.addTroop = function(){
-      
-    }
-
+      $scope.food = result[0].amount;
+      $scope.gold = result[1].amount;
+      $rootScope.$broadcast('sendFood', $scope.food)
+      $rootScope.$broadcast('sendGold', $scope.gold)
+    });
+  }
 
 }]);
