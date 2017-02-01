@@ -18,6 +18,7 @@ angular
   })();
 
   $scope.valami = true;
+
   $scope.trainTroop = function(id) {
 
     if($scope.valami) {
@@ -47,4 +48,11 @@ angular
         $rootScope.$broadcast('sendGold', $scope.gold)
       });
     }
+
+
+    $scope.addTroop = function(){
+      
+    }
+
+
 }]);
