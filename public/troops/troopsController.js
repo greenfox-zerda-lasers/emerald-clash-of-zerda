@@ -1,7 +1,7 @@
 angular
   .module("ClashApp")
-  .controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService',
-  function($scope, $http, $location, $route, $localStorage, TroopsService){
+  .controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService', 'MenuService', '$rootScope',
+  function($scope, $http, $location, $route, $localStorage, TroopsService, MenuService, $rootScope){
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
@@ -34,10 +34,17 @@ angular
                 $scope.error = true;
                 $scope.valami = false
               }}
-        )})
+            )})
     } else {
-      console.log("valamiiii")
+      console.log("elfogyott a peeeenzed!!")
     }
 
+    MenuService.query().$promise.then(function(result) {
+        console.log("lefut")
+        $scope.food = result[0].amount;
+        $scope.gold = result[1].amount;
+        $rootScope.$broadcast('sendFood', $scope.food)
+        $rootScope.$broadcast('sendGold', $scope.gold)
+      });
     }
 }]);
