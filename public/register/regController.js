@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$location', '$localStorage', 'RegistrationFactory', function($scope, $http, $location, localStorage, RegistrationFactory) {
+angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$location', '$localStorage', 'RegistrationFactory', function($scope, $http, $location, $localStorage, RegistrationFactory) {
 
   var checkUserObj = (function () {
     if($localStorage.userObj == undefined) {
