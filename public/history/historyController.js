@@ -11,8 +11,5 @@ angular.module("ClashApp").controller("HistoryController", ['$scope', '$http', '
       console.log(error);
     });
   })();
-
-
-
-
+  
 }]);

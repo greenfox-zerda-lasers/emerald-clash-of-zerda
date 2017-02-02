@@ -1,7 +1,7 @@
-angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsService', 'MenuService', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsService, MenuService){
+angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory){
 
   var getBuildings = (function() {
-    $scope.buildingsList = BuildingsService.query();
+    $scope.buildingsList = BuildingsFactory.query();
     console.log($scope.buildingsList);
   })();
 
@@ -12,7 +12,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       "type": type
     };
     console.log($scope.postData);
-    BuildingsService.save($scope.postData)
+    BuildingsFactory.save($scope.postData)
       .$promise.then( function (response) {
         console.log(response);
 
@@ -35,7 +35,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       "level": level+1
     };
 
-    BuildingsService.update($scope.updateBuilding)
+    BuildingsFactory.update($scope.updateBuilding)
       .$promise
       .then( function(response) {
         $scope.buildingsList[id] = response;
@@ -50,7 +50,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   };
 
   $scope.updateResources = function () {
-    MenuService.query()
+    MenuFactory.query()
       .$promise
       .then( function(result) {
         $scope.food = result[0].amount;

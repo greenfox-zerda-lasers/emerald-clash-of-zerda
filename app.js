@@ -1,7 +1,7 @@
 (function() {
 
   var app = angular.module("ClashApp", ['ngRoute', 'ngStorage', 'ngResource']);
-  console.log("app")
+  console.log("app");
 
   app.config(['$routeProvider',
   function($routeProvider) {

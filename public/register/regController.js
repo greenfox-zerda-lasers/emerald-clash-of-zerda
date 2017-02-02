@@ -1,4 +1,12 @@
-angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$location', function($scope, $http, $location) {
+angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$location', '$localStorage', 'RegistrationFactory', function($scope, $http, $location, localStorage, RegistrationFactory) {
+
+  var checkUserObj = (function () {
+    if($localStorage.userObj == undefined) {
+      $localStorage.userObj = {}
+    };
+    $localStorage.userObj.userId = false;
+    console.log("OK");
+  })();
 
   $scope.userRegistration = function() {
     $scope.regData = {
@@ -6,18 +14,19 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
       "kingdom": $scope.kingdom,
       "password": $scope.password
     };
-    console.log($scope.regData);
 
-    $http({
-      method: 'POST',
-      url: 'http://localhost:8000/register',
-      data: $scope.regData,
-    }).then(function(response){
-      console.log(response, "registration");
-    });
-
-    $scope.username = "";
-    $scope.kingdom = "";
-    $scope.password = "";
+    RegistrationFactory.save($scope.regData)
+      .$promise
+      .then( function (response) {
+        console.log(response);
+      })
+      .catch( function (error) {
+        console.log(error.data.errors.username);
+        $scope.errorMessage = error.data.errors.username;
+        $scope.error = true;
+      });
+      $scope.username = "";
+      $scope.kingdom = "";
+      $scope.password = "";
   };
 }]);

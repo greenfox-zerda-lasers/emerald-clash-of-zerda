@@ -1,7 +1,7 @@
 angular
   .module("ClashApp")
-  .controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsService', 'MenuService', '$rootScope',
-  function($scope, $http, $location, $route, $localStorage, TroopsService, MenuService, $rootScope){
+  .controller("TroopsController", ['$scope', '$http', '$location', '$route', '$localStorage', 'TroopsFactory', 'MenuFactory', '$rootScope',
+  function($scope, $http, $location, $route, $localStorage, TroopsFactory, MenuFactory, $rootScope){
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
@@ -11,7 +11,7 @@ angular
   }
 
   var getTroops = (function() {
-    $scope.troopsData = TroopsService.query()
+    $scope.troopsData = TroopsFactory.query()
       .$promise.then(function(result) {
         $scope.troops = result;
       });
@@ -23,10 +23,10 @@ angular
   $scope.trainTroop = function(id) {
 
     if($scope.stop) {
-      TroopsService.get({troopId: id}).$promise.then(function(result) {
+      TroopsFactory.get({troopId: id}).$promise.then(function(result) {
         $scope.troopData = result;
         $scope.troopData.level = $scope.troopData.level + 1;
-        TroopsService.update({troopId: id}, {level:$scope.troopData.level})
+        TroopsFactory.update({troopId: id}, {level:$scope.troopData.level})
         .$promise.then(function(response) {
           $scope.troops[id] = response;
         },function(error) {
@@ -45,7 +45,7 @@ angular
 
   //only clickable if user has barracks
   $scope.addTroop = function() {
-    TroopsService.save().$promise.then(function(response) {
+    TroopsFactory.save().$promise.then(function(response) {
       console.log(response, "addtroop")
       $scope.troops.push(response)
       updateMenu()
@@ -59,9 +59,8 @@ angular
       })
   }
 
-
   function updateMenu() {
-    MenuService.query().$promise.then(function(result) {
+    MenuFactory.query().$promise.then(function(result) {
       $scope.food = result[0].amount;
       $scope.gold = result[1].amount;
       $rootScope.$broadcast('sendFood', $scope.food)

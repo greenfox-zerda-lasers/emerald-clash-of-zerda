@@ -1,6 +1,6 @@
 angular
   .module("ClashApp")
-  .factory("TroopsService",
+  .factory("TroopsFactory",
     function($resource, $localStorage) {
       return $resource(
         'http://localhost:8000/kingdom/:id/troops/:troopId',

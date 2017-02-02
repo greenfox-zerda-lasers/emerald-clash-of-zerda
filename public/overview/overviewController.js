@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewService', function($scope, $http, $localStorage, $location, $resource, OverviewService) {
+angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewFactory', function($scope, $http, $localStorage, $location, $resource, OverviewFactory) {
 
   if ($localStorage.userObj.userId === false) {
     $location.path('/login');
@@ -6,7 +6,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
     $scope.kingdom = $localStorage.userObj.kingdom;
 
     var getKingdomData = (function () {
-      $scope.kingdomData = OverviewService.get()
+      $scope.kingdomData = OverviewFactory.get()
         .$promise.then( function(result) {
           $scope.buildings = result.buildings;
           $scope.troops = result.troops;
