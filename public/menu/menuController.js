@@ -20,7 +20,6 @@ angular
     $scope.gold = args
   });
 
-
   $scope.logOut = function() {
     $localStorage.userObj = {};
   };

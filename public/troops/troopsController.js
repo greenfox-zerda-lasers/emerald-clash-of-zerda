@@ -59,7 +59,6 @@ angular
       })
   }
 
-
   function updateMenu() {
     MenuFactory.query().$promise.then(function(result) {
       $scope.food = result[0].amount;
