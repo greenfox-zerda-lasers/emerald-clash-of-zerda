@@ -29,12 +29,6 @@
       align-items: center;
       counter-reset: order;
 
-      .attacker-info:before {
-        counter-increment: order;
-        content: "# "counter(order);
-        padding-right: 20px;
-      }
-
       .attacker-info {
         display: flex;
         flex-direction: column;
@@ -77,8 +71,8 @@
         .result {
           width: 50px;
           height: 50px;
-          background-image: url("https://image.flaticon.com/icons/svg/225/225481.svg");
-          // background-image: url("https://image.flaticon.com/icons/svg/225/225482.svg");
+          // background-image: url("https://image.flaticon.com/icons/svg/225/225481.svg");
+          background-image: url("https://image.flaticon.com/icons/svg/225/225482.svg");
           background-size:cover;
           background-position: center center;
         }
@@ -94,14 +88,19 @@
             background-position: center center;
           }
         }
-        
+
         .username {
           text-transform: capitalize;
           text-align: center;
           padding-top: 20px;
         }
       }
+    }
 
+    .battle-item:before {
+      counter-increment: order;
+      content: "# "counter(order);
+      padding-right: 20px;
     }
   }
 }
