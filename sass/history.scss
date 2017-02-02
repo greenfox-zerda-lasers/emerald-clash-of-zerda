@@ -1,0 +1,106 @@
+#history-page {
+
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .history-title {
+    text-align: center;
+    color: white;
+    padding-bottom: 30px;
+    font-size: 3em;
+  }
+
+  .container {
+    padding-left: 8%;
+    padding-right: 8%;
+
+    li {
+      list-style: none;
+      color: white;
+    }
+
+    .battle-item {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      align-items: center;
+      counter-reset: order;
+
+      .attacker-info {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          width: 200px;
+          text-align: center;
+        }
+      }
+      .defender-info {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          width: 200px;
+          text-align: center;
+        }
+      }
+
+      .battle-result {
+        display: flex;
+        background-color: rgba(240, 240, 240, 0.4);
+        border-radius: 10px;
+        padding: 15px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+        .attacker {
+          padding-right: 20px;
+
+          .avatar {
+            width: 50px;
+            height: 50px;
+            background-image: url("https://image.flaticon.com/icons/svg/221/221704.svg");
+            background-size:cover;
+            background-position: center center;
+          }
+        }
+
+        .result {
+          width: 50px;
+          height: 50px;
+          // background-image: url("https://image.flaticon.com/icons/svg/225/225481.svg");
+          background-image: url("https://image.flaticon.com/icons/svg/225/225482.svg");
+          background-size:cover;
+          background-position: center center;
+        }
+
+        .defender {
+          padding-left: 20px;
+
+          .avatar {
+            width: 50px;
+            height: 50px;
+            background-image: url("http://www.flaticon.com/premium-icon/icons/svg/219/219553.svg");
+            background-size:cover;
+            background-position: center center;
+          }
+        }
+
+        .username {
+          text-transform: capitalize;
+          text-align: center;
+          padding-top: 20px;
+        }
+      }
+    }
+
+    .battle-item:before {
+      counter-increment: order;
+      content: "# "counter(order);
+      padding-right: 20px;
+    }
+  }
+}
