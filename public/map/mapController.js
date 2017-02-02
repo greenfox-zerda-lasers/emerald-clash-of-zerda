@@ -17,9 +17,10 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   var xPos
   var yPos
   var kingdomPosition
+  $scope.showInfo = false
 
   var getPosition = (function() {
-    mapFactory.query().$promise.then(function(result) {
+    mapFactory.search.query(name="").$promise.then(function(result) {
       console.log(result)
 
       result.forEach(function(elem, index) {
@@ -33,7 +34,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           kingdomPosition = col[xPos]
           kingdomPosition.classList.add("kingdom")
           kingdomPosition.innerHTML = "You"
-          console.log(kingdomPosition)
+          //console.log(kingdomPosition)
         }
         if(result[index].user.id != $localStorage.userObj.userId) {
           var xPosEnemy = result[index].position[0];
@@ -46,12 +47,31 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           var name = result[index].user.username
           enemyPosition.classList.add("kingdomEnemy")
           enemyPosition.innerHTML = name
-          console.log(kingdomPosition)
+
+
+          enemyPosition.addEventListener("click", function(){
+            console.log("clickkkk")
+            mapFactory.search.query({kingdom: name}).$promise.then(function(result) {
+              $scope.kingdomName = result[0].user.kingdom
+              $scope.points = result[0].user.points
+              $scope.troops = result[0].troops.length
+              $scope.buildingsList = result[0].buildings
+              $scope.showInfo = true
+            })
+          })
         }
       })
-
     });
   })();
+
+  $scope.attack = function() {
+    console.log("attack");
+    $scope.opponent = {"opponent": 1}
+    mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
+      console.log(result);
+    })
+  }
+
 
 
 

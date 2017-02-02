@@ -8,4 +8,17 @@
     </div>
   </div>
 
+  <div class="info" ng-show="showInfo">
+    <h3>{{kingdomName}}</h3>
+    <h3>points: {{points}}</h3>
+    <h3>troops: {{troops}}</h3>
+    <h3>Buildings:</h3>
+    <ul>
+      <li ng-repeat="building in buildingsList">{{building.type}}:</li>
+      <li ng-repeat="building in buildingsList">level: {{building.level}}</li>
+      <li ng-repeat="building in buildingsList">hp: {{building.hp}}</li>
+    </ul>
+    <button class="fight" ng-click="attack()">attack</button>
+  </div>
+
 </section>
