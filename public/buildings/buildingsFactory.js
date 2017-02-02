@@ -1,5 +1,5 @@
 /**
- * Building service
+ * Building factory
  * @desc Handles API of buildings
  * @author Bencso
  */
