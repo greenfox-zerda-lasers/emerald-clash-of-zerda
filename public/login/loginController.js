@@ -28,6 +28,8 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       })
       .catch( function(error) {
         console.log(error);
+        $scope.errorMessage = error.data.errors.username || error.data.errors.password;
+        $scope.error = true;
       });
       $scope.username = "";
       $scope.password = "";

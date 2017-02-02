@@ -13,7 +13,8 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     };
     console.log($scope.postData);
     BuildingsFactory.save($scope.postData)
-      .$promise.then( function (response) {
+      .$promise
+      .then( function (response) {
         console.log(response);
 
         $scope.buildingsList.push(response);
@@ -57,6 +58,9 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         $scope.gold = result[1].amount;
         $rootScope.$broadcast('sendFood', $scope.food);
         $rootScope.$broadcast('sendGold', $scope.gold);
+    })
+    .catch( function(error) {
+      console.log(error);
     });
   };
 }]);

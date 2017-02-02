@@ -7,9 +7,12 @@ angular
 
   var renderMenuResources = (function() {
     $scope.resources = MenuFactory.query()
-      .$promise.then(function(result) {
+      .$promise
+      .then(function(result) {
         $scope.food = result[0].amount;
         $scope.gold = result[1].amount;
+      }).catch( function(error) {
+        console.log(error);
       });
   })();
 
