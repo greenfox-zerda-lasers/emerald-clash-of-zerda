@@ -2,14 +2,14 @@ angular.module("ClashApp").controller("HistoryController", ['$scope', '$http', '
 
   var getBattleHistory = (function () {
     HistoryFactory.query()
-    .$promise.then( function(response) {
+    .$promise
+    .then( function(response) {
       $scope.battleList = response;
       console.log($scope.battleList);
-
     })
     .catch( function (error) {
       console.log(error);
     });
   })();
-  
+
 }]);

@@ -12,8 +12,12 @@ angular
 
   var getTroops = (function() {
     $scope.troopsData = TroopsFactory.query()
-      .$promise.then(function(result) {
+      .$promise
+      .then(function(result) {
         $scope.troops = result;
+      })
+      .catch( function(error) {
+        console.log(error);
       });
   })();
 

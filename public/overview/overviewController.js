@@ -7,12 +7,16 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
 
     var getKingdomData = (function () {
       $scope.kingdomData = OverviewFactory.get()
-        .$promise.then( function(result) {
+        .$promise
+        .then( function(result) {
           $scope.buildings = result.buildings;
           $scope.troops = result.troops;
           $scope.resources = result.resources;
           $scope.buildingTypes = getBuildings($scope.buildings);
           $scope.resourceTypes = getResources($scope.resources);
+        })
+        .catch( function(error) {
+          console.log(error);
         });
     })();
 

@@ -13,7 +13,8 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     };
     console.log($scope.postData);
     BuildingsFactory.save($scope.postData)
-      .$promise.then( function (response) {
+      .$promise
+      .then( function (response) {
         console.log(response);
 
         $scope.buildingsList.push(response);
@@ -60,8 +61,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     })
     .catch( function(error) {
       console.log(error);
-    } {
-
     });
   };
 }]);
