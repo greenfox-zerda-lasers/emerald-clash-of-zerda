@@ -1,5 +1,5 @@
 /**
- * History service
+ * History factory
  * @desc Handles API of the History
  * @author Bencso
  */

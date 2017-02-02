@@ -1,5 +1,5 @@
 /**
- * Leaderboard service
+ * Leaderboard factory
  * @desc Handles API of the Leaderboard
  * @author Bencso
  */

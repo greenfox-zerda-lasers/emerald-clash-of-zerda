@@ -6,7 +6,7 @@
 
 angular
   .module("ClashApp")
-  .factory("BuildingsService",
+  .factory("BuildingsFactory",
     function($resource, $localStorage) {
       return $resource('http://localhost:8000/kingdom/:id/buildings/:building_id',
         {id: $localStorage.userObj.userId, building_id: "@building_id"},

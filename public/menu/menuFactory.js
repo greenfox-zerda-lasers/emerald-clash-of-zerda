@@ -1,6 +1,6 @@
 angular
   .module("ClashApp")
-  .factory("MenuService",
+  .factory("MenuFactory",
     function($resource, $localStorage) {
       return $resource(
         'http://localhost:8000/kingdom/:id/resources',
