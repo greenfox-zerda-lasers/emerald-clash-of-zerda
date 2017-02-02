@@ -57,6 +57,11 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         $scope.gold = result[1].amount;
         $rootScope.$broadcast('sendFood', $scope.food);
         $rootScope.$broadcast('sendGold', $scope.gold);
+    })
+    .catch( function(error) {
+      console.log(error);
+    } {
+
     });
   };
 }]);
