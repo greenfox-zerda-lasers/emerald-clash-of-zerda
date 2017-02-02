@@ -19,6 +19,7 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
       .$promise
       .then( function (response) {
         console.log(response);
+        console.log($localStorage.userObj);
       })
       .catch( function (error) {
         console.log(error.data.errors.username);
