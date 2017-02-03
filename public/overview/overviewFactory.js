@@ -1,9 +1,3 @@
-/**
-* Overview factory
-* @desc Handles API of overview
-* @author Bencso
-*/
-
 angular
  .module("ClashApp")
  .factory("OverviewFactory",

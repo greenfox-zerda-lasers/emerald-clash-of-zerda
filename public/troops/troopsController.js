@@ -38,7 +38,7 @@ angular
               $scope.errorMessage = error.data.errors.upgrade
               $scope.error = true;
               $scope.stop = false
-              console.log("elfogyott a peeeenzed!!")
+              console.log("You're out of money!")
             }
           }
         )
@@ -58,7 +58,7 @@ angular
           $scope.errorMessage = error.data.errors.upgrade
           $scope.error = true;
           $scope.stop = false
-          console.log("elfogyott a peeeenzed!!")
+          console.log("You're out of money!")
         }
       })
   }
@@ -71,5 +71,4 @@ angular
       $rootScope.$broadcast('sendGold', $scope.gold)
     });
   }
-
 }]);

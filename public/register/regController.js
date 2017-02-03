@@ -18,18 +18,15 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
     RegistrationFactory.save($scope.regData)
       .$promise
       .then( function (response) {
-        console.log(response);
         $localStorage.userObj = {
           userId: response.id,
           kingdom: response.kingdom,
           username: response.username,
           points: response.points
         };
-        console.log($localStorage.userObj);
         $location.path('/overview');
       })
       .catch( function (error) {
-        console.log(error.data.errors.username);
         $scope.errorMessage = error.data.errors.username;
         $scope.error = true;
       });

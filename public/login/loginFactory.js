@@ -1,9 +1,3 @@
-/**
- * Login factory
- * @desc Handles API of the Login
- * @author Bencso
- */
-
 angular
   .module("ClashApp")
   .factory("LoginFactory",

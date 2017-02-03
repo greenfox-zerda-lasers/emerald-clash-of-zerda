@@ -1,7 +1,6 @@
 angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$location', '$route', 'mapFactory', '$localStorage', function($scope, $http, $location, $route, mapFactory, $localStorage){
 
 
-
   $scope.board = [
 
         [0, 0, 0, 1, 1, 1, 0],
@@ -21,7 +20,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   var getPosition = (function() {
     mapFactory.search.query(name="").$promise.then(function(result) {
-      console.log(result)
 
       result.forEach(function(elem, index) {
         if(result[index].user.id == $localStorage.userObj.userId) {
@@ -34,7 +32,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           kingdomPosition = col[xPos]
           kingdomPosition.classList.add("kingdom")
           kingdomPosition.innerHTML = "You"
-          //console.log(kingdomPosition)
+
         }
         if(result[index].user.id != $localStorage.userObj.userId) {
           var xPosEnemy = result[index].position[0];
@@ -49,20 +47,16 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           enemyPosition.classList.add("kingdomEnemy")
           enemyPosition.setAttribute("data", name)
           enemyPosition.setAttribute("id", id)
-          //$scope.id = id
           enemyPosition.innerHTML = name
           enemyPosition.addEventListener("click", function(){
-
           })
         }
       })
-    });
-  })();
+    })
+  })()
 
   $scope.selectEnemy = function(event) {
     if(event.target.classList.contains("kingdomEnemy")) {
-      console.log(event.target.id, "id")
-      console.log(event.target.innerHTML, "name")
       //event.target.style.backgroundColor = "blue"
 
        mapFactory.search.query({kingdom: event.target.innerHTML}).$promise.then(function(result) {
@@ -74,35 +68,13 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
          $scope.showInfo = true
 
          $scope.attack = function() {
-           //console.log("attack");
            $scope.opponent = {"opponent": event.target.id}
            console.log(event.target.id, "attack")
            mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
-             //console.log(result);
            })
          }
        })
     }
-
   }
-
-  // $scope.attack = function() {
-  //   console.log("attack");
-  //   $scope.opponent = {"opponent": 1}
-  //   mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
-  //     console.log(result);
-  //   })
-  // }
-
-
-
-
-
-
-
-
-
-
-
 
 }]);

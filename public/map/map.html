@@ -6,7 +6,7 @@
     <h3 class="name">{{kingdomName}}</h3>
     <h3>Points: {{points}}</h3>
     <h3>Proops: {{troops}}</h3>
-    <!-- <h3>Buildings:</h3> -->
+
     <table>
       <tr>
         <th><h3>Building</h3></th>
@@ -19,6 +19,7 @@
         <td ng-repeat="building in buildingsList">{{building.hp}}</td>
       </tr>
     </table>
+
     <button class="fight" ng-click="attack()">ATTACK</button>
   </div>
 

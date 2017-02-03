@@ -5,7 +5,6 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       $localStorage.userObj = {}
     };
     $localStorage.userObj.userId = false;
-    console.log("OK");
   })();
 
   $scope.userLogin = function() {

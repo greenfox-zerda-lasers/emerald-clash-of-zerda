@@ -5,7 +5,6 @@ angular.module("ClashApp").controller("HistoryController", ['$scope', '$http', '
     .$promise
     .then( function(response) {
       $scope.battleList = response;
-      console.log($scope.battleList);
     })
     .catch( function (error) {
       console.log(error);
