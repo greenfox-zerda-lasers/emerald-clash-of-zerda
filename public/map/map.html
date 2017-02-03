@@ -2,23 +2,30 @@
 
 <section id="map">
 
-  <div class="board" >
-    <div class="board-row" ng-repeat="row in board">
-      <div class="tile{{elem}} board-elem" ng-repeat="elem in row track by $index"></div>
-    </div>
+  <div class="info" ng-show="showInfo">
+    <h3 class="name">{{kingdomName}}</h3>
+    <h3>Points: {{points}}</h3>
+    <h3>Proops: {{troops}}</h3>
+    <!-- <h3>Buildings:</h3> -->
+    <table>
+      <tr>
+        <th><h3>Building</h3></th>
+        <th><h3>Level</h3></th>
+        <th><h3>Hp</h3></th>
+      </tr>
+      <tr ng-repeat="building in buildingsList">
+        <td ng-repeat="building in buildingsList">{{building.type}}</td>
+        <td ng-repeat="building in buildingsList">{{building.level}}</td>
+        <td ng-repeat="building in buildingsList">{{building.hp}}</td>
+      </tr>
+    </table>
+    <button class="fight" ng-click="attack()">ATTACK</button>
   </div>
 
-  <div class="info" ng-show="showInfo">
-    <h3>{{kingdomName}}</h3>
-    <h3>points: {{points}}</h3>
-    <h3>troops: {{troops}}</h3>
-    <h3>Buildings:</h3>
-    <ul>
-      <li ng-repeat="building in buildingsList">{{building.type}}:</li>
-      <li ng-repeat="building in buildingsList">level: {{building.level}}</li>
-      <li ng-repeat="building in buildingsList">hp: {{building.hp}}</li>
-    </ul>
-    <button class="fight" ng-click="attack()">attack</button>
+  <div class="board" >
+    <div class="board-row" ng-repeat="row in board">
+      <div class="tile{{elem}} board-elem" ng-repeat="elem in row track by $index"  ng-click="selectEnemy($event)"></div>
+    </div>
   </div>
 
 </section>
