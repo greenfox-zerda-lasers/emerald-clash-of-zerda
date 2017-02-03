@@ -4,10 +4,10 @@ angular
     function($localStorage, $location) {
       return {
         loggedIn: function() {
-          if ($localStorage.userObj.userId != false) {
-            return true;
-          } else {
+          if ($localStorage.userObj.userId === false) {
             return false;
+          } else {
+            return true;
           };
         }
       }

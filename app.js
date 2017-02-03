@@ -51,14 +51,14 @@
       });
 
   }])
-    // .run( function($rootScope, $location, UserFactory) {
-    //   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-    //     if (UserFactory.loggedIn() === false) {
-    //       $location.path("/login");
-    //     } else {
-    //       $location.path("/overview");
-    //     }
-    //   });
-    // });
+    .run( function($rootScope, $location, UserFactory) {
+      $rootScope.$on( "$routeChangeStart", function(event, current, prev) {
+        if (!UserFactory.loggedIn()) {
+          if (current.$$route.originalPath != "/register") {
+            $location.path("/login");
+          }
+        }
+      });
+    });
 
 })();
