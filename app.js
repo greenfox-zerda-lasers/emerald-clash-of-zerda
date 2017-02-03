@@ -5,50 +5,57 @@
 
   app.config(['$routeProvider',
   function($routeProvider) {
-    $routeProvider.
-      when('/login', {
+    $routeProvider
+      .when('/login', {
         templateUrl: './public/login/login.html',
         controller: 'LoginController'
-      }).
-      when('/register', {
+      })
+      .when('/register', {
         templateUrl: './public/register/register.html',
         controller: 'RegController'
-      }).
-      when('/overview', {
+      })
+      .when('/overview', {
         templateUrl: './public/overview/overview.html',
         controller: 'OverviewController'
-      }).
-      when('/map', {
+      })
+      .when('/map', {
         templateUrl: './public/map/map.html',
         controller: 'MapController'
-      }).
-      when('/buildings', {
+      })
+      .when('/buildings', {
         templateUrl: './public/buildings/buildings.html',
         controller: 'BuildingsController'
-      }).
-      when('/troops', {
+      })
+      .when('/troops', {
         templateUrl: './public/troops/troops.html',
         controller: 'TroopsController'
-      }).
-      when('/resources', {
+      })
+      .when('/resources', {
         templateUrl: './public/resources/resources.html',
         controller: 'ResourcesController'
-      }).
-      when('/leaderboard', {
+      })
+      .when('/leaderboard', {
         templateUrl: './public/leaderboard/leaderboard.html',
         controller: 'LeaderboardController'
-      }).
-      when('/history', {
+      })
+      .when('/history', {
         templateUrl: './public/history/history.html',
         controller: 'HistoryController'
-      }).
-      when('/profile', {
+      })
+      .when('/profile', {
         templateUrl: './public/profile/profile.html',
         controller: 'ProfileController'
-      }).
-      otherwise({
+      })
+      .otherwise({
         redirectTo: '/login'
       });
-  }]);
+
+  }]).run( function($rootScope, $location, UserFactory) {
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if (UserFactory.loggedIn() === false) {
+        $location.path("/login");
+      }
+    });
+  });
 
 })();
