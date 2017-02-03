@@ -50,12 +50,15 @@
         redirectTo: '/login'
       });
 
-  }]).run( function($rootScope, $location, UserFactory) {
-    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if (UserFactory.loggedIn() === false) {
-        $location.path("/login");
-      }
-    });
-  });
+  }])
+    // .run( function($rootScope, $location, UserFactory) {
+    //   $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+    //     if (UserFactory.loggedIn() === false) {
+    //       $location.path("/login");
+    //     } else {
+    //       $location.path("/overview");
+    //     }
+    //   });
+    // });
 
 })();
