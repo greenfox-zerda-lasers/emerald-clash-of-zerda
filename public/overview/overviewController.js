@@ -1,8 +1,8 @@
 angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewFactory', function($scope, $http, $localStorage, $location, $resource, OverviewFactory) {
 
-  if ($localStorage.userObj.userId === false) {
-    $location.path('/login');
-  } else {
+  // if ($localStorage.userObj.userId === false) {
+  //   $location.path('/login');
+  // } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
 
     var getKingdomData = (function () {
@@ -57,5 +57,5 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       });
       return {food, gold};
     };
-  };
+  // };
 }]);
