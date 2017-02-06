@@ -1,5 +1,22 @@
 <header ng-include="'public/menu/menu.html'"></header>
 
-<section id="profile-site">
+<section id="profile-page">
+
+  <div class="container">
+    <div class="avatar"></div>
+    <h1 class="profile-title">{{userInfo.username}}</h1>
+  </div>
+  
+  <div class="profile-item">
+    <span class="kingdom">{{userInfo.kingdom}}</span>
+  </div>
+  <div class="profile-item">
+    <h3>Current points: </h3>
+    <span class="points">{{userInfo.points}} points</span>
+  </div>
+  <div class="profile-item">
+    <h3>Current ranking: </h3>
+    <span class="ranking">{{userRanking}} place</span>
+  </div>
 
 </section>

@@ -1,0 +1,60 @@
+#profile-page {
+
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+
+    .profile-title{
+      text-align: center;
+      color: white;
+      padding-bottom: 30px;
+      font-size: 3em;
+      text-transform: capitalize;
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      background-image: url("https://image.flaticon.com/icons/svg/149/149076.svg");
+      background-size:cover;
+      background-position: center center;
+      display: inline-block;
+      align-self: center;
+      padding-bottom: 30px;
+      border: 2px solid black;
+      border-radius: 50%;
+    }
+  }
+
+
+  .profile-item {
+    display: flex;
+    justify-content: center;
+
+    .kingdom,
+    .points,
+    .ranking,
+    h3 {
+      text-align: center;
+      color: white;
+      font-size: 1em;
+      text-transform: capitalize;
+    }
+
+    .points,
+    .ranking {
+      padding-left: 20px;
+    }
+
+
+  }
+
+}
