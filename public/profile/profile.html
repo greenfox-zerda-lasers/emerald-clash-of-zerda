@@ -3,10 +3,10 @@
 <section id="profile-page">
 
   <div class="container">
-    <div class="avatar"></div>
+    <div class="avatar" ng-click="upload()"></div>
     <h1 class="profile-title">{{userInfo.username}}</h1>
   </div>
-  
+
   <div class="profile-item">
     <span class="kingdom">{{userInfo.kingdom}}</span>
   </div>
@@ -19,4 +19,5 @@
     <span class="ranking">{{userRanking}} place</span>
   </div>
 
+  <div class="modal" ng-show=""></div>
 </section>

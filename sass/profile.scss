@@ -31,9 +31,24 @@
       padding-bottom: 30px;
       border: 2px solid black;
       border-radius: 50%;
+      position: relative;
     }
-  }
 
+    .avatar:hover {
+      cursor: pointer;
+      opacity: .8;
+    }
+
+    .avatar:hover::after {
+      content: "change";
+      position: absolute;
+      bottom: 5%;
+      left: 31%;
+      padding: 2px;
+      background-color: rgba(240, 240, 240, 0.5);
+    }
+
+  }
 
   .profile-item {
     display: flex;
@@ -53,8 +68,16 @@
     .ranking {
       padding-left: 20px;
     }
-
-
   }
+
+  .modal {
+    max-width: 200px;
+    max-height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
 
 }
