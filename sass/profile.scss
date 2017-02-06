@@ -1,0 +1,136 @@
+#profile-page {
+
+  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 30px;
+
+    .profile-title{
+      text-align: center;
+      color: white;
+      padding-bottom: 30px;
+      font-size: 3em;
+      text-transform: capitalize;
+    }
+
+
+  }
+  .avatar {
+    width: 150px;
+    height: 150px;
+    background-image: url("https://image.flaticon.com/icons/svg/149/149076.svg");
+    background-size:cover;
+    background-position: center center;
+    display: inline-block;
+    align-self: center;
+    padding-bottom: 30px;
+    border: 2px solid black;
+    border-radius: 50%;
+    position: relative;
+  }
+
+  .avatar:hover {
+    cursor: pointer;
+    opacity: .8;
+  }
+
+  .avatar:hover::after {
+    content: "change";
+    position: absolute;
+    bottom: 5%;
+    left: 31%;
+    padding: 2px;
+    background-color: rgba(240, 240, 240, 0.5);
+  }
+
+  .profile-item {
+    display: flex;
+    justify-content: center;
+
+    .kingdom,
+    .points,
+    .ranking,
+    h3 {
+      text-align: center;
+      color: white;
+      font-size: 1em;
+      text-transform: capitalize;
+    }
+
+    .points,
+    .ranking {
+      padding-left: 20px;
+    }
+  }
+
+  .modal {
+    border-radius: 5px;
+    max-width: 600px;
+    max-height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1010;
+    background: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    // box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
+
+    .mini-avatar {
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      background-size:cover;
+      background-position: center center;
+      display: inline-block;
+      align-self: center;
+      padding-bottom: 30px;
+      border: 2px solid black;
+      border-radius: 50%;
+      position: relative;
+    }
+
+    .img1 {
+      background-image: url("https://image.flaticon.com/icons/svg/149/149076.svg");
+    }
+    .img2 {
+      background-image: url("https://image.flaticon.com/icons/svg/201/201634.svg");
+    }
+    .img3 {
+      background-image: url("https://image.flaticon.com/icons/svg/236/236831.svg");
+    }
+    .img4 {
+      background-image: url("https://image.flaticon.com/icons/svg/149/149073.svg");
+    }
+    .img5 {
+      background-image: url("https://image.flaticon.com/icons/svg/236/236832.svg");
+    }
+
+    input {
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+  }
+
+  .modal-overlay {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+
+}
