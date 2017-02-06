@@ -34,6 +34,11 @@ angular.module("ClashApp").controller("ProfileController", ['$scope', '$http', '
     return ranking;
   };
 
+  $scope.changeAvatar = function (id) {
+    console.log(id);
+    
+  };
+
   $scope.upload = function () {
     console.log("avatar upload");
   };

@@ -1,9 +1,9 @@
 <header ng-include="'public/menu/menu.html'"></header>
 
-<section id="profile-page">
+<section id="profile-page" ng-init="dialog=false">
 
   <div class="container">
-    <div class="avatar" ng-click="upload()"></div>
+    <div class="avatar" ng-click="dialog=!dialog"></div>
     <h1 class="profile-title">{{userInfo.username}}</h1>
   </div>
 
@@ -19,5 +19,13 @@
     <span class="ranking">{{userRanking}} place</span>
   </div>
 
-  <div class="modal" ng-show=""></div>
+  <div class="modal" ng-show="dialog">
+    <i class="mini-avatar img1" id="1" ng-click="changeAvatar(1)"></i>
+    <i class="mini-avatar img2" id="2" ng-click="changeAvatar(2)"></i>
+    <i class="mini-avatar img3" id="3" ng-click="changeAvatar(3)"></i>
+    <i class="mini-avatar img4" id="4" ng-click="changeAvatar(4)"></i>
+    <i class="mini-avatar img5" id="5" ng-click="changeAvatar(5)"></i>
+    <input type="file" name="" value="Upload your own" ng-click="upload()">
+  </div>
+  <div class="modal-overlay" ng-show="dialog" ng-click="dialog=!dialog"></div>
 </section>
