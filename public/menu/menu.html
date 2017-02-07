@@ -18,18 +18,17 @@
       <img src="http://image.flaticon.com/icons/svg/199/199533.svg" alt="gold"></img>
     </div>
 
-
     <div class="drop-down-menu">
       <div class="drop-down-menu-icon" ng-init="open = false" ng-click="open = !open">
         <a class="drop-down-menu-username">{{username}}</a>
         <div class="drop-down-menu-avatar"></div>
       </div>
-      <ul class="drop-down-menu-body" ng-show="open === true">
+      <ul class="drop-down-menu-body" ng-show="open">
         <li class="drop-down-menu-row drop-down-menu-user"><a class="drop-down-menu-link" ng-href={{'#!/profile'}}>Profile</a></li>
         <li class="drop-down-menu-row drop-down-menu-logout" ng-click="logOut()"><a ng-href={{'#!/login'}} class="drop-down-menu-link">Log out</a></li>
       </ul>
     </div>
-
+    <div class="drop-down-overlay" ng-show="open" ng-click="open=!open"></div>
   </div>
 
 </section>
