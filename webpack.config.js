@@ -1,6 +1,5 @@
 //https://github.com/kevlened/copy-webpack-plugin
 
-
 module.exports = {
 
   entry: './main.js',
@@ -29,6 +28,11 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /(node_modules)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        }
       }
 
     ]
