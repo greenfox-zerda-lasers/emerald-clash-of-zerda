@@ -82,7 +82,7 @@
     background: white;
     padding: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
     box-shadow: 0 0 60px 10px rgba(0, 0, 0, 0.9);
     // transition: all 0.5s ease-in-out;
@@ -120,6 +120,7 @@
     input {
       margin: 0 auto;
       padding-top: 10px;
+      width: 100%;
     }
   }
 
