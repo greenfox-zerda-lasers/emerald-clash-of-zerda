@@ -1,14 +1,12 @@
-var css = require('./sass/main.scss');
-var fox1 = require('./img/fox_without_bg.svg');
-var snap = require('./lib/snap.svg.js');
 var angular = require('./lib/angular.js');
 var ngResource = require('./lib/angular-resource.js');
 var ngRoute = require('./lib/angular-route.min.js');
 var ngAnimate = require('./lib/angular-animate.min.js');
-var ngStorage = require('https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js');
+var ngStorage = require('./lib/ngStorage.js');
 var app = require('./app.js');
 var userFactory = require('./userFactory.js');
-var loginController = require('/public/login/loginController.js');
+var loginController = require('./public/login/loginController.js');
+
 var loginFactory = require('./public/login/loginFactory.js');
 var regController = require('./public/register/regController.js');
 var regFactory = require('./public/register/regFactory.js');
@@ -28,3 +26,7 @@ var troopsController = require('./public/troops/troopsController.js');
 var troopsFactory = require('./public/troops/TroopsFactory.js');
 var menuController = require('./public/menu/menuController.js');
 var menuFactory = require('./public/menu/menuFactory.js');
+
+var css = require('./sass/main.scss');
+var fox1 = require('./img/fox_without_bg.svg');
+var snap = require('./lib/snap.svg.js');
