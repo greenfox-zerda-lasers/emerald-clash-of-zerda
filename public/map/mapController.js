@@ -18,7 +18,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   var renderUserKingdom = (function() {
     kingdoms += 1
-    Snap.load("img/map/island01.svg", function(f){
+    Snap.load("img/map/island02.svg", function(f){
       var island = f.select("svg")
       s.append(f)
       //floor.transform("t150, 150")
@@ -55,7 +55,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     var transformT = "t" + String(xPos) + "," + String(yPos)
     // console.log(transformT)
     //posCounter += 1
-    Snap.load("img/map/island01.svg", function(f){
+    Snap.load("img/map/island02.svg", function(f){
       console.log("load?")
       var floor = f.select("svg")
       s.append(f)
@@ -71,7 +71,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   }
 
 
-  addKingdom()
+  //addKingdom()
   // addKingdom()
   // addKingdom()
   // addKingdom()
