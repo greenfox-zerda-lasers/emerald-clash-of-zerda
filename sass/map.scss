@@ -1,12 +1,26 @@
-#map {
-  background-color: #C4E9EF;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: bottom;
+main {
+  //height: auto;
+}
 
-  svg {
-    position: relative;
-    top: 100px;
-    left: 100px;
+#map {
+  height: 5000px;
+
+  background-image: url("img/map/bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  //background-position: center;
+  height: 200%;
+  //padding: 50px;
+
+  #canvas {
+    width: 10000px;
+    height: 5000px;
+    svg {
+      width: 600px;
+      height: 500px;
+    }
   }
+
+
 }
