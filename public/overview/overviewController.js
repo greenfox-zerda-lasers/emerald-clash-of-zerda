@@ -6,6 +6,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       $scope.kingdomData = OverviewFactory.get()
         .$promise
         .then( function(result) {
+          console.log(result);
           $scope.buildings = result.buildings;
           $scope.troops = result.troops;
           $scope.resources = result.resources;
