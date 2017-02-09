@@ -6,6 +6,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       $scope.kingdomData = OverviewFactory.get()
         .$promise
         .then( function(result) {
+          console.log(result);
           $scope.buildings = result.buildings;
           $scope.troops = result.troops;
           $scope.resources = result.resources;
@@ -21,7 +22,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       var townhall = 0;
       var mine = 0;
       var farm = 0;
-      var barrack = 0;
+      var barracks = 0;
       data.forEach( function(building) {
         switch (building.type) {
           case "townhall":
@@ -33,12 +34,12 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
           case "farm":
             farm++;
             break;
-          case "barrack":
-            barrack++;
+          case "barracks":
+            barracks++;
             break;
         };
       });
-      return {townhall, mine, farm, barrack};
+      return {townhall, mine, farm, barracks};
     };
 
     var getResources = function (data) {
