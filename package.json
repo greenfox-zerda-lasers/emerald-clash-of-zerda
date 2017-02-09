@@ -43,6 +43,7 @@
     "html-webpack-plugin": "^2.26.0",
     "node": "0.0.0",
     "resolve-url-loader": "^1.6.1",
+    "smoothscroll-polyfill": "^0.3.4",
     "svg-url-loader": "^1.1.1",
     "webpack": "^2.2.0",
     "webpack-dev-server": "^2.2.0"
