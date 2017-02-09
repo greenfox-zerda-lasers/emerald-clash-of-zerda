@@ -1,18 +1,18 @@
 angular
   .module("ClashApp")
   .factory("mapFactory",
-    function($resource, $localStorage) {
+    function($resource, $localStorage, ConfigFactory) {
 
       return {
         search: $resource(
-          'http://localhost:8000/search?q=:kingdom',
+          `${ConfigFactory.apiURL}search?q=:kingdom`,
           {kingdom: "@kingdom"},
           {
             'update': { method:'PUT' }
           }
         ),
         attack : $resource(
-          'http://localhost:8000/kingdom/:id/attack/',
+          `${ConfigFactory.apiURL}kingdom/:id/attack/`,
           {id: $localStorage.userObj.userId}
         )
 

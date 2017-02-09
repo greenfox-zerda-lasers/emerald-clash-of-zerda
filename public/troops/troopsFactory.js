@@ -1,9 +1,9 @@
 angular
   .module("ClashApp")
   .factory("TroopsFactory",
-    function($resource, $localStorage) {
+    function($resource, $localStorage, ConfigFactory) {
       return $resource(
-        'http://localhost:8000/kingdom/:id/troops/:troopId',
+        `${ConfigFactory.apiURL}kingdom/:id/troops/:troopId`,
         {id: $localStorage.userObj.userId, troopId: "@troopId"},
         {
           'update': { method:'PUT' },

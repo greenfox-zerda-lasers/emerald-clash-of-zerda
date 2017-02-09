@@ -3,10 +3,12 @@ var ngResource = require('./lib/angular-resource.js');
 var ngRoute = require('./lib/angular-route.min.js');
 var ngAnimate = require('./lib/angular-animate.min.js');
 var ngStorage = require('./lib/ngStorage.js');
+
 var app = require('./app.js');
 var userFactory = require('./userFactory.js');
-var loginController = require('./public/login/loginController.js');
+var configFactory = require('./configFactory.js');
 
+var loginController = require('./public/login/loginController.js');
 var loginFactory = require('./public/login/loginFactory.js');
 var regController = require('./public/register/regController.js');
 var regFactory = require('./public/register/regFactory.js');

@@ -7,6 +7,6 @@
 angular
   .module("ClashApp")
   .factory("RegistrationFactory",
-    function($resource, $localStorage) {
-      return $resource('http://localhost:8000/register');
+    function($resource, $localStorage, ConfigFactory) {
+      return $resource(`${ConfigFactory.apiURL}register`);
 });
