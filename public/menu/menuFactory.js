@@ -1,9 +1,9 @@
 angular
   .module("ClashApp")
   .factory("MenuFactory",
-    function($resource, $localStorage) {
+    function($resource, $localStorage, ConfigFactory) {
       return $resource(
-        'http://localhost:8000/kingdom/:id/resources',
+        `${ConfigFactory.apiURL}kingdom/:id/resources`,
         {id: $localStorage.userObj.userId, troopId: "@troopId"}
       )
 });

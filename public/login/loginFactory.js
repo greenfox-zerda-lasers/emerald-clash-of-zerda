@@ -1,6 +1,7 @@
 angular
   .module("ClashApp")
   .factory("LoginFactory",
-    function($resource, $localStorage) {
-      return $resource('http://localhost:8000/login');
-});
+    function($resource, $localStorage, ConfigFactory) {
+      console.log(`${ConfigFactory.apiURL}/auth`);
+      return $resource(`${ConfigFactory.apiURL}login`);
+    });
