@@ -6,6 +6,20 @@
   display: flex;
   flex-direction: row;
 
+  .go-to-kingdom {
+    height: 45px ;
+    line-height: 1em;
+    background-color: tomato;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 1em;
+    font-weight: bold;
+  }
+
   .info {
     background-color: rgba(255, 255, 255, 0.6);
     //position: absolute;

@@ -32,3 +32,4 @@ var menuFactory = require('./public/menu/menuFactory.js');
 var css = require('./sass/main.scss');
 var fox1 = require('./img/fox_without_bg.svg');
 var snap = require('./lib/snap.svg.js');
+var smoothScroll = require('./lib/smoothscroll.js');
