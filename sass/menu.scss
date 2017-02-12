@@ -2,6 +2,9 @@
   background-color: white;
   height: 60px;
   padding: 5px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 
   .menu {
     height: 50px;

@@ -2,33 +2,48 @@
 
 <section id="map">
 
-  <div class="info" ng-show="showInfo">
-    <h3 class="name">{{kingdomName}}</h3>
-    <h3>Points: {{points}}</h3>
-    <h3>Proops: {{troops}}</h3>
 
-    <table>
-      <tr>
-        <th><h3>Building</h3></th>
-        <th><h3>Level</h3></th>
-        <th><h3>Hp</h3></th>
-      </tr>
-      <tr ng-repeat="building in buildingsList">
-        <td ng-repeat="building in buildingsList">{{building.type}}</td>
-        <td ng-repeat="building in buildingsList">{{building.level}}</td>
-        <td ng-repeat="building in buildingsList">{{building.hp}}</td>
-      </tr>
-    </table>
+  <div class="svgContainer {{elem}}" id="kingdom{{elem}}" ng-repeat="elem in kingdoms" ng-Dblclick="showDetails(elem)"></div>
 
-    <button class="fight" ng-click="attack()">ATTACK</button>
-  </div>
+  <button class="go-to-kingdom" type="button" name="button" ng-click="scrollToKingdom.toNode('#kingdom0')">Go to my kingdom</button>
+  <select ng-model="searchText"></select>
 
-  <div class="board" >
-    <div class="board-row" ng-repeat="row in board">
-      <div class="tile{{elem}} board-elem" ng-repeat="elem in row track by $index"  ng-click="selectEnemy($event)"></div>
+  <div class="userDetails" ng-show="show">
+
+    <h1>{{kingdom}}</h1>
+
+    <div class="buildings">
+      <div class="mineContainer buildingContainer">
+          <div class="mines">
+            <img class="mineImg" src="img/icons/mine_icon.svg"></img>
+            <div class="mineNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewMine()">Build!</button>
+      </div>
+
+      <div class="factoryContainer buildingContainer">
+          <div class="factories">
+            <img class="factoryImg" src="img/icons/mine_icon.svg"></img>
+            <div class="factoryNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewFactory()">Build!</button>
+      </div>
+
+      <div class="academyContainer buildingContainer">
+          <div class="academies">
+            <img class="academyImg" src="img/icons/mine_icon.svg"></img>
+            <div class="academyNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewAcademy()">Build!</button>
+      </div>
     </div>
+
+    <h2>Troops</h2>
+    <div class="troopsContainer">
+      <img class="troop">{{troopsNum}}</img>
+    </div>
+
   </div>
 
-  <button class="go-to-kingdom" type="button" name="button" ng-click="scrollToKingdom.toNode(#kingdom0)">Go to my kingdom</button>
 
 </section>

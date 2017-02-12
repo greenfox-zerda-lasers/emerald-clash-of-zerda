@@ -12,6 +12,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       "type": type
     };
 
+
     BuildingsFactory.save($scope.postData)
       .$promise
       .then( function (response) {

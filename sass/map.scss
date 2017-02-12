@@ -1,12 +1,21 @@
+main {
+  //height: auto;
+}
+
 #map {
-  background-color: #D7F0F5;
-  width: 100%;
-  height: 100%;
-  //padding-top: 50px;
-  display: flex;
-  flex-direction: row;
+
+  height: 15000px;
+  width: 20000px;
+  background: url("img/space_background02-01.jpg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: 0 0;
+  border: 5px solid rgba(0, 0, 0, 0);
+  cursor:crosshair;
 
   .go-to-kingdom {
+    position: fixed;
     height: 45px ;
     line-height: 1em;
     background-color: tomato;
@@ -14,102 +23,79 @@
     padding-left: 15px;
     padding-right: 15px;
     color: white;
-    margin-top: 20px;
+    margin-top: 50px;
     border: 1px solid rgba(0, 0, 0, 0);
     font-size: 1em;
     font-weight: bold;
   }
 
-  .info {
-    background-color: rgba(255, 255, 255, 0.6);
-    //position: absolute;
-    width: 25%;
-    height: 100%;
-    min-width: 250px;
-    // padding-left: 30px;
-    // padding-right: 40px;
-    padding-top: 50px;
-    text-align: center;
-    h3 {
-      margin-bottom: 10px;
-      font-weight: normal;
-    }
-    .name {
-      font-family: "Barrio";
-      font-size: 2em;
-      color: tomato;
-      background-color: $darkgrey;
-    }
-    button {
-      background-color: tomato;
-      padding: 5px;
-      padding-left: 15px;
-      padding-right: 15px;
-      color: white;
-      margin-top: 20px;
-      border: 1px solid rgba(0, 0, 0, 0);
-      font-size: 1em;
-      font-weight: bold;
-      //font-family: "Barrio";
-      //border-radius: 5px;
-    }
-    table {
-      width: 100%;
-    th {
-      width: calc(100% / 3);
-      h3 {
-        font-weight: bold;
-      }
-    }
-    }
-
+  select {
+    position: fixed;
+    height: 45px ;
+    line-height: 1em;
+    background-color: tomato;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    margin-top: 100px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 1em;
+    font-weight: bold;
   }
 
-  .board {
-    margin-top: 50px;
-    width: 40vw;
-    height: 40vw;
-    min-width: 500px;
-    min-height: 500px;
-    //padding-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    border: 1px solid black;
+  .ui-widget-content:hover {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
 
-    .board-row {
-      width: 100%;
-      height: calc(100% / 7);
+  .ui-widget-content:active {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  .svgContainer {
+    height: 500px;
+    width: 700px;
+    position: absolute;
+    display: inline-block;
+  }
+
+  .userDetails {
+    width: 30vw;
+    height: 100vw;
+    position: fixed;
+    transform-origin: right;
+    left: calc(100vw - 30vw);
+    top: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+    h1 {}
+
+    .buildings {
       display: flex;
       flex-direction: row;
-      //border: 1px solid white;
+      justify-content: space-around;
 
-      .board-elem {
-        width: calc(100% / 7);
-        height: 100%;
-        border: 1px solid black;
-        color: white;
-      }
-      .tile1 {
-        background-color:rgb(200, 200, 200);
-      }
-
-      .tile0 {
-        background-color: white;
-      }
-      .kingdom {
-        background-color: #FFBA00;
-        color: white;
+      .buildingContainer {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
         text-align: center;
-        padding-top: 30px;
-      }
-      .kingdomEnemy {
-        background-color: #FDA0B0;
-        color: white;
-        text-align: center;
-        padding-top: 30px;
+        button {
+          width: 100%;
+          padding: 5px;
+        }
+        img {
+          width: 80%;
+          padding: 10px;
+        }
       }
     }
   }
