@@ -4,11 +4,10 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
   let getKingdoms = (function() {
-    this.kingdomData = mapFactory.search.query()
+    mapFactory.search.query()
       .$promise
       .then( function(response) {
         $scope.kingdoms = []
-        console.log(response, "search")
         response.forEach(function(elem) {
           $scope.kingdoms.push(elem.user.id)
           var userKingdom = new Kingdom(elem)
@@ -36,11 +35,9 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     }
 
     getData() {
-      //console.log(this.id, "id")
       this.kingdomData = mapFactory.user.get({id: this.id})
         .$promise
         .then( function(response) {
-          //console.log(response, this.id, "resp")
           this.loadSVG(response)
         }.bind(this))
         .catch( function(error) {
