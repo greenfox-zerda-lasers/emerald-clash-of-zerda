@@ -2,7 +2,6 @@
 angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory', function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
 
-
   let getKingdoms = (function() {
     mapFactory.search.query()
       .$promise
@@ -259,25 +258,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 //     }
 
 
-// Scroll to Kingdom method //
-
-  $scope.scrollToKingdom = {
-
-    getCoords: function (selector) {
-      let element = document.querySelector(selector);
-      let x = (element.offsetLeft-(window.innerWidth-element.clientWidth)/2);
-      let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/2);
-      return {
-        x: x, y: y
-      }
-    },
-
-    toNode: function (selector) {
-      console.log("scroll");
-      let coords = this.getCoords(selector);
-      window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
-    }
-  };
 
 
 

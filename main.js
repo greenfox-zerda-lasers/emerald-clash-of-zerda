@@ -33,5 +33,7 @@ var menuFactory = require('./public/menu/menuFactory.js');
 
 var css = require('./sass/main.scss');
 var fox1 = require('./img/fox_without_bg.svg');
-//var Snap = require('snapsvg');
 var smoothScroll = require('./lib/smoothscroll.js');
+//var Snap = require('snapsvg');
+//var Snap = require( "imports-loader?this=>window,fix=>module.exports=0!./lib/snap.svg.js" );
+const Snap = require('imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js')
