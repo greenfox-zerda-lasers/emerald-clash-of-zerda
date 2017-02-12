@@ -8,9 +8,9 @@
   background-image: url("./img/space_background02-01.jpg");
   background-position: center center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
-  height: 100%;
+  //height: 100%;
   margin-left: auto;
   margin-right: auto;
   display: flex;
@@ -68,10 +68,10 @@
     text-align: center;
 
     .troop {
-      width: calc(100% / 5 - 20px);
+      width: calc(100% / 4 - 50px);
       height: 360px;
-      margin: 10px;
-      background-color: $mediumBlack;
+      margin: 25px;
+      background-color: rgba(255, 255, 255, 0.3);
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -109,7 +109,7 @@
         padding-left: 15px;
         padding-right: 15px;
         text-align: center;
-        background-color: rgba(250, 250, 250, 0.2);
+        background-color: $darkGray;
         color: $white;
         font-weight: bold;
         transition: all 0.3s;
@@ -121,7 +121,7 @@
       .troopData {
         width: 100%;
         height: 25%;
-        color: $white;
+        color: $black;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
@@ -140,7 +140,7 @@
               padding-top: 5%;
             }
             .data {
-              color: white;
+              color: $black;
               font-size: 2.2em;
               padding-top: 8%;
               text-align: center;
