@@ -5,6 +5,7 @@
   position: fixed;
   width: 100%;
   z-index: 100;
+
   .menu {
     height: 50px;
     list-style: none;
@@ -15,11 +16,13 @@
     padding-right: 10px;
     margin-right: 25px;
     margin-left: 10px;
+
     .menu-list {
       width: 60%;
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
+
       .menu-elem {
         font-family: "Barrio";
         line-height: 22px;
@@ -29,25 +32,30 @@
         margin: 5px;
         padding: 10px;
         text-decoration: none;
-        background-color: black;
+        background-color: $darkgrey;
         color: white;
         transition: all 0.3s;
+
         li {
           transition: all 0.3s;
         }
+
         &:hover {
           background-color: #DC713D;
+
           li {
             line-height: 45px;
           }
         }
       }
     }
+
     .resources {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       width: 10%;
+
       span {
         display: inline-block;
         //width: 25%;
@@ -59,12 +67,15 @@
         vertical-align: top;
         line-height: 40px;
       }
+
       img {
         width: auto;
         height: 50px;
       }
     }
+
     .drop-down-menu {
+
       .drop-down-menu-icon {
         width: auto;
         height: 50px;
@@ -81,7 +92,8 @@
 
         .drop-down-menu-avatar {width: 50px;
           height: 50px;
-          background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+          // background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+          background-image: url("img/fox1.svg");
           background-size:cover;
           background-position: center center;
           display: inline-block;
@@ -92,6 +104,7 @@
         position: absolute;
         top: 60px;
         right: 50px;
+        z-index: 110;
 
         .drop-down-menu-row {
           height: 40px;
@@ -108,12 +121,23 @@
           .drop-down-menu-link {
             text-decoration: none;
             color: black;
+
             &:hover {
               color: purple;
             }
           }
         }
       }
+
+    }
+    .drop-down-overlay {
+      z-index: 100;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      // background: rgba(0, 0, 0, 0.6);
     }
   }
 }

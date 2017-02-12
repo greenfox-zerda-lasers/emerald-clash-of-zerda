@@ -1,3 +1,60 @@
 <header ng-include="'public/menu/menu.html'"></header>
+<section id="history-page">
 
-history
+  <h1 class="history-title">Battle history</h1>
+
+  <div class="container">
+    <ul>
+      <li class="battle-item" ng-repeat="battle in battleList">
+        <div class="battle-counter"></div>
+        <ul class="attacker-info">
+          <li class="damage">
+            <span>Damage: </span>
+            <span>{{battle.attacker.damage}}</span>
+          </li>
+          <li class="troops-all">
+            <span>All troops: </span>
+            <span>{{battle.attacker.troops.length}}</span>
+          </li>
+          <li class="troops-lost">
+            <span>Troops lost: </span>
+            <span>{{battle.attacker.troopsLost.length}}</span>
+          </li>
+        </ul>
+
+        <div class="battle-result">
+          <ul class="attacker">
+            <li class="avatar"></li>
+            <li class="username">{{battle.attacker.user.username}}</li>
+          </ul>
+          <div class="result"></div>
+          <ul class="defender">
+            <li class="avatar"></li>
+            <li class="username">{{battle.defender.user.username}}</li>
+          </ul>
+        </div>
+
+        <ul class="defender-info">
+          <li class="damage">
+            <span>Damage: </span>
+            <span>{{battle.defender.damage}}</span>
+          </li>
+          <li class="troops-all">
+            <span>All troops: </span>
+            <span>{{battle.defender.troops.length}}</span>
+          </li>
+          <li class="troops-lost">
+            <span>Troops lost: </span>
+            <span>{{battle.defender.troopsLost.length}}</span>
+          </li>
+          <li class="buildings-lost">
+            <span>Buildings lost: </span>
+            <span>{{battle.defender.buildingsLost.length}}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+</section>

@@ -1,20 +1,21 @@
-angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsService', 'MenuService', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsService, MenuService){
+angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory){
 
   var getBuildings = (function() {
-    $scope.buildingsList = BuildingsService.query();
+    $scope.buildingsList = BuildingsFactory.query();
     console.log($scope.buildingsList);
   })();
 
   $scope.addNewBuilding = function (type) {
-    console.log(type, "type");
+
     $scope.postData = {
       "user_id": $localStorage.userObj.userId,
       "type": type
     };
-    console.log($scope.postData);
-    BuildingsService.save($scope.postData)
-      .$promise.then( function (response) {
-        console.log(response);
+
+
+    BuildingsFactory.save($scope.postData)
+      .$promise
+      .then( function (response) {
         $scope.buildingsList.push(response);
       })
       .catch( function(error) {
@@ -26,19 +27,16 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   };
 
   $scope.upgradeBuilding = function (id, level) {
-    console.log("building id",id);
-    console.log("level",level);
     $scope.updateBuilding = {
       "user_id": $localStorage.userObj.userId,
       "building_id": id,
       "level": level+1
     };
 
-    BuildingsService.update($scope.updateBuilding)
+    BuildingsFactory.update($scope.updateBuilding)
       .$promise
       .then( function(response) {
         $scope.buildingsList[id] = response;
-        console.log(response);
       })
       .catch( function(error){
         console.log(error);
@@ -49,13 +47,16 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   };
 
   $scope.updateResources = function () {
-    MenuService.query()
+    MenuFactory.query()
       .$promise
       .then( function(result) {
         $scope.food = result[0].amount;
         $scope.gold = result[1].amount;
         $rootScope.$broadcast('sendFood', $scope.food);
         $rootScope.$broadcast('sendGold', $scope.gold);
+    })
+    .catch( function(error) {
+      console.log(error);
     });
   };
 }]);

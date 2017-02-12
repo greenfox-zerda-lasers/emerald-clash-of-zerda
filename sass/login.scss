@@ -3,9 +3,16 @@
   height: 100%;
   padding-top: 20%;
   background-size: cover;
-  background-image: url("img/fox2.gif");
+  background-image: url("img/login_background.png");
   background-repeat: no-repeat;
   background-position: center;
+
+  span {
+    color: white;
+    display: block;
+    text-align: center;
+    padding-bottom: 30px;
+  }
 
   .registration-button {
     position: absolute;
@@ -23,6 +30,7 @@
   .login-window {
     width: 20%;
     margin: auto;
+    margin-top: 20vh;
     border-radius: 5px;
     transform-origin: center center;
 

@@ -1,12 +1,12 @@
-angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$location', '$route', '$localStorage', function($scope, $http, $location, $route, $localStorage){
+angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$location', '$route', '$localStorage', 'LoginFactory', function($scope, $http, $location, $route, $localStorage, LoginFactory){
 
-  if($localStorage.userObj == undefined) {
+  var checkUserObj = (function () {
+    if($localStorage.userObj == undefined) {
       $localStorage.userObj = {}
-  }
+    };
+    $localStorage.userObj.userId = false;
+  })();
 
-  $localStorage.userObj.userId = false;
-
-  //objektumkent megadni + stringify
   $scope.userLogin = function() {
 
     $scope.userData = {
@@ -14,25 +14,23 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
       "password": $scope.password
     };
 
-    $http({
-      method: 'POST',
-      url: 'http://localhost:8000/login',
-      data: $scope.userData,
-    }).then(function(response){
-      console.log(response, "login")
-      $localStorage.userObj = {
-        userId: response.data.id,
-        kingdom: response.data.kingdom,
-        username: response.data.username,
-        points: response.data.points
-      };
-      //console.log($localStorage.userObj);
-      $location.path('/overview');
-    }).catch(function() {
-      console.log("ERROR");
-    });
-
-    $scope.username = "";
-    $scope.password = "";
+    LoginFactory.save($scope.userData)
+      .$promise
+      .then( function(response) {
+        $localStorage.userObj = {
+          userId: response.id,
+          kingdom: response.kingdom,
+          username: response.username,
+          points: response.points
+        };
+        $location.path('/overview');
+      })
+      .catch( function(error) {
+        console.log(error);
+        $scope.errorMessage = error.data.errors.username || error.data.errors.password;
+        $scope.error = true;
+      });
+      $scope.username = "";
+      $scope.password = "";
   };
 }]);

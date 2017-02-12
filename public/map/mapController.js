@@ -1,3 +1,4 @@
+
 angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory', function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
 
@@ -237,6 +238,49 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     bg.style.backgroundPosition = positionX + "px " + positionY + "px"
   })
 
+
+  //master-rol attack
+//   $scope.selectEnemy = function(event) {
+//     if(event.target.classList.contains("kingdomEnemy")) {
+//       //event.target.style.backgroundColor = "blue"
+
+//        mapFactory.search.query({kingdom: event.target.innerHTML}).$promise.then(function(result) {
+//          console.log(result, "result")
+//          $scope.kingdomName = result[0].user.kingdom
+//          $scope.points = result[0].user.points
+//          $scope.troops = result[0].troops.length
+//          $scope.buildingsList = result[0].buildings
+//          $scope.showInfo = true
+
+//          $scope.attack = function() {
+//            $scope.opponent = {"opponent": event.target.id}
+//            console.log(event.target.id, "attack")
+//            mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
+//            })
+//          }
+//        })
+//     }
+
+
+// Scroll to Kingdom method //
+
+  $scope.scrollToKingdom = {
+
+    getCoords: function (selector) {
+      let element = document.querySelector(selector);
+      let x = (element.offsetLeft-(window.innerWidth-element.clientWidth)/2);
+      let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/2);
+      return {
+        x: x, y: y
+      }
+    },
+
+    toNode: function (selector) {
+      console.log("scroll");
+      let coords = this.getCoords(selector);
+      window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
+    }
+  };
 
 
 

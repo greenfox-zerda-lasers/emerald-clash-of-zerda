@@ -1,18 +1,20 @@
-angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewService', function($scope, $http, $localStorage, $location, $resource, OverviewService) {
+angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewFactory', function($scope, $http, $localStorage, $location, $resource, OverviewFactory) {
 
-  if ($localStorage.userObj.userId === false) {
-    $location.path('/login');
-  } else {
     $scope.kingdom = $localStorage.userObj.kingdom;
 
     var getKingdomData = (function () {
-      $scope.kingdomData = OverviewService.get()
-        .$promise.then( function(result) {
+      $scope.kingdomData = OverviewFactory.get()
+        .$promise
+        .then( function(result) {
+          console.log(result);
           $scope.buildings = result.buildings;
           $scope.troops = result.troops;
           $scope.resources = result.resources;
           $scope.buildingTypes = getBuildings($scope.buildings);
           $scope.resourceTypes = getResources($scope.resources);
+        })
+        .catch( function(error) {
+          console.log(error);
         });
     })();
 
@@ -20,7 +22,7 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       var townhall = 0;
       var mine = 0;
       var farm = 0;
-      var barrack = 0;
+      var barracks = 0;
       data.forEach( function(building) {
         switch (building.type) {
           case "townhall":
@@ -32,12 +34,12 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
           case "farm":
             farm++;
             break;
-          case "barrack":
-            barrack++;
+          case "barracks":
+            barracks++;
             break;
         };
       });
-      return {townhall, mine, farm, barrack};
+      return {townhall, mine, farm, barracks};
     };
 
     var getResources = function (data) {
@@ -53,5 +55,4 @@ angular.module("ClashApp").controller("OverviewController", ['$scope', '$http', 
       });
       return {food, gold};
     };
-  };
 }]);
