@@ -3,6 +3,8 @@ var ngResource = require('./lib/angular-resource.js');
 var ngRoute = require('./lib/angular-route.min.js');
 var ngAnimate = require('./lib/angular-animate.min.js');
 var ngStorage = require('./lib/ngStorage.js');
+// var jQuery = require(".lib/jquery-3.1.1.min.js");
+// var jQueryUi = require('.lib/jquery-ui.min.js');
 
 var app = require('./app.js');
 var userFactory = require('./userFactory.js');

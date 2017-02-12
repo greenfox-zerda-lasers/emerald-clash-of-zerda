@@ -3,7 +3,6 @@ main {
 }
 
 #map {
-
   height: 15000px;
   width: 20000px;
   background: url("img/space_background02-01.jpg");
@@ -11,7 +10,6 @@ main {
   background-attachment: fixed;
   background-size: cover;
   background-position: 0 0;
-  border: 5px solid rgba(0, 0, 0, 0);
   cursor:crosshair;
 
   .go-to-kingdom {
