@@ -6,9 +6,10 @@
   background-size: cover;
 
   .kingdom {
+    padding-top: 100px;
     text-align: center;
     color: white;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
     font-size: 3em;
   }
 
@@ -20,14 +21,15 @@
     padding-right: 8%;
 
     .column {
+      height: 700px;
       width: 30%;
       background-color: rgba(240, 240, 240, 0.8);
-      border-radius: 10px;
       padding: 20px;
-      padding-top: 20px;
-      padding-bottom: 20px;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+
+
 
       h1 {
         padding-bottom: 40px;
@@ -103,6 +105,10 @@
       }
     }
 
+    .resources, .troops {
+      justify-content: flex-start;
+    }
+
     .troops {
 
       .troops-num {
@@ -116,8 +122,9 @@
         width: 100%;
         flex-wrap: wrap;
         .troops-image {
-          width: 20%;
-          padding-bottom: 20%;
+          width: calc(100% / 4 - 20px);
+          //width: 20%;
+          padding-bottom: calc(100% / 4 - 20px);
           margin: 10px;
           background-image: url("./img/fox1.svg");
           background-size: cover;
