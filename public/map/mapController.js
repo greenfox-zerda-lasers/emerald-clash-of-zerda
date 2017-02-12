@@ -1,82 +1,246 @@
-angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$location', '$route', function($scope, $http, $location, $route){
-
-  var xPos
-  var yPos
-  var initX = 50
-  var initY = 50
-  var xChange = 550
-  var yChange = 400
-  var randomX
-  var randomY
-  var posCounter = 0
-  var kingdoms = 0
+angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory', function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
 
-  var s = Snap("#svg")
 
-  //s.attr({viewBox:0+","+0+","+1920+","+1080});
-
-  var renderUserKingdom = (function() {
-    kingdoms += 1
-    Snap.load("img/map/island02.svg", function(f){
-      var island = f.select("svg")
-      s.append(f)
-      //floor.transform("t150, 150")
-      //var townhall = f.select("#townhall")
-
-      // var addTownhall = function() {
-      //   s.append(townhall)
-      //   townhall.transform("t50, 50")
-      // }
-      //addTownhall()
-    })
+  let getKingdoms = (function() {
+    this.kingdomData = mapFactory.search.query()
+      .$promise
+      .then( function(response) {
+        $scope.kingdoms = []
+        console.log(response, "search")
+        response.forEach(function(elem) {
+          $scope.kingdoms.push(elem.user.id)
+          var userKingdom = new Kingdom(elem)
+        })
+      }.bind(this))
+      .catch( function(error) {
+        console.log(error);
+      })
   })()
 
 
-  var addKingdom = function() {
-    randomX = Math.random() * -1*(Math.random()) * 100
-    randomY = Math.random() * -1*(Math.random()) * 100
 
-    if (kingdoms % 3 === 0) {
-      xPos = initX + randomX
-    } else {
-      xPos = initX + randomX +(kingdoms % 3) *xChange
+  var Kingdom = class Kingdom {
+    constructor(elem) {
+      this.buildings = elem.buildings
+      this.location = elem.location
+      this.resources = elem.resources
+      this.troops = elem.troops
+      this.id = elem.user.id
+      this.kingdomName = elem.user.kingdom
+      this.name = elem.user.username
+      this.points = elem.user.points
+      this.getData()
+      this.ssvg = null;
     }
-    yPos = initY + randomY + (Math.floor(kingdoms/3) * yChange)
-    console.log(kingdoms)
-    renderKingdom()
-    kingdoms +=1
-  }
+
+    getData() {
+      //console.log(this.id, "id")
+      this.kingdomData = mapFactory.user.get({id: this.id})
+        .$promise
+        .then( function(response) {
+          //console.log(response, this.id, "resp")
+          this.loadSVG(response)
+        }.bind(this))
+        .catch( function(error) {
+          console.log(error);
+        })
+    }
+
+    loadSVG(response) {
+      Snap.load("img/map/island02.svg", f => {
+        var s = Snap()
+        s.attr({
+            width: 700,
+            height: 500,
+            //viewBox: [0, 0, 500, 400]
+        });
+        s.addClass("zoomTarget")
+        s.addClass("svg")
 
 
+        document.querySelector('#kingdom'+this.id).appendChild(s.node)
 
-  var renderKingdom = function() {
+        this.style = f.select("style")
+        this.island = f.select("#island")
+        this.spaceStation = f.select("#spaceStation_1_")
+        this.mine = f.select("#mine_1_")
+        this.factory = f.select("#factory")
+        this.academy = f.select("#academy")
 
-    var transformT = "t" + String(xPos) + "," + String(yPos)
-    // console.log(transformT)
-    //posCounter += 1
-    Snap.load("img/map/island02.svg", function(f){
-      console.log("load?")
-      var floor = f.select("svg")
-      s.append(f)
-      floor.transform(transformT)
-      // var townhall = f.select("#townhall")
-      //
-      // var addTownhall = function() {
-      //   s.append(townhall)
-      //   townhall.transform(transformT)
-      // }
-      // addTownhall()
+        s.append(this.style)
+        s.append(this.island)
+        s.append(this.spaceStation)
+
+        this.ssvg = s;
+        this.setPosition()
+        this.renderMine()
+        this.renderFactory()
+        this.renderAcademy()
+      })
+
+      this.mineList = []
+      this.factoryList = []
+      this.academyList = []
+
+      response.buildings.forEach(function(elem) {
+        if (elem.type === "mine") {
+          this.mineList.push(elem)
+        } else if (elem.type === "farm") {
+          this.factoryList.push(elem)
+        } else if (elem.type === "barracks") {
+          this.academyList.push(elem)
+        }
+      }.bind(this))
+    }
+
+
+    setPosition() {
+      var object = document.querySelector('#kingdom'+this.id)
+      var xPos = Math.random() * 20000
+      var yPos = Math.random() * 15000
+      object.style.left = String(xPos) + "px"
+      object.style.top = String(yPos) + "px"
+      this.updatePosition()
+      $scope.scrollToKingdom.toNode("#kingdom" + String($localStorage.userObj.userId))
+      var myKingdom = document.querySelector('#kingdom' + String($localStorage.userObj.userId))
+      myKingdom.style.zIndex = "1"
+    }
+
+    updatePosition() {
+      var objects = document.querySelectorAll('.svgContainer')
+      objects.forEach(function(elem) {
+        if(elem.id == "kingdom" + String($localStorage.userObj.userId)) {
+          elem.classList.add("ui-widget-content")
+        }
+      })
+      $(".ui-widget-content").draggable();
+    }
+
+    renderAcademy() {
+      var show = false
+      if(this.academyList.length > 0 && show == false) {
+        this.ssvg.append(this.academy)
+        show = true
+      }
+    }
+
+    renderFactory() {
+      var show = false
+      if(this.factoryList.length > 0 && show == false) {
+        this.ssvg.append(this.factory)
+        show = true
+      }
+    }
+
+    renderMine() {
+      var show = false
+      if(this.mineList.length > 0 && show == false) {
+        this.ssvg.append(this.mine)
+        show = true
+      }
+    }
+  };
+
+
+  $scope.show = false
+
+  $scope.showDetails = function(userid) {
+    mapFactory.user.get({id: userid})
+      .$promise
+      .then( function(response) {
+        $scope.kingdom = response.user.kingdom
+        $scope.troopsNum = response.troops.length
+        $scope.troops = response.troops
+
+      }.bind(this))
+      .catch( function(error) {
+        console.log(error);
+      })
+    $scope.show = true
+    window.addEventListener("click", function(event) {
+      $scope.show = false
     })
   }
 
+//ADD NEW BUILDING bad request
+  $scope.addNewMine = function() {
+    var postData = {
+      "user_id": String($localStorage.userObj.userId),
+      "type": "mine"
+    };
+    mapFactory.building.save(postData)
+      .$promise.then( function (response) {
+        console.log(response);
+      })
+      .catch( function(error) {
+        console.log(error);
+      });
+  }
 
-  //addKingdom()
-  // addKingdom()
-  // addKingdom()
-  // addKingdom()
-  // addKingdom()
-  // addKingdom()
+
+  $scope.addNewFactory = function() {
+    var postData = {
+      "user_id": String($localStorage.userObj.userId),
+      "type": "farm"
+    };
+    mapFactory.building.save(postData)
+      .$promise.then( function (response) {
+        console.log(response);
+      })
+      .catch( function(error) {
+        console.log(error);
+      });
+  }
+
+  $scope.addNewAcademy = function() {
+    var postData = {
+      "user_id": String($localStorage.userObj.userId),
+      "type": "barracks"
+    };
+    mapFactory.building.save(postData)
+      .$promise.then( function (response) {
+        console.log(response);
+      })
+      .catch( function(error) {
+        console.log(error);
+      });
+  }
+
+
+
+  //scroll to kingdom
+  $scope.scrollToKingdom = {
+    getCoords: function (selector) {
+      let element = document.querySelector(selector);
+      let x = (element.offsetLeft-(window.innerWidth-element.clientWidth)/2);
+      let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/2);
+      return {
+        x: x, y: y
+      }
+    },
+
+    toNode: function (selector) {
+      console.log("scroll");
+      let coords = this.getCoords(selector);
+      window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
+    }
+  };
+
+
+
+//background scroll
+  window.addEventListener('scroll', function() {
+    var bg = document.querySelector("#map")
+    var positionY = window.pageYOffset/20
+    var positionX = window.pageXOffset/20
+    bg.style.backgroundPosition = positionX + "px " + positionY + "px"
+  })
+
+
+
+
+
 
 }]);
 
@@ -95,7 +259,13 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 //     this.init = function() {
 //
 //     }
-//
+
+//     this.animate = function(){
+//        var academy = snap.select()
+//        academy.x = Math.sin(time) * 10 + px
+//        window.requestAnimationFrame( this.animate )
+//     }
+
 //     this.onDrop = function() {
 //       // send ajax
 //     }

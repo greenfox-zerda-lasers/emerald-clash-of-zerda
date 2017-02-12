@@ -6,7 +6,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   })();
 
   $scope.addNewBuilding = function (type) {
-    console.log(`create a new ${type}`);
+    console.log(type, "type");
     $scope.postData = {
       "user_id": $localStorage.userObj.userId,
       "type": type
@@ -15,7 +15,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     BuildingsService.save($scope.postData)
       .$promise.then( function (response) {
         console.log(response);
-
         $scope.buildingsList.push(response);
       })
       .catch( function(error) {

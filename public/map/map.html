@@ -2,8 +2,46 @@
 
 <section id="map">
 
-  <object id="canvas" width=10000px height=5000px>
-    <svg id="svg"></svg>
-  </object>
+  <div class="svgContainer {{elem}}" id="kingdom{{elem}}" ng-repeat="elem in kingdoms" ng-Dblclick="showDetails(elem)"></div>
+
+  <button class="go-to-kingdom" type="button" name="button" ng-click="scrollToKingdom.toNode('#kingdom0')">Go to my kingdom</button>
+  <select ng-model="searchText"></select>
+
+  <div class="userDetails" ng-show="show">
+
+    <h1>{{kingdom}}</h1>
+
+    <div class="buildings">
+      <div class="mineContainer buildingContainer">
+          <div class="mines">
+            <img class="mineImg" src="img/icons/mine_icon.svg"></img>
+            <div class="mineNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewMine()">Build!</button>
+      </div>
+
+      <div class="factoryContainer buildingContainer">
+          <div class="factories">
+            <img class="factoryImg" src="img/icons/mine_icon.svg"></img>
+            <div class="factoryNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewFactory()">Build!</button>
+      </div>
+
+      <div class="academyContainer buildingContainer">
+          <div class="academies">
+            <img class="academyImg" src="img/icons/mine_icon.svg"></img>
+            <div class="academyNumber"></div>
+        </div>
+        <button class="add" ng-click="addNewAcademy()">Build!</button>
+      </div>
+    </div>
+
+    <h2>Troops</h2>
+    <div class="troopsContainer">
+      <img class="troop">{{troopsNum}}</img>
+    </div>
+
+  </div>
 
 </section>

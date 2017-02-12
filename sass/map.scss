@@ -3,24 +3,99 @@ main {
 }
 
 #map {
-  height: 5000px;
-
-  background-image: url("img/map/bg.jpg");
-  background-repeat: no-repeat;
+  height: 15000px;
+  width: 20000px;
+  background: url("img/space_background02-01.jpg");
+  background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
-  //background-position: center;
-  height: 200%;
-  //padding: 50px;
+  background-position: 0 0;
+  border: 5px solid rgba(0, 0, 0, 0);
+  cursor:crosshair;
 
-  #canvas {
-    width: 10000px;
-    height: 5000px;
-    svg {
-      width: 700px;
-      height: 600px;
-    }
+  .go-to-kingdom {
+    position: fixed;
+    height: 45px ;
+    line-height: 1em;
+    background-color: tomato;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    margin-top: 50px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 1em;
+    font-weight: bold;
   }
 
+  select {
+    position: fixed;
+    height: 45px ;
+    line-height: 1em;
+    background-color: tomato;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    margin-top: 100px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 1em;
+    font-weight: bold;
+  }
 
+  .ui-widget-content:hover {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+  }
+
+  .ui-widget-content:active {
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+  }
+
+  .svgContainer {
+    height: 500px;
+    width: 700px;
+    position: absolute;
+    display: inline-block;
+  }
+
+  .userDetails {
+    width: 30vw;
+    height: 100vw;
+    position: fixed;
+    transform-origin: right;
+    left: calc(100vw - 30vw);
+    top: 60px;
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+
+    h1 {}
+
+    .buildings {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+
+      .buildingContainer {
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        text-align: center;
+        button {
+          width: 100%;
+          padding: 5px;
+        }
+        img {
+          width: 80%;
+          padding: 10px;
+        }
+      }
+    }
+  }
 }
