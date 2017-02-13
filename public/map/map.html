@@ -3,10 +3,22 @@
 <section id="map">
 
 
-  <div class="svgContainer {{elem}}" id="kingdom{{elem}}" ng-repeat="elem in kingdoms" ng-Dblclick="showDetails(elem)"></div>
+  <div class="svgContainer {{elem}}" id="kingdom{{elem}}" ng-repeat="elem in kingdomId" ng-Dblclick="showDetails(elem)"></div>
 
   <button class="go-to-kingdom" type="button" name="button" ng-click="scrollToKingdom.toNode('#kingdom0')">Go to my kingdom</button>
-  <select ng-model="searchText"></select>
+  <!-- <select ng-model="searchText" name="select">
+    <option value="value1">Value 1</option>
+  </select> -->
+
+  <div>
+    <select ng-model="selected" ng-change="selectKingdom()">
+      <option value="select">Select Kingdom</option>
+      <option value="{{user.id}}" ng-repeat="user in kingdoms" >{{user.kingdom}}</option>
+    </select>
+ </div>
+
+
+
 
   <div class="userDetails" ng-show="show">
 

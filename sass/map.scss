@@ -29,6 +29,7 @@ main {
 
   select {
     position: fixed;
+    width: 200px;
     height: 45px ;
     line-height: 1em;
     background-color: tomato;
@@ -37,6 +38,7 @@ main {
     padding-right: 15px;
     color: white;
     margin-top: 100px;
+    margin-left: 100px;
     border: 1px solid rgba(0, 0, 0, 0);
     font-size: 1em;
     font-weight: bold;

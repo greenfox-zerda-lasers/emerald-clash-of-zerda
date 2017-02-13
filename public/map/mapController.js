@@ -6,11 +6,14 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     mapFactory.search.query()
       .$promise
       .then( function(response) {
+        $scope.kingdomId = []
         $scope.kingdoms = []
         response.forEach(function(elem) {
-          $scope.kingdoms.push(elem.user.id)
+          $scope.kingdomId.push(elem.user.id)
+          $scope.kingdoms.push(elem.user)
           var userKingdom = new Kingdom(elem)
         })
+        searchBar($scope.kingdoms)
       }.bind(this))
       .catch( function(error) {
         console.log(error);
@@ -18,6 +21,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   })()
 
 
+ let searchBar = function(kingdoms) {
+    console.log(kingdoms);
+  }
+
+searchBar()
 
   var Kingdom = class Kingdom {
     constructor(elem) {
@@ -31,6 +39,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       this.points = elem.user.points
       this.getData()
       this.ssvg = null;
+      console.log(this.id, "id");
     }
 
     getData() {
@@ -95,8 +104,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
     setPosition() {
       var object = document.querySelector('#kingdom'+this.id)
-      var xPos = Math.random() * 20000
-      var yPos = Math.random() * 15000
+      var xPos = Math.random() * 2000
+      var yPos = Math.random() * 1500
       object.style.left = String(xPos) + "px"
       object.style.top = String(yPos) + "px"
       this.updatePosition()
@@ -205,12 +214,15 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       });
   }
 
-
+  $scope.selectKingdom = function() {
+    var selected = "#kingdom" + $scope.selected
+    $scope.scrollToKingdom.toNode(selected)
+  }
 
   //scroll to kingdom
   $scope.scrollToKingdom = {
     getCoords: function (selector) {
-      let element = document.querySelector(selector);
+      let element = document.querySelector(String(selector));
       let x = (element.offsetLeft-(window.innerWidth-element.clientWidth)/2);
       let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/2);
       return {
@@ -219,7 +231,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     },
 
     toNode: function (selector) {
-      console.log("scroll");
       let coords = this.getCoords(selector);
       window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
     }
