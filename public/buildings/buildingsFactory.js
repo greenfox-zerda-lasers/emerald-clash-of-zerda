@@ -12,6 +12,7 @@ angular
         {id: $localStorage.userObj.userId, building_id: "@building_id"},
         {
           "update": { method: 'PUT'}
-        }
+        },
+        {headers: { 'token': $localStorage.userObj.token }}
     );
 });
