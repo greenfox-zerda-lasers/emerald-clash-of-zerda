@@ -228,12 +228,12 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
 //background scroll
-  // window.addEventListener('scroll', function() {
-  //   var bg = document.querySelector("#map")
-  //   var positionY = window.pageYOffset/20
-  //   var positionX = window.pageXOffset/20
-  //   bg.style.backgroundPosition = positionX + "px " + positionY + "px"
-  // })
+  window.addEventListener('scroll', function() {
+    var bg = document.querySelector("#map")
+    var positionY = window.pageYOffset/20
+    var positionX = window.pageXOffset/20
+    bg.style.backgroundPosition = positionX + "px " + positionY + "px"
+  })
 
 
   //master-rol attack
