@@ -1,7 +1,9 @@
-angular.module("ClashApp").controller("WelcomeController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'OverviewFactory', function($scope, $http, $localStorage, $location, $resource, OverviewFactory) {
+angular.module("ClashApp").controller("WelcomeController", ['$scope', '$http', '$localStorage', '$location', '$resource', function($scope, $http, $localStorage, $location, $resource) {
   console.log("welcome");
 
-  
-
+  $scope.goToGame = function () {
+    console.log("map");
+    $location.path('/map');
+  };
 
 }]);

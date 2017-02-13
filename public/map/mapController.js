@@ -3,6 +3,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
   let getKingdoms = (function() {
+    console.log( "map", $localStorage.userObj.token);
     mapFactory.search.query()
       .$promise
       .then( function(response) {
@@ -18,6 +19,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       .catch( function(error) {
         console.log(error);
       })
+
   })()
 
 
