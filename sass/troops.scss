@@ -68,8 +68,8 @@
     text-align: center;
 
     .troop {
-      width: calc(100% / 4 - 50px);
-      height: 360px;
+
+      width: calc(100% / 5 - 50px);
       margin: 25px;
       background-color: rgba(255, 255, 255, 0.3);
       text-align: center;
@@ -78,14 +78,16 @@
       justify-content: space-between;
       align-items: center;
       @media (max-width: 1400px) {
-        height: 300px;
-      }
-      @media (max-width: 1200px) {
-        height: 250px;
+        width: calc(100% / 4 - 50px);
       }
       @media (max-width: 1000px) {
-        width: calc(100% / 4 - 20px);
-        height: 220px;
+        width: calc(100% / 3 - 50px);
+      }
+      @media (max-width: 600px) {
+        width: calc(100% / 2 - 50px);
+      }
+      @media (max-width: 400px) {
+        width: calc(100% / 1 - 50px);
       }
 
       .imageHolder {

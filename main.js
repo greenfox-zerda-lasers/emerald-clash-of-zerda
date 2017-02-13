@@ -1,3 +1,4 @@
+var Snap = require('imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js')
 var angular = require('./lib/angular.js');
 var ngResource = require('./lib/angular-resource.js');
 var ngRoute = require('./lib/angular-route.min.js');
@@ -36,4 +37,3 @@ var fox1 = require('./img/fox_without_bg.svg');
 var smoothScroll = require('./lib/smoothscroll.js');
 //var Snap = require('snapsvg');
 //var Snap = require( "imports-loader?this=>window,fix=>module.exports=0!./lib/snap.svg.js" );
-const Snap = require('imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js')
