@@ -2,10 +2,10 @@
   <button class="login-button" onclick="location.href='#!/login'">Log in</button>
   <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <form class="reg-window" ng-submit="userRegistration()">
-    <input id="reg-name" type="text" placeholder="Username" ng-model="username" required></input>
+    <input id="reg-name" type="text" placeholder="Username" ng-model="username" required=""></input>
     <input id="reg-first" type="text" placeholder="First name" ng-model="firstname" required></input>
     <input id="reg-last" type="text" placeholder="Last name" ng-model="lastname" required></input>
-    <input id="reg-email" type="text" placeholder="E-mail" ng-model="email" required></input>
+    <input id="reg-email" type="email" placeholder="E-mail" ng-model="email" required></input>
     <input id="reg-kingdom" type="text" placeholder="Kingdom name" ng-model="kingdom"></input>
     <input id="reg-password" type="password" placeholder="Add password" ng-model="password" required></input>
     <input id="reg-button" type="submit" value="Register"></input>
