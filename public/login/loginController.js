@@ -23,7 +23,7 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
           username: response.username,
           points: response.points
         };
-        $location.path('/overview');
+        $location.path('/map');
       })
       .catch( function(error) {
         console.log(error);
