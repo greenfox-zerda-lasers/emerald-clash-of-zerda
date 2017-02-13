@@ -12,36 +12,41 @@ main {
   background-position: 0 0;
   cursor:crosshair;
 
-  .go-to-kingdom {
+  .goToMyKingdom {
     position: fixed;
-    height: 45px ;
-    line-height: 1em;
-    background-color: tomato;
-    padding: 5px;
-    padding-left: 15px;
-    padding-right: 15px;
-    color: white;
-    margin-top: 50px;
-    border: 1px solid rgba(0, 0, 0, 0);
-    font-size: 1em;
-    font-weight: bold;
+    margin: 10px;
+    top: 70px;
+    left: 10px;
+    width: 50px;
+    height: 50px ;
+    background-image: url("./img/map/target.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 10;
   }
 
   select {
     position: fixed;
-    width: 200px;
-    height: 45px ;
+    left: 90px;
+    top:85px;
+    width: 300px;
+    height: 40px ;
     line-height: 1em;
-    background-color: tomato;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
     padding: 5px;
     padding-left: 15px;
     padding-right: 15px;
-    color: white;
-    margin-top: 110px;
-    margin-left: 100px;
-    border: 1px solid rgba(0, 0, 0, 0);
+    color: $white;
     font-size: 1em;
     font-weight: bold;
+    z-index: 10;
+    option {
+      width: 100px;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
   }
 
   .ui-widget-content:hover {
@@ -59,42 +64,77 @@ main {
   }
 
   .svgContainer {
-    height: 500px;
-    width: 700px;
+    height: 550px;
+    width: 600px;
     position: absolute;
     display: inline-block;
+
+    .attackButton {
+      width: 200px;
+      height: 40px;
+      //border-radius: 15px;
+      border: 0px solid white;
+      font-size: 1.3em;
+      background-color: tomato;
+      color: white;
+      position: relative;
+      top: calc(100% - 40px);
+      left: calc(50% - 100px);
+    }
+  }
+
+  aside {
+    position: fixed;
+    top: 200px;
+    left: 10px;
+    width: auto;
+    height: auto;
+    z-index: 10;
+
+    .sideElem {
+      display: flex;
+      flex-direction: row;
+      img{
+        width: 50px;
+        height: 50px;
+        margin: 10px;
+      }
+
+      span {
+        color: white;
+        display: inline-block;
+        padding-top: 25px;
+        padding-left: 10px;
+        text-align: center;
+      }
+    }
   }
 
   .userDetails {
-    width: 30vw;
-    height: 100vw;
+    width: 40vw;
+    height: 12vh;
     position: fixed;
-    transform-origin: right;
-    left: calc(100vw - 30vw);
-    top: 60px;
-    background-color: rgba(255, 255, 255, 0.5);
+    left: calc(100vw - 70vw);
+    top:calc(100vh - 14vh);
+    background-color: $mediumBlack;
+    border-radius: 80px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: white;
 
     h1 {}
-
     .buildings {
       display: flex;
       flex-direction: row;
       justify-content: space-around;
-
-      .buildingContainer {
-        width: 30%;
+      width: 100%;
+      .detail {
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        text-align: center;
-        button {
-          width: 100%;
-          padding: 5px;
-        }
         img {
-          width: 80%;
-          padding: 10px;
+          width: 50px;
         }
       }
     }
