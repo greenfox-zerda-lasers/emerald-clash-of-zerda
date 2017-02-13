@@ -1,11 +1,9 @@
-var Snap = require('imports-loader?this=>window,fix=>module.exports=0!snapsvg/dist/snap.svg.js')
 var angular = require('./lib/angular.js');
 var ngResource = require('./lib/angular-resource.js');
 var ngRoute = require('./lib/angular-route.min.js');
 var ngAnimate = require('./lib/angular-animate.min.js');
 var ngStorage = require('./lib/ngStorage.js');
-// var jQuery = require(".lib/jquery-3.1.1.min.js");
-// var jQueryUi = require('.lib/jquery-ui.min.js');
+
 
 var app = require('./app.js');
 var userFactory = require('./userFactory.js');
@@ -34,6 +32,3 @@ var menuFactory = require('./public/menu/menuFactory.js');
 
 var css = require('./sass/main.scss');
 var fox1 = require('./img/fox_without_bg.svg');
-var smoothScroll = require('./lib/smoothscroll.js');
-//var Snap = require('snapsvg');
-//var Snap = require( "imports-loader?this=>window,fix=>module.exports=0!./lib/snap.svg.js" );
