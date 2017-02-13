@@ -10,16 +10,16 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding-top: 30px;
+    padding-top: 100px;
 
     .profile-title{
       text-align: center;
       color: white;
+      padding-top: 30px;
       padding-bottom: 30px;
       font-size: 3em;
       text-transform: capitalize;
     }
-
 
   }
   .avatar {
