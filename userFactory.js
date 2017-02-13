@@ -4,7 +4,7 @@ angular
     function($localStorage, $location) {
       return {
         loggedIn: function() {
-          if ($localStorage.userObj.userId === false) {
+          if ($localStorage.userObj.token === false) {
             return false;
           } else {
             return true;

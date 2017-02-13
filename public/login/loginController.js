@@ -4,7 +4,7 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
     if($localStorage.userObj == undefined) {
       $localStorage.userObj = {}
     };
-    $localStorage.userObj.userId = false;
+    $localStorage.userObj.token = false;
   })();
 
   $scope.userLogin = function() {
@@ -21,8 +21,10 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
           userId: response.id,
           kingdom: response.kingdom,
           username: response.username,
-          points: response.points
+          points: response.points,
+          token: response.token
         };
+        $http.defaults.headers.common['Authorization'] = $localStorage.userObj.token;
         $location.path('/map');
       })
       .catch( function(error) {
