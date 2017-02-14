@@ -15,7 +15,7 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
       "firstname": $scope.firstname,
       "lastname": $scope.lastname,
       "email": $scope.email,
-      "kingdom": $scope.kingdom,
+      "kingdom": $scope.kingdom || `${$scope.username}\'s kingdom`,
       "password": $scope.password
     };
 
@@ -30,7 +30,7 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
           username: response.username,
           points: response.points
         };
-        $location.path('/map');
+        $location.path('/welcome');
       })
       .catch( function (error) {
         $scope.errorMessage = error.data.errors.username;

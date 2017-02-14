@@ -14,6 +14,10 @@
         templateUrl: './public/register/register.html',
         controller: 'RegController'
       })
+      .when('/welcome', {
+        templateUrl: './public/welcome/welcome.html',
+        controller: 'WelcomeController'
+      })
       .when('/overview', {
         templateUrl: './public/overview/overview.html',
         controller: 'OverviewController'

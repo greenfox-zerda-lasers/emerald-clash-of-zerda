@@ -5,6 +5,11 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     console.log($scope.buildingsList);
   })();
 
+  // var mines = $scope.buildingsList.filter(function (building) {
+  //   console.log(building);
+  // });
+  // console.log(mines);
+
   $scope.addNewBuilding = function (type) {
 
     $scope.postData = {
