@@ -15,7 +15,7 @@ angular.module("ClashApp").controller("RegController", ['$scope', '$http', '$loc
       "firstname": $scope.firstname,
       "lastname": $scope.lastname,
       "email": $scope.email,
-      "kingdom": $scope.kingdom,
+      "kingdom": $scope.kingdom || `${$scope.username}\'s kingdom`,
       "password": $scope.password
     };
 
