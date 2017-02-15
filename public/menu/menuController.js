@@ -26,13 +26,39 @@ angular
     })
   })()
 
+
+  let options = document.querySelectorAll(".option")
+
   let setScreenPaths = (function() {
+    let screens = ['map', 'overview', 'buildings', 'troops', 'leaderboard', 'history']
     let button = document.querySelector(".activeScreen")
-    let options = document.querySelectorAll(".option")
-    if($location.path('/map')) {
-      button.style.backgroundImage = "url('./img/icons/spacestation_icon.svg')"
+    let path = String($location.absUrl())
+    console.log(path);
+    for(var i = 0; i <screens.length; i++) {
+      if(path.includes(screens[i]) ) {
+        button.style.backgroundImage = 'url(' + './img/icons/' + screens[i] + '_icon-01.svg' + ')'
+        screens.splice(i, 1)
+      }
     }
+    options.forEach(function(elem, index){
+      elem.style.backgroundImage = 'url(' + './img/icons/' + screens[index] + '_icon-01.svg' + ')'
+      elem.id  =  "button" + screens[index]
+    })
   })()
+
+  $scope.goToScreen = function(event){
+    let screen = event.target.id
+    let path = screen.slice(6)
+    $location.path('/' + path)
+  }
+
+  $scope.closeMenu = function() {
+    options.forEach(function(elem){
+      elem.style.opacity = "0"
+      //mouseout-ra ujra elojon! javitani!!
+      //+ window eventlistener
+    })
+  }
 
   var renderMenuResources = (function() {
     $scope.resources = MenuFactory.query()

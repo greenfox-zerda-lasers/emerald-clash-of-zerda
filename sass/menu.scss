@@ -1,5 +1,4 @@
 #menu-bar {
-  //background-color: white;
   height: auto;
   padding: 5px;
   position: fixed;
@@ -34,9 +33,6 @@
       transform-origin: center;
       transition: all 0.3s;
       border: 0px solid white;
-      // width: 70px;
-      // height: 70px;
-
 
       .overlay {
         opacity: 0;
@@ -49,79 +45,41 @@
       }
 
       .option {
-        position: relative;
+        position: absolute;
         background-color: white;
         border-radius: 100px;
-        width: 25px;
-        height: 25px;
+        width: 45px;
+        height: 45px;
         opacity: 0;
         transition: all 0.5s;
-        transform-origin: center center;
+        background-size:cover;
       }
 
       .option1 {
-        //background-color: red;
-        top: 85px;
-        left: 0px;
+        top: 105px;
+        left: 3px;
       }
 
       .option2 {
-        //background-color: blue;
-        top: 62px;
-        left: 38px;
+        top: 115px;
+        left: 51px;
       }
 
       .option3 {
-        //background-color: pink;
-        top: 18px;
-        left: 72px;
+        top: 95px;
+        left: 95px;
       }
 
       .option4 {
-        //background-color: green;
-        top: -40px;
-        left: 88px;
+        top: 51px;
+        left: 115px;
       }
 
       .option5 {
-        //background-color: yellow;
-        left: 85px;
-        top: -100px;
+        top: 3px;
+        left: 105px;
       }
     }
-
-    // .menu-list {
-    //   width: 60%;
-    //   display: flex;
-    //   flex-direction: row;
-    //   justify-content: flex-start;
-    //
-    //   .menu-elem {
-    //     font-family: "Barrio";
-    //     line-height: 22px;
-    //     font-size: 1.2em;
-    //     border-radius: 3px;
-    //     list-style: none;
-    //     margin: 5px;
-    //     padding: 10px;
-    //     text-decoration: none;
-    //     background-color: $black;
-    //     color: white;
-    //     transition: all 0.3s;
-    //
-    //     li {
-    //       transition: all 0.3s;
-    //     }
-    //
-    //     &:hover {
-    //       background-color: #DC713D;
-    //
-    //       li {
-    //         line-height: 45px;
-    //       }
-    //     }
-    //   }
-    // }
 
     .resources {
       display: flex;
