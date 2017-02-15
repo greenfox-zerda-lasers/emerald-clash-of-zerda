@@ -4,23 +4,37 @@ angular
     function($rootScope) {
       return {
         events: {
-          pushTobuildings: function(response) {
-            this.buildings.push({id: response.id, timestamp: new Date().getTime()});
-            console.log(this.buildings);
-          },
-          buildings: [],
-          tropps: []
+          building: null,
+          troop: null,
+        },
+
+        pushTobuildings: function(response) {
+          this.events.building = {id: response.id, timestamp: new Date().getTime()+30000};
+          console.log(this.events.building);
         },
 
         buildingRegister: function() {
-          let progress = document.querySelector('.progess');
+          let bar = document.querySelector('.bar');
           let left = 0;
-          let max = 100;
+          let duration = this.events.building.timestamp - new Date().getTime();
 
-          setTimeout(function() {
-            $rootScope.$broadcast('BuildingReg', "LIVE");
-          }, 3000);
-        }
+          let animation = function () {
+            left++;
+            let current = left / duration * 100;
+            bar.style.width = current + '%';
+
+            if(current < 100) {
+              requestAnimationFrame(animation)
+            };
+          };
+
+          animation();
+
+          // setTimeout(() => {
+          //   $rootScope.$broadcast('BuildingReg', `${this.events.building.id} is LIVE`);
+          // }, 3000);
+
+        },
 
 
       }

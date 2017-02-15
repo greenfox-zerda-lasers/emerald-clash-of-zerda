@@ -20,8 +20,9 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     BuildingsFactory.save($scope.postData)
       .$promise
       .then( function (response) {
-        BroadcastFactory.events.pushTobuildings(response);
         $scope.buildingsList.push(response);
+        BroadcastFactory.pushTobuildings(response);
+        BroadcastFactory.buildingRegister();
       })
       .catch( function(error) {
         console.log(error);
@@ -29,7 +30,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         $scope.error = true;
       });
       $scope.updateResources();
-      BroadcastFactory.buildingRegister();
+
   };
 
   $scope.upgradeBuilding = function (id, level) {

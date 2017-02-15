@@ -1,6 +1,5 @@
 <header ng-include="'public/menu/menu.html'"></header>
 <section id="buildings-site">
-  <div class="progress"></div>
   <h1 class="building-title">Buildings</h1>
   <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <div class="container">
@@ -10,6 +9,9 @@
       <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')">Mine</button>
       <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barracks')">Barracks</button>
     </article>
+    <div class="progress">
+      <div class="bar"></div>
+    </div>
     <article class="building row" ng-repeat="building in buildingsList">
       <div class="building-item" id="{{building.id}}">
         <div class="type">{{building.type}}</div>

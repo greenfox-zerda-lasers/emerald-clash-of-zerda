@@ -15,7 +15,15 @@
 
   .progress {
     width: 100%;
-    
+  	border: 1px solid black;
+		height: 10px;
+    margin-bottom: 20px;
+
+    .bar {
+      width: 1px;
+			height: 8px;
+  		background: red;
+    }
   }
 
   .building-title{
