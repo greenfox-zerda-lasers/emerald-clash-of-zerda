@@ -21,7 +21,7 @@ angular
         )
      }
 
-  
+
   //atirni ilyenre
 //   .module("ClashApp")
 //   .factory("mapFactory",
