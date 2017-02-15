@@ -5,10 +5,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     console.log($scope.buildingsList);
   })();
 
-  // var mines = $scope.buildingsList.filter(function (building) {
-  //   console.log(building);
-  // });
-  // console.log(mines);
+  $scope.BroadcastFactory = BroadcastFactory;
 
   $scope.addNewBuilding = function (type) {
 
@@ -68,7 +65,9 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   };
 
   $rootScope.$on('BuildingReg', function(event, data) {
+    $scope.bar = data;
     console.log(data);
+    $scope.$apply();
   });
 
 
