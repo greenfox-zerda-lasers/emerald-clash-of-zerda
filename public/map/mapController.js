@@ -75,7 +75,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         s.append(this.spaceStation)
 
         this.ssvg = s;
-        this.setPosition()
+        this.checkPosition()
         this.renderMine()
         this.renderFactory()
         this.renderAcademy()
@@ -98,18 +98,47 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       }.bind(this))
     }
 
+    checkPosition() {
+      console.log("checkPosition");
+      let object = document.querySelector('#kingdom'+this.id)
+      //ajax get user location: {x: null, y: null}
+      let location = {x: null, y: null}
+      //ajax get enemylocation
+      let enemyLocation = [{x: 1000, y: 100}, {x:0, y:0}]
+      let enemyWidth = 600
+      let enemyHeight = 600
+      //if(location.x == null && location.y == null) {
+        let xPos = (Math.random() * 20000) - this.width - 200
+        let yPos = (Math.random() * 15000) - this.height - 200
+        this.setPosition(xPos, yPos, object)
 
-    setPosition() {
-      var object = document.querySelector('#kingdom'+this.id)
-      var xPos = (Math.random() * 20000) - this.width
-      var yPos = (Math.random() * 15000) - this.height
+      //   for(var i = 0; i < enemyLocation.length; i++) {
+      //
+      //     if((xPos +this.width < enemyLocation[i].x && yPos + this.height < enemyLocation[i].y) || (xPos > enemyLocation[i].x +enemyWidth && yPos > enemyLocation[i].y +enemyHeight)) {
+      //       this.setPosition(xPos, yPos, object)
+      //     } else {
+      //       // this.checkPosition()
+      //
+      //     }
+      //   }
+      // } else {
+      //   let xPos = location.x
+      //   let yPos = location.y
+      // }
+    }
+
+
+    setPosition(xPos, yPos, object) {
+      console.log("setPosition");
       object.style.left = String(xPos) + "px"
       object.style.top = String(yPos) + "px"
       this.updatePosition()
       $scope.scrollToKingdom.toNode("#kingdom" + String($localStorage.userObj.userId))
       var myKingdom = document.querySelector('#kingdom' + String($localStorage.userObj.userId))
       myKingdom.style.zIndex = "1"
+      console.log(this.id, xPos, yPos)
     }
+
 
     updatePosition() {
       var objects = document.querySelectorAll('.svgContainer')
@@ -161,7 +190,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
-      document.querySelector("#kingdom" + userid).style.border = "1px solid #60ACBE"
+      //document.querySelector("#kingdom" + userid).style.border = "1px solid white"
+      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 255, 255, 0.1)"
       showDetails(userid)
     }
   }
@@ -184,23 +214,70 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       })
 
     $scope.showEnemy = true
-    clickOut()
+    //clickOut()
   }
 
-  $scope.attack = function(id) {
+  $scope.showTroops = false
+  $scope.attack = function(id, kingdom) {
     console.log(id, "attack")
-    //ngshow troops, hide data, width=auto
-    selectTroops(id)
+    $scope.getTroops(id, kingdom)
   }
 
-  $scope.selectTroops = function(id) {
-    startBattle(id, troopsList)
+    let attackerTroops = []
+
+  $scope.getTroops = function(defenderId, defenderKingdom) {
+
+    let defenderTroops
+    let attackerId = $localStorage.userObj.userId
+
+    mapFactory.search.query({kingdom: defenderKingdom})
+      .$promise
+      .then( function(response) {
+        defenderTroops = response[0].troops
+        console.log(defenderTroops, "deftroop");
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+
+    mapFactory.search.query({kingdom: $localStorage.userObj.kingdom})
+      .$promise
+      .then( function(response) {
+        $scope.myTroops = response[0].troops
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+      $scope.showTroops = true
+      document.querySelector(".startBattleButton").addEventListener("click", function(event) {
+        $scope.startBattle(attackerId, defenderId, defenderTroops)
+      })
   }
 
-  $scope.startBattle = function(id, troopsList) {
-
+  $scope.selectTroop = function(troopId){
+      console.log("select troop");
+      attackerTroops.push(troopId)
+      document.querySelector(".troop" + troopId).style.border = "2px solid red"
   }
 
+  $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
+    console.log(attackerTroops, "attackertroops");
+    let attackData = {
+      "attackerTroops" : attackerTroops,
+      "attackerId" : attackerId,
+      "defenderTroops" : defenderTroops,
+      "defenderId" : defenderId
+    }
+    console.log(attackData, "attackdata");
+    mapFactory.attack.save(attackData)
+      .$promise
+      .then(function(response) {
+
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+  }
   //ez nem joo
   let clickOut = function() {
     let enemy = document.querySelector(".svgContainer")
@@ -269,12 +346,15 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
 //background scroll
-  window.addEventListener('scroll', function() {
-    var bg = document.querySelector("#map")
-    var positionY = window.pageYOffset/20
-    var positionX = window.pageXOffset/20
-    bg.style.backgroundPosition = positionX + "px " + positionY + "px"
-  })
+  var bg = document.querySelector("#map")
+  if(bg) {
+    window.addEventListener('scroll', function() {
+      var positionY = window.pageYOffset/20
+      var positionX = window.pageXOffset/20
+      bg.style.backgroundPosition = positionX + "px " + positionY + "px"
+    })
+  }
+
 
 
   //master-rol attack

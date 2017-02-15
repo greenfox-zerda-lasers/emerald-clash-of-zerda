@@ -68,18 +68,21 @@ main {
     width: 600px;
     position: absolute;
     display: inline-block;
+    border-radius: 600px;
+    box-sizing: content-box;
 
     .attackButton {
-      width: 200px;
-      height: 40px;
+      width: 70px;
+      height: 70px;
       //border-radius: 15px;
       border: 0px solid white;
       font-size: 1.3em;
-      background-color: tomato;
+      //background-color: tomato;
       color: white;
       position: relative;
-      top: calc(100% - 40px);
-      left: calc(50% - 100px);
+      //top : 70px;
+      top: calc(100% - 100px);
+      left: calc(50% - 200px);
     }
   }
 
@@ -110,19 +113,21 @@ main {
     }
   }
 
-  .userDetails {
-    width: 40vw;
+  .enemyDetails {
+    width: 60vw;
     height: 12vh;
     position: fixed;
-    left: calc(100vw - 70vw);
+    left: calc(100vw - 80vw);
     top:calc(100vh - 14vh);
-    background-color: $mediumBlack;
+    //background-color: $mediumBlack;
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 80px;
     text-align: center;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    color: white;
+    //color: white;
+    color: black;
 
     h1 {}
     .buildings {
@@ -136,6 +141,28 @@ main {
         img {
           width: 50px;
         }
+      }
+    }
+  }
+  .availableTroops {
+    background: yellow;
+    width: 500px;
+    height: 300px;
+    position: fixed;
+    top: 200px;
+    left: 50px;
+    z-index: 50;
+    .troopsContainer {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      .troop {
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+        margin: 5px;
       }
     }
   }

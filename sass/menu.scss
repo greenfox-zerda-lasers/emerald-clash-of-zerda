@@ -24,27 +24,34 @@
       justify-content: flex-start;
 
       .menu-elem {
-        font-family: "Barrio";
-        line-height: 22px;
-        font-size: 1.2em;
+        font-family: 'Amatic SC', cursive;
+        //line-height: 10px;
+        font-size: 1.8em;
         border-radius: 3px;
+        font-weight: bold;
         list-style: none;
+        padding-left: 10px;
+        padding-right: 10px;
         margin: 5px;
-        padding: 10px;
         text-decoration: none;
         background-color: $black;
         color: white;
         transition: all 0.3s;
 
         li {
+          height: 80%;
           transition: all 0.3s;
+          padding-left: 5px;
+          padding-right: 5px;
+          line-height: 40px;
         }
 
         &:hover {
-          background-color: #DC713D;
+          background-color: $lightBlue;
+          //color: $darkOrange;
 
           li {
-            line-height: 45px;
+            //line-height: 45px;
           }
         }
       }
