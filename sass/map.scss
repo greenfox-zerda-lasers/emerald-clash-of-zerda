@@ -64,26 +64,23 @@ main {
   }
 
   .svgContainer {
-    height: 550px;
+    height: 600px;
     width: 600px;
     position: absolute;
     display: inline-block;
     border-radius: 600px;
     box-sizing: content-box;
+  }
 
-    .attackButton {
-      width: 70px;
-      height: 70px;
-      //border-radius: 15px;
-      border: 0px solid white;
-      font-size: 1.3em;
-      //background-color: tomato;
-      color: white;
-      position: relative;
-      //top : 70px;
-      top: calc(100% - 100px);
-      left: calc(50% - 200px);
-    }
+  .attackButton {
+    width: 150px;
+    height: 150px;
+    border: 0px solid white;
+    font-size: 1.3em;
+    color: white;
+    position: fixed;;
+    top: 40%;
+    left: calc(50% + 400px);
   }
 
   aside {

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 300 300" style="enable-background:new 0 0 300 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#SVGID_1_);}
+	.st1{fill:#F9D026;}
+	.st2{fill:#E7C224;}
+	.st3{fill:#F74D37;}
+	.st4{fill:#C43D2C;}
+	.st5{fill:#EDEEF0;}
+	.st6{fill:#DCDEE2;}
+	.st7{fill:#444242;}
+	.st8{fill:#3A3839;}
+	.st9{fill:#BCE8F7;}
+	.st10{fill:#8EC1D6;}
+	.st11{fill:none;}
+</style>
+<radialGradient id="SVGID_1_" cx="150" cy="152" r="150" gradientTransform="matrix(1 0 0 -1 0 302)" gradientUnits="userSpaceOnUse">
+	<stop  offset="0" style="stop-color:#000000;stop-opacity:0.5"/>
+	<stop  offset="0.1911" style="stop-color:#030101;stop-opacity:0.5"/>
+	<stop  offset="0.3275" style="stop-color:#0C0303;stop-opacity:0.5"/>
+	<stop  offset="0.4469" style="stop-color:#1C0806;stop-opacity:0.5"/>
+	<stop  offset="0.5566" style="stop-color:#320E0B;stop-opacity:0.5"/>
+	<stop  offset="0.6596" style="stop-color:#4F1512;stop-opacity:0.5"/>
+	<stop  offset="0.7576" style="stop-color:#721F1A;stop-opacity:0.5"/>
+	<stop  offset="0.8518" style="stop-color:#9C2A23;stop-opacity:0.5"/>
+	<stop  offset="0.9405" style="stop-color:#CB372E;stop-opacity:0.5"/>
+	<stop  offset="1" style="stop-color:#EF4136;stop-opacity:0.5"/>
+</radialGradient>
+<circle class="st0" cx="150" cy="150" r="150"/>
+<g>
+	<path class="st1" d="M187.8,133.7c-0.2,20.5,31.5,15,31.5,15l-6.2-3.4l22.9-1.6l-8.7-5.1l27.4-4.1l-27.3-4.7l8.8-4.9l-22.8-2.1
+		l6.3-3.3C219.6,119.4,188,113.2,187.8,133.7z"/>
+	<path class="st2" d="M187.8,133.7l66.8,0.8l-27.3-4.7l8.8-4.9l-22.8-2.1l6.3-3.3C219.6,119.4,188,113.2,187.8,133.7z"/>
+	<polygon class="st3" points="162.2,154.1 182.9,183.9 156.3,183.5 135.7,153.8 	"/>
+	<polygon class="st4" points="162.7,112.7 184,83.5 157.5,83.2 136.1,112.4 	"/>
+	<path class="st5" d="M95.3,110.5c-22.8,5.8-40.5,21.7-40.5,21.7s17.4,16.3,40,22.6c5.2,1.5,10.7,2.4,16.4,2.4
+		c0,0,53.1,0.6,62.6,0.7c9.5,0.1,18.3-8.3,18.5-24.2c0.2-15.8-8.5-24.5-18-24.6s-62.6-0.7-62.6-0.7
+		C106.1,108.4,100.6,109.2,95.3,110.5z"/>
+	<path class="st6" d="M95.3,110.5c-22.8,5.8-40.5,21.7-40.5,21.7l40.3,0.5l78.9,0.9l18.3,0.2c0.2-15.8-8.5-24.5-18-24.6
+		s-62.6-0.7-62.6-0.7C106.1,108.4,100.6,109.2,95.3,110.5z"/>
+	<path class="st3" d="M54.8,132.2c0,0,17.4,16.3,40,22.6l0.3-22.1l0.3-22.1C72.6,116.3,54.8,132.2,54.8,132.2z"/>
+	<path class="st7" d="M174,133.6l-0.3,24.4c9.5,0.1,18.3-8.3,18.5-24.2c0.2-15.8-8.5-24.5-18-24.6L174,133.6z"/>
+	<path class="st8" d="M174.3,109.2l-0.3,24.4l18.3,0.2C192.4,117.9,183.8,109.3,174.3,109.2z"/>
+	<ellipse transform="matrix(0.7152 -0.699 0.699 0.7152 -58.7186 121.7196)" class="st9" cx="120" cy="132.9" rx="11.3" ry="11.3"/>
+	<polygon class="st3" points="148,133.3 148,133.3 183.4,139.6 218.8,134.1 218.8,134.1 183.5,127.7 	"/>
+	<g>
+		<polygon class="st4" points="183.5,127.7 148,133.3 148,133.3 218.8,134.1 218.8,134.1 		"/>
+		<path class="st4" d="M54.8,132.2l40.3,0.5l0.3-22.1C72.6,116.3,54.8,132.2,54.8,132.2z"/>
+	</g>
+	<path class="st10" d="M120.1,121.7c-6.2-0.1-11.3,4.9-11.4,11.1l22.5,0.3C131.3,126.9,126.3,121.8,120.1,121.7z"/>
+</g>
+<rect x="70.4" y="212.5" class="st11" width="160.4" height="64"/>
+</svg>
