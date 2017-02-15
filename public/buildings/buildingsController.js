@@ -20,6 +20,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     BuildingsFactory.save($scope.postData)
       .$promise
       .then( function (response) {
+        BroadcastFactory.events.pushTobuildings(response);
         $scope.buildingsList.push(response);
       })
       .catch( function(error) {
