@@ -1,4 +1,4 @@
-angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory){
+angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', 'BroadcastFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory, BroadcastFactory){
 
   var getBuildings = (function() {
     $scope.buildingsList = BuildingsFactory.query();
@@ -17,7 +17,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       "type": type
     };
 
-
     BuildingsFactory.save($scope.postData)
       .$promise
       .then( function (response) {
@@ -29,6 +28,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         $scope.error = true;
       });
       $scope.updateResources();
+      BroadcastFactory.buildingRegister();
   };
 
   $scope.upgradeBuilding = function (id, level) {
@@ -64,4 +64,11 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       console.log(error);
     });
   };
+
+  $rootScope.$on('BuildingReg', function(event, data) {
+    console.log(data);
+  });
+
+
+
 }]);
