@@ -1,54 +1,127 @@
 #menu-bar {
   //background-color: white;
-  height: 60px;
+  height: auto;
   padding: 5px;
   position: fixed;
   width: 100%;
   z-index: 100;
 
   .menu {
-    height: 50px;
+    height: auto;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding-right: 10px;
-    margin-right: 25px;
     margin-left: 10px;
+    margin-top: 10px;
+    color: white;
 
-    .menu-list {
-      width: 60%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+    .circle {
+      border-radius: 500px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid white;
+      position: absolute;
+      top: -75px;
+      left: -75px;
+    }
+    .activeScreen {
+      background-color: white;
+      border-radius: 100px;
+      width: 75px;
+      height: 75px;
+      transform-origin: center;
+      transition: all 0.3s;
+      border: 0px solid white;
+      // width: 70px;
+      // height: 70px;
 
-      .menu-elem {
-        font-family: "Barrio";
-        line-height: 22px;
-        font-size: 1.2em;
-        border-radius: 3px;
-        list-style: none;
-        margin: 5px;
-        padding: 10px;
-        text-decoration: none;
-        background-color: $black;
-        color: white;
-        transition: all 0.3s;
 
-        li {
-          transition: all 0.3s;
-        }
+      .overlay {
+        opacity: 0;
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 200px;
+        top: -20px;
+        left: -20px;
+      }
 
-        &:hover {
-          background-color: #DC713D;
+      .option {
+        position: relative;
+        background-color: white;
+        border-radius: 100px;
+        width: 25px;
+        height: 25px;
+        opacity: 0;
+        transition: all 0.5s;
+        transform-origin: center center;
+      }
 
-          li {
-            line-height: 45px;
-          }
-        }
+      .option1 {
+        //background-color: red;
+        top: 85px;
+        left: 0px;
+      }
+
+      .option2 {
+        //background-color: blue;
+        top: 62px;
+        left: 38px;
+      }
+
+      .option3 {
+        //background-color: pink;
+        top: 18px;
+        left: 72px;
+      }
+
+      .option4 {
+        //background-color: green;
+        top: -40px;
+        left: 88px;
+      }
+
+      .option5 {
+        //background-color: yellow;
+        left: 85px;
+        top: -100px;
       }
     }
+
+    // .menu-list {
+    //   width: 60%;
+    //   display: flex;
+    //   flex-direction: row;
+    //   justify-content: flex-start;
+    //
+    //   .menu-elem {
+    //     font-family: "Barrio";
+    //     line-height: 22px;
+    //     font-size: 1.2em;
+    //     border-radius: 3px;
+    //     list-style: none;
+    //     margin: 5px;
+    //     padding: 10px;
+    //     text-decoration: none;
+    //     background-color: $black;
+    //     color: white;
+    //     transition: all 0.3s;
+    //
+    //     li {
+    //       transition: all 0.3s;
+    //     }
+    //
+    //     &:hover {
+    //       background-color: #DC713D;
+    //
+    //       li {
+    //         line-height: 45px;
+    //       }
+    //     }
+    //   }
+    // }
 
     .resources {
       display: flex;
@@ -70,7 +143,7 @@
 
       img {
         width: auto;
-        height: 50px;
+        height: 75px;
       }
     }
 
@@ -78,7 +151,7 @@
 
       .drop-down-menu-icon {
         width: auto;
-        height: 50px;
+        height: 75px;
 
         .drop-down-menu-username {
           display: inline-block;
@@ -90,8 +163,9 @@
           line-height: 40px;
         }
 
-        .drop-down-menu-avatar {width: 50px;
-          height: 50px;
+        .drop-down-menu-avatar {
+          width: 75px;
+          height: 75px;
           // background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
           background-image: url("img/fox1.svg");
           background-size:cover;

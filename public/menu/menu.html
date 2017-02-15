@@ -2,20 +2,31 @@
 
   <div class="menu">
 
-    <ul class="menu-list">
+    <!-- <ul class="menu-list">
       <a  ng-href={{'#!/overview'}} class="menu-elem" ng-click="getUserData()"><li>Overview</li></a>
       <a ng-href={{'#!/map'}} class="menu-elem"><li>Map</li></a>
       <a ng-href={{'#!/buildings'}} class="menu-elem"><li>Buildings</li></a>
       <a ng-href={{'#!/troops'}} class="menu-elem"><li>Troops</li></a>
       <a ng-href={{'#!/leaderboard'}} class="menu-elem"><li>Leaderboard</li></a>
       <a ng-href={{'#!/history'}} class="menu-elem"><li>History</li></a>
-    </ul>
+    </ul> -->
+
+    <div class="activeScreen" ng-click="closeMenu()">
+      <div class="overlay"></div>
+      <div class="option option1"></div>
+      <div class="option option2"></div>
+      <div class="option option3"></div>
+      <div class="option option4"></div>
+      <div class="option option5"></div>
+    </div>
+
+    <!-- <div class="circle"></div> -->
 
     <div class="resources">
       <span>{{food}}</span>
-      <img src="http://image.flaticon.com/icons/svg/168/168559.svg" alt="food"></img>
+      <img src="./img/icons/food-01.svg" alt="food"></img>
       <span>{{gold}}</span>
-      <img src="http://image.flaticon.com/icons/svg/199/199533.svg" alt="gold"></img>
+      <img src="./img/icons/diamond-01.svg" alt="gold"></img>
     </div>
 
     <div class="drop-down-menu">

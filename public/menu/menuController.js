@@ -5,6 +5,35 @@ angular
 
   $scope.username = $localStorage.userObj.username;
 
+  let menuOverlay = (function() {
+    let button = document.querySelector(".activeScreen")
+    let options = document.querySelectorAll(".option")
+    let overlay = document.querySelector(".overlay")
+    button.addEventListener("mouseover", function(event) {
+      // button.style.width = "90px"
+      // button.style.height = "90px"
+      options.forEach(function(elem) {
+        elem.style.opacity = "1"
+      })
+      overlay.addEventListener("mouseout", function(event) {
+        console.log("out");
+        button.style.width = "75px"
+        button.style.height = "75px"
+        options.forEach(function(elem) {
+          elem.style.opacity = "0"
+        })
+      })
+    })
+  })()
+
+  let setScreenPaths = (function() {
+    let button = document.querySelector(".activeScreen")
+    let options = document.querySelectorAll(".option")
+    if($location.path('/map')) {
+      button.style.backgroundImage = "url('./img/icons/spacestation_icon.svg')"
+    }
+  })()
+
   var renderMenuResources = (function() {
     $scope.resources = MenuFactory.query()
       .$promise
