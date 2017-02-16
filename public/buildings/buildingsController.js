@@ -18,8 +18,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       .$promise
       .then( function (response) {
         $scope.buildingsList.push(response);
-        BroadcastFactory.pushTobuildings(response);
-        BroadcastFactory.buildingRegister();
+        BroadcastFactory.buildingRegister(response);
       })
       .catch( function(error) {
         console.log(error);
@@ -66,8 +65,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
 
   $scope.$on('BuildingReg', function(event, data) {
     $scope.bar = data;
-    // $scope.$apply();
-    // $scope.$digest();
+    console.log(data);
     $scope.$evalAsync();
   });
 
