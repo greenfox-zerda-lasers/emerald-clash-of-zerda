@@ -33,12 +33,28 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       this.kingdomName = elem.user.kingdom
       this.name = elem.user.username
       this.points = elem.user.points
-      // this.width = document.querySelector(".svgContainer").style.width
-      // this.height = document.querySelector(".svgContainer").style.height
-      this.width = 550
+      this.width = 600
       this.height = 600
       this.getData()
       this.ssvg = null;
+      this.positionList = [
+        "t190,190r90",
+        "t-190,190r270",
+        "t0,390r180",
+        "t80,30r30",
+        "t-80,30r330",
+        "t-120,60r320",
+        "t120,60,r40",
+        "t170,110r65",
+        "t-170,110r-65",
+        "t180,270r110",
+        "t-180,270r250",
+        "t120,350r140",
+        "t80,375r160",
+        "t-80,375r200",
+        //"t120,350r140",
+        "t-170,270r250"
+      ]
     }
 
     getData() {
@@ -54,11 +70,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
     loadSVG(response) {
-      Snap.load("img/map/island02.svg", f => {
+      Snap.load("img/map/island05-01.svg", f => {
         var s = Snap()
         s.attr({
-            width: 700,
-            height: 500,
+            width: 600,
+            height: 600,
         });
         s.addClass("zoomTarget")
         s.addClass("svg")
@@ -68,8 +84,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         this.style = f.select("style")
         this.island = f.select("#island")
         this.spaceStation = f.select("#spaceStation_1_")
-        this.mine = f.select("#mine_1_")
-        this.factory = f.select("#factory")
+        this.mine = f.select("#mine_2_")
+        this.factory = f.select("#factory_4_")
         this.academy = f.select("#academy")
 
         s.append(this.style)
@@ -100,6 +116,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       }.bind(this))
     }
 
+
     checkPosition() {
       console.log("checkPosition");
       let object = document.querySelector('#kingdom'+this.id)
@@ -110,8 +127,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       let enemyWidth = 600
       let enemyHeight = 600
       //if(location.x == null && location.y == null) {
-        let xPos = (Math.random() * 20000) - this.width - 200
-        let yPos = (Math.random() * 15000) - this.height - 200
+        let xPos = (Math.random() * (20000-1200) + 600) //- this.width - 200
+        let yPos = (Math.random() * (15000-1200) + 600) //- this.height - 200
         this.setPosition(xPos, yPos, object)
 
       //   for(var i = 0; i < enemyLocation.length; i++) {
@@ -153,31 +170,46 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     }
 
 
+    //dinamikusra
     renderSideBar() {
       if(this.id == $localStorage.userObj.userId) {
         $scope.myName = this.kingdomName
         $scope.mineNum = this.mineList.length
         $scope.factoryNum = this.factoryList.length
         $scope.academyNum = this.academyList.length
+        $scope.troops = this.troops.length
       }
     }
 
     renderAcademy() {
-      var show = false
-      if(this.academyList.length > 0 && show == false) {
-        this.ssvg.append(this.academy)
-        show = true
-      }
+      console.log(this.academyList.length, "academy");
+      this.academyList.forEach(function(elem){
+        let max = this.positionList.length
+        let index = Math.floor(Math.random() * max)
+        let buildingPos = this.positionList[index]
+        this.positionList.splice(index, 1)
+        let newAcademy = this.academy.clone()
+        this.ssvg.append(newAcademy)
+        newAcademy.transform(buildingPos)
+        console.log(buildingPos, "academy");
+        //this.academy.transform("t-170,270r-110")
+      }.bind(this))
     }
 
     renderFactory() {
-      var show = false
-      if(this.factoryList.length > 0 && show == false) {
-        this.ssvg.append(this.factory)
-        show = true
-      }
+      this.factoryList.forEach(function(elem){
+        let max = this.positionList.length
+        let index = Math.floor(Math.random() * max)
+        let buildingPos = this.positionList[index]
+        this.positionList.splice(index, 1)
+        let newFactory = this.factory.clone()
+        this.ssvg.append(newFactory)
+        newFactory.transform(buildingPos)
+        console.log(buildingPos, newFactory, "factory");
+      }.bind(this))
     }
 
+    //matrix alapjan
     renderMine() {
       var show = false
       if(this.mineList.length > 0 && show == false) {
@@ -185,16 +217,20 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         show = true
       }
     }
-  };
+  }
 
+
+
+  //******************************BATTLE*************************
 
   $scope.showEnemy = false
 
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
-      //document.querySelector("#kingdom" + userid).style.border = "1px solid white"
-      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 255, 255, 0.1)"
+      //document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+      document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
       showDetails(userid)
+      $scope.showEnemy = true
     }
   }
 
@@ -209,7 +245,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         isFactory(response.buildings)
         isAcademy(response.buildings)
         stationLevel(response.buildings)
-        console.log(response, "enemyresponse")
       })
       .catch( function(error) {
         console.log(error);
@@ -225,13 +260,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     $scope.getTroops(id, kingdom)
   }
 
-    let attackerTroops = []
+  let attackerTroops = []
 
   $scope.getTroops = function(defenderId, defenderKingdom) {
-
     let defenderTroops
     let attackerId = $localStorage.userObj.userId
-
     mapFactory.search.query({kingdom: defenderKingdom})
       .$promise
       .then( function(response) {
@@ -259,7 +292,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   $scope.selectTroop = function(troopId){
       console.log("select troop");
       attackerTroops.push(troopId)
-      document.querySelector(".troop" + troopId).style.border = "2px solid red"
+      document.querySelector(".troop" + troopId).style.border = "4px solid orange"
   }
 
   $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
@@ -274,7 +307,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     mapFactory.attack.save(attackData)
       .$promise
       .then(function(response) {
-
       })
       .catch( function(error) {
         console.log(error);

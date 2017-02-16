@@ -2,10 +2,10 @@
 
 <section id="map">
 
-    <div class="svgContainer {{elem}}" id="kingdom{{elem.id}}" ng-repeat="elem in kingdoms" ng-click="selectEnemy(elem.id)">
-      <!-- <button class="attackButton" ng-show="showEnemy" ng-click="attack(elem)">Attack!</button> -->
-      <img class="attackButton" src="./img/map/attack.svg" ng-show="showEnemy" ng-click="attack(elem.id, elem.kingdom)"></img>
-    </div>
+  <div class="svgContainer {{elem.id}}" id="kingdom{{elem.id}}" ng-repeat="elem in kingdoms" ng-click="selectEnemy(elem.id)">
+  </div>
+  <img class="attackButton" src="./img/icons/attack_button-01.svg" ng-show="showEnemy" ng-click="attack(elem.id, elem.kingdom)"></img>
+
 
   <div class="focusKingdom">
     <div class="goToMyKingdom" type="button" name="button" ng-click="scrollToKingdom.toNode('#kingdom0')"></div>
@@ -18,10 +18,6 @@
 
   <aside class="userDetails">
     <div class="sideElem">
-      <img src="./img/map/station.svg"></img>
-      <span>{{myName}}</span>
-    </div>
-    <div class="sideElem">
       <img src="./img/map/academy.svg"></img>
       <span>{{academyNum}}</span>
     </div>
@@ -32,6 +28,10 @@
     <div class="sideElem">
       <img src="./img/map/mine.svg"></img>
       <span>{{mineNum}}</span>
+    </div>
+    <div class="sideElem">
+      <img src="./img/icons/fox_nobg-01.svg"></img>
+      <span>{{troops}}</span>
     </div>
   </aside>
 

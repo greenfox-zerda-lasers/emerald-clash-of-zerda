@@ -66,26 +66,23 @@ main {
   }
 
   .svgContainer {
-    height: 550px;
+    height: 600px;
     width: 600px;
     position: absolute;
     display: inline-block;
     border-radius: 600px;
     box-sizing: content-box;
+  }
 
-    .attackButton {
-      width: 70px;
-      height: 70px;
-      //border-radius: 15px;
-      border: 0px solid white;
-      font-size: 1.3em;
-      //background-color: tomato;
-      color: white;
-      position: relative;
-      //top : 70px;
-      top: calc(100% - 100px);
-      left: calc(50% - 200px);
-    }
+  .attackButton {
+    width: 150px;
+    height: 150px;
+    border: 0px solid white;
+    font-size: 1.3em;
+    color: white;
+    position: fixed;;
+    top: 40%;
+    left: calc(50% + 400px);
   }
 
   aside {
@@ -116,20 +113,19 @@ main {
   }
 
   .enemyDetails {
-    width: 60vw;
+    width: 40vw;
     height: 12vh;
     position: fixed;
-    left: calc(100vw - 80vw);
+    left: calc(100vw - 70vw);
     top:calc(100vh - 14vh);
     //background-color: $mediumBlack;
-    background-color: rgba(255, 255, 255, 0.5);
-    border-radius: 80px;
+    background-color: rgba(75, 75, 75, 0.6);
+    border-radius: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
     padding: 20px;
-    //color: white;
-    color: black;
+    color: white;
 
     h1 {}
     .buildings {
@@ -147,25 +143,58 @@ main {
     }
   }
   .availableTroops {
-    background: yellow;
-    width: 500px;
-    height: 300px;
+    background-color: rgba(75, 75, 75, 0.6);
+    border-radius: 20px;
+    width: 240px;
+    height: 400px;
+    height: auto;
     position: fixed;
-    top: 200px;
-    left: 50px;
+    top: 250px;
+    left: 150px;
     z-index: 50;
+    padding: 10px;
+    text-align: center;
+    color: white;
+
     .troopsContainer {
       width: 100%;
-      height: 100%;
+      height: 300px;
+      overflow-y: scroll;
       display: flex;
       flex-direction: row;
+      justify-content: space-around;
       flex-wrap: wrap;
+      align-items: center;
+      padding-bottom: 10px;
       .troop {
         width: 50px;
         height: 50px;
-        background-color: blue;
+        background-color: white;
+        border-radius: 5px;
         margin: 5px;
       }
+    }
+
+    ::-webkit-scrollbar {
+    width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background-color: white;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+    }
+    .startBattleButton {
+      width: 95%;
+      height: 25px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
     }
   }
 }
