@@ -37,7 +37,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       this.ssvg = null;
       this.positionList = [
         "t190,190r90",
-        "t-200,190r270",
+        "t-190,190r270",
         "t0,390r180",
         //kiszamolni a tobbi lehetseges poziciot is
       ]
@@ -113,8 +113,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       let enemyWidth = 600
       let enemyHeight = 600
       //if(location.x == null && location.y == null) {
-        let xPos = (Math.random() * 20000) //- this.width - 200
-        let yPos = (Math.random() * 15000) //- this.height - 200
+        let xPos = (Math.random() * (20000-1200) + 600) //- this.width - 200
+        let yPos = (Math.random() * (15000-1200) + 600) //- this.height - 200
         this.setPosition(xPos, yPos, object)
 
       //   for(var i = 0; i < enemyLocation.length; i++) {
@@ -163,6 +163,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         $scope.mineNum = this.mineList.length
         $scope.factoryNum = this.factoryList.length
         $scope.academyNum = this.academyList.length
+        $scope.troops = this.troops.length
       }
     }
 
@@ -207,7 +208,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
-      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+      //document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 0, 0, 0.2)"
+      document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
       showDetails(userid)
       $scope.showEnemy = true
     }
@@ -271,7 +273,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   $scope.selectTroop = function(troopId){
       console.log("select troop");
       attackerTroops.push(troopId)
-      document.querySelector(".troop" + troopId).style.border = "2px solid red"
+      document.querySelector(".troop" + troopId).style.border = "4px solid orange"
   }
 
   $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
