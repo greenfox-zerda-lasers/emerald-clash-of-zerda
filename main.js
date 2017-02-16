@@ -13,6 +13,7 @@ var loginController = require('./public/login/loginController.js');
 var loginFactory = require('./public/login/loginFactory.js');
 var regController = require('./public/register/regController.js');
 var regFactory = require('./public/register/regFactory.js');
+var welcomeController = require('./public/welcome/welcomeController.js');
 var overviewController = require('./public/overview/overviewController.js');
 var overviewFactory = require('./public/overview/OverviewFactory.js');
 var buildingsController = require('./public/buildings/buildingsController.js');

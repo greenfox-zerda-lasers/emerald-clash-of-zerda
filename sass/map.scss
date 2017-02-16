@@ -14,24 +14,26 @@ main {
 
   .goToMyKingdom {
     position: fixed;
-    margin: 10px;
-    top: 70px;
-    left: 10px;
-    width: 50px;
-    height: 50px ;
-    background-image: url("./img/map/target.svg");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    z-index: 10;
+    top: 300px;
+    height: 45px ;
+    line-height: 1em;
+    background-color: tomato;
+    padding: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    margin-top: 50px;
+    border: 1px solid rgba(0, 0, 0, 0);
+    font-size: 1em;
+    font-weight: bold;
   }
 
   select {
     position: fixed;
-    left: 90px;
-    top:85px;
-    width: 300px;
-    height: 40px ;
+    top: 300px;
+    width: 200px;
+    height: 45px ;
+
     line-height: 1em;
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 20px;
