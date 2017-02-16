@@ -13,7 +13,7 @@ angular
         },
 
         pushTobuildings: function(response) {
-          this.events.building = {id: response.id, timestamp: new Date().getTime()+300};
+          this.events.building = {id: response.id, timestamp: new Date().getTime()+500};
           console.log(this.events.building);
         },
 
@@ -36,15 +36,7 @@ angular
 
           };
           console.log(this.state.building);
-
-
           animation();
-
-          // setTimeout(() => {
-          // }, 3000);
-
         },
-
-
       }
 });

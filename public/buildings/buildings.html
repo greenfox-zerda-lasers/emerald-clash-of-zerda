@@ -9,7 +9,7 @@
       <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')" ng-disabled="BroadcastFactory.state.building">Mine</button>
       <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barracks')" ng-disabled="BroadcastFactory.state.building">Barracks</button>
     </article>
-    <div class="progress">
+    <div class="progress" ng-show="BroadcastFactory.state.building">
       <div class="bar" style="width: {{bar}}%"></div>
     </div>
     <article class="building row" ng-repeat="building in buildingsList">
