@@ -3,6 +3,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
   let getKingdoms = (function() {
+    console.log( "map", $localStorage.userObj.token);
     mapFactory.search.query()
       .$promise
       .then( function(response) {
@@ -13,19 +14,14 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           $scope.kingdoms.push(elem.user)
           var userKingdom = new Kingdom(elem)
         })
-        searchBar($scope.kingdoms)
+
       }.bind(this))
       .catch( function(error) {
         console.log(error);
       })
+
   })()
 
-
- let searchBar = function(kingdoms) {
-    console.log(kingdoms);
-  }
-
-searchBar()
 
   var Kingdom = class Kingdom {
     constructor(elem) {
@@ -37,9 +33,12 @@ searchBar()
       this.kingdomName = elem.user.kingdom
       this.name = elem.user.username
       this.points = elem.user.points
+      // this.width = document.querySelector(".svgContainer").style.width
+      // this.height = document.querySelector(".svgContainer").style.height
+      this.width = 550
+      this.height = 600
       this.getData()
       this.ssvg = null;
-      console.log(this.id, "id");
     }
 
     getData() {
@@ -60,11 +59,9 @@ searchBar()
         s.attr({
             width: 700,
             height: 500,
-            //viewBox: [0, 0, 500, 400]
         });
         s.addClass("zoomTarget")
         s.addClass("svg")
-
 
         document.querySelector('#kingdom'+this.id).appendChild(s.node)
 
@@ -80,10 +77,12 @@ searchBar()
         s.append(this.spaceStation)
 
         this.ssvg = s;
-        this.setPosition()
+        this.checkPosition()
         this.renderMine()
         this.renderFactory()
         this.renderAcademy()
+        console.log($localStorage.userObj.userId, "localstorage")
+        this.renderSideBar()
       })
 
       this.mineList = []
@@ -101,18 +100,47 @@ searchBar()
       }.bind(this))
     }
 
+    checkPosition() {
+      console.log("checkPosition");
+      let object = document.querySelector('#kingdom'+this.id)
+      //ajax get user location: {x: null, y: null}
+      let location = {x: null, y: null}
+      //ajax get enemylocation
+      let enemyLocation = [{x: 1000, y: 100}, {x:0, y:0}]
+      let enemyWidth = 600
+      let enemyHeight = 600
+      //if(location.x == null && location.y == null) {
+        let xPos = (Math.random() * 20000) - this.width - 200
+        let yPos = (Math.random() * 15000) - this.height - 200
+        this.setPosition(xPos, yPos, object)
 
-    setPosition() {
-      var object = document.querySelector('#kingdom'+this.id)
-      var xPos = Math.random() * 2000
-      var yPos = Math.random() * 1500
+      //   for(var i = 0; i < enemyLocation.length; i++) {
+      //
+      //     if((xPos +this.width < enemyLocation[i].x && yPos + this.height < enemyLocation[i].y) || (xPos > enemyLocation[i].x +enemyWidth && yPos > enemyLocation[i].y +enemyHeight)) {
+      //       this.setPosition(xPos, yPos, object)
+      //     } else {
+      //       // this.checkPosition()
+      //
+      //     }
+      //   }
+      // } else {
+      //   let xPos = location.x
+      //   let yPos = location.y
+      // }
+    }
+
+
+    setPosition(xPos, yPos, object) {
+      console.log("setPosition");
       object.style.left = String(xPos) + "px"
       object.style.top = String(yPos) + "px"
       this.updatePosition()
       $scope.scrollToKingdom.toNode("#kingdom" + String($localStorage.userObj.userId))
       var myKingdom = document.querySelector('#kingdom' + String($localStorage.userObj.userId))
       myKingdom.style.zIndex = "1"
+      console.log(this.id, xPos, yPos)
     }
+
 
     updatePosition() {
       var objects = document.querySelectorAll('.svgContainer')
@@ -122,6 +150,16 @@ searchBar()
         }
       })
       $(".ui-widget-content").draggable();
+    }
+
+
+    renderSideBar() {
+      if(this.id == $localStorage.userObj.userId) {
+        $scope.myName = this.kingdomName
+        $scope.mineNum = this.mineList.length
+        $scope.factoryNum = this.factoryList.length
+        $scope.academyNum = this.academyList.length
+      }
     }
 
     renderAcademy() {
@@ -150,69 +188,140 @@ searchBar()
   };
 
 
-  $scope.show = false
+  $scope.showEnemy = false
 
-  $scope.showDetails = function(userid) {
+  $scope.selectEnemy = function(userid) {
+    if(userid != $localStorage.userObj.userId) {
+      //document.querySelector("#kingdom" + userid).style.border = "1px solid white"
+      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 255, 255, 0.1)"
+      showDetails(userid)
+    }
+  }
+
+  let showDetails = function(userid) {
     mapFactory.user.get({id: userid})
       .$promise
       .then( function(response) {
         $scope.kingdom = response.user.kingdom
         $scope.troopsNum = response.troops.length
         $scope.troops = response.troops
-
-      }.bind(this))
+        isMine(response.buildings)
+        isFactory(response.buildings)
+        isAcademy(response.buildings)
+        stationLevel(response.buildings)
+        console.log(response, "enemyresponse")
+      })
       .catch( function(error) {
         console.log(error);
       })
-    $scope.show = true
-    window.addEventListener("click", function(event) {
-      $scope.show = false
+
+    $scope.showEnemy = true
+    //clickOut()
+  }
+
+  $scope.showTroops = false
+  $scope.attack = function(id, kingdom) {
+    console.log(id, "attack")
+    $scope.getTroops(id, kingdom)
+  }
+
+    let attackerTroops = []
+
+  $scope.getTroops = function(defenderId, defenderKingdom) {
+
+    let defenderTroops
+    let attackerId = $localStorage.userObj.userId
+
+    mapFactory.search.query({kingdom: defenderKingdom})
+      .$promise
+      .then( function(response) {
+        defenderTroops = response[0].troops
+        console.log(defenderTroops, "deftroop");
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+
+    mapFactory.search.query({kingdom: $localStorage.userObj.kingdom})
+      .$promise
+      .then( function(response) {
+        $scope.myTroops = response[0].troops
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+      $scope.showTroops = true
+      document.querySelector(".startBattleButton").addEventListener("click", function(event) {
+        $scope.startBattle(attackerId, defenderId, defenderTroops)
+      })
+  }
+
+  $scope.selectTroop = function(troopId){
+      console.log("select troop");
+      attackerTroops.push(troopId)
+      document.querySelector(".troop" + troopId).style.border = "2px solid red"
+  }
+
+  $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
+    console.log(attackerTroops, "attackertroops");
+    let attackData = {
+      "attackerTroops" : attackerTroops,
+      "attackerId" : attackerId,
+      "defenderTroops" : defenderTroops,
+      "defenderId" : defenderId
+    }
+    console.log(attackData, "attackdata");
+    mapFactory.attack.save(attackData)
+      .$promise
+      .then(function(response) {
+
+      })
+      .catch( function(error) {
+        console.log(error);
+      })
+  }
+  //ez nem joo
+  let clickOut = function() {
+    let enemy = document.querySelector(".svgContainer")
+    enemy.style.zIndex = "5"
+    let overlay = document.createElement("div")
+    overlay.classList.add("overlay")
+    document.querySelector("#map").appendChild(overlay)
+    overlay.addEventListener("click", function(event) {
+        overlay.classList.remove("overlay")
+        $scope.showEnemy = false
     })
   }
 
-//ADD NEW BUILDING bad request
-  $scope.addNewMine = function() {
-    var postData = {
-      "user_id": String($localStorage.userObj.userId),
-      "type": "mine"
-    };
-    mapFactory.building.save(postData)
-      .$promise.then( function (response) {
-        console.log(response);
-      })
-      .catch( function(error) {
-        console.log(error);
-      });
+  let isMine = function(building) {
+    let mines = building.filter(function(elem){
+      return elem.type === "mine"
+    })
+    $scope.mineNum = mines.length
+  }
+
+  let isFactory = function(building) {
+    let factories = building.filter(function(elem){
+      return elem.type === "farm"
+    })
+    $scope.factoryNum = factories.length
+  }
+
+  let isAcademy = function(building) {
+    let academies = building.filter(function(elem){
+      return elem.type === "barracks"
+    })
+    $scope.academyNum = academies.length
+  }
+
+  let stationLevel = function(building) {
+    let station = building.filter(function(elem){
+      return elem.type === "townhall"
+    })
+    $scope.stationLevel = station[0].level
   }
 
 
-  $scope.addNewFactory = function() {
-    var postData = {
-      "user_id": String($localStorage.userObj.userId),
-      "type": "farm"
-    };
-    mapFactory.building.save(postData)
-      .$promise.then( function (response) {
-        console.log(response);
-      })
-      .catch( function(error) {
-        console.log(error);
-      });
-  }
-
-  $scope.addNewAcademy = function() {
-    var postData = {
-      "user_id": String($localStorage.userObj.userId),
-      "type": "barracks"
-    };
-    mapFactory.building.save(postData)
-      .$promise.then( function (response) {
-        console.log(response);
-      })
-      .catch( function(error) {
-        console.log(error);
-      });
-  }
 
   $scope.selectKingdom = function() {
     var selected = "#kingdom" + $scope.selected
@@ -224,7 +333,7 @@ searchBar()
     getCoords: function (selector) {
       let element = document.querySelector(String(selector));
       let x = (element.offsetLeft-(window.innerWidth-element.clientWidth)/2);
-      let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/2);
+      let y = (element.offsetTop-(window.innerHeight-element.clientHeight)/3);
       return {
         x: x, y: y
       }
@@ -239,12 +348,15 @@ searchBar()
 
 
 //background scroll
-  window.addEventListener('scroll', function() {
-    var bg = document.querySelector("#map")
-    var positionY = window.pageYOffset/20
-    var positionX = window.pageXOffset/20
-    bg.style.backgroundPosition = positionX + "px " + positionY + "px"
-  })
+  var bg = document.querySelector("#map")
+  if(bg) {
+    window.addEventListener('scroll', function() {
+      var positionY = window.pageYOffset/20
+      var positionX = window.pageXOffset/20
+      bg.style.backgroundPosition = positionX + "px " + positionY + "px"
+    })
+  }
+
 
 
   //master-rol attack
@@ -270,48 +382,51 @@ searchBar()
 //     }
 
 
-
+//ADD NEW BUILDING bad request
+  // $scope.addNewMine = function() {
+  //   var postData = {
+  //     "user_id": String($localStorage.userObj.userId),
+  //     "type": "mine"
+  //   };
+  //   mapFactory.building.save(postData)
+  //     .$promise.then( function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch( function(error) {
+  //       console.log(error);
+  //     });
+  // }
+  //
+  //
+  // $scope.addNewFactory = function() {
+  //   var postData = {
+  //     "user_id": String($localStorage.userObj.userId),
+  //     "type": "farm"
+  //   };
+  //   mapFactory.building.save(postData)
+  //     .$promise.then( function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch( function(error) {
+  //       console.log(error);
+  //     });
+  // }
+  //
+  // $scope.addNewAcademy = function() {
+  //   var postData = {
+  //     "user_id": String($localStorage.userObj.userId),
+  //     "type": "barracks"
+  //   };
+  //   mapFactory.building.save(postData)
+  //     .$promise.then( function (response) {
+  //       console.log(response);
+  //     })
+  //     .catch( function(error) {
+  //       console.log(error);
+  //     });
+  // }
 
 
 
 
 }]);
-
-
-
-///////////////////////////////
-
-// var canvas = document.querySelector("object")
-//
-// function Kingdom() {
-//     this.rootNode = document.createElement('svg');
-//     canvas.appendChild(this.rootNode)
-//     this.snap = new Snap(this.rootNode)
-//     this.mineSVG = null;
-//
-//     this.init = function() {
-//
-//     }
-
-//     this.animate = function(){
-//        var academy = snap.select()
-//        academy.x = Math.sin(time) * 10 + px
-//        window.requestAnimationFrame( this.animate )
-//     }
-
-//     this.onDrop = function() {
-//       // send ajax
-//     }
-//
-//     this.addMine = function() {
-//
-//     }
-//
-//     this.load = function() {
-//       Snap.load("img/map/floor1.svg", this.onSvgLoad );
-//     }
-//
-//     this.onSvgLoad = function ready(fragment) {
-//         this.mineSVG = fragment.keressmeg//
-//     }
-// }
