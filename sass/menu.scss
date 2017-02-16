@@ -1,59 +1,83 @@
 #menu-bar {
-  background-color: white;
-  height: 60px;
+  height: auto;
   padding: 5px;
   position: fixed;
   width: 100%;
   z-index: 100;
 
   .menu {
-    height: 50px;
+    height: auto;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: nowrap;
-    padding-right: 10px;
-    margin-right: 25px;
     margin-left: 10px;
+    margin-top: 10px;
+    color: white;
 
-    .menu-list {
-      width: 60%;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
+    .circle {
+      border-radius: 500px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid white;
+      position: absolute;
+      top: -75px;
+      left: -75px;
+    }
+    .activeScreen {
+      background-color: white;
+      border-radius: 100px;
+      width: 75px;
+      height: 75px;
+      transform-origin: center;
+      transition: all 0.3s;
+      border: 0px solid white;
 
-      .menu-elem {
-        font-family: 'Amatic SC', cursive;
-        //line-height: 10px;
-        font-size: 1.8em;
-        border-radius: 3px;
-        font-weight: bold;
-        list-style: none;
-        padding-left: 10px;
-        padding-right: 10px;
-        margin: 5px;
-        text-decoration: none;
-        background-color: $black;
-        color: white;
-        transition: all 0.3s;
+      .overlay {
+        opacity: 0;
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border-radius: 200px;
+        top: -20px;
+        left: -20px;
+      }
 
-        li {
-          height: 80%;
-          transition: all 0.3s;
-          padding-left: 5px;
-          padding-right: 5px;
-          line-height: 40px;
-        }
+      .option {
+        position: absolute;
+        background-color: white;
+        border-radius: 100px;
+        width: 45px;
+        height: 45px;
+        opacity: 0;
+        transition: all 0.5s;
+        background-size:cover;
+      }
 
-        &:hover {
-          background-color: $lightBlue;
-          //color: $darkOrange;
+      .option1 {
+        top: 105px;
+        left: 3px;
+      }
 
-          li {
-            //line-height: 45px;
-          }
-        }
+      .option2 {
+        top: 115px;
+        left: 51px;
+      }
+
+      .option3 {
+        top: 95px;
+        left: 95px;
+      }
+
+      .option4 {
+        top: 51px;
+        left: 115px;
+      }
+
+      .option5 {
+        top: 3px;
+        left: 105px;
       }
     }
 
@@ -77,7 +101,7 @@
 
       img {
         width: auto;
-        height: 50px;
+        height: 75px;
       }
     }
 
@@ -85,7 +109,7 @@
 
       .drop-down-menu-icon {
         width: auto;
-        height: 50px;
+        height: 75px;
 
         .drop-down-menu-username {
           display: inline-block;
@@ -97,8 +121,9 @@
           line-height: 40px;
         }
 
-        .drop-down-menu-avatar {width: 50px;
-          height: 50px;
+        .drop-down-menu-avatar {
+          width: 75px;
+          height: 75px;
           // background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
           background-image: url("img/fox1.svg");
           background-size:cover;
