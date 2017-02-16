@@ -39,7 +39,19 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         "t190,190r90",
         "t-190,190r270",
         "t0,390r180",
-        //kiszamolni a tobbi lehetseges poziciot is
+        "t80,30r30",
+        "t-80,30r330",
+        "t-120,60r320",
+        "t120,60,r40",
+        "t170,110r65",
+        "t-170,110r-65",
+        "t180,270r110",
+        "t-180,270r250",
+        "t120,350r140",
+        "t80,375r160",
+        "t-80,375r200",
+        //"t120,350r140",
+        "t-170,270r250"
       ]
     }
 
@@ -168,25 +180,30 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     }
 
     renderAcademy() {
+      console.log(this.academyList.length, "academy");
       this.academyList.forEach(function(elem){
         let max = this.positionList.length
         let index = Math.floor(Math.random() * max)
         let buildingPos = this.positionList[index]
         this.positionList.splice(index, 1)
-        this.ssvg.append(this.academy)
-        this.academy.transform(buildingPos)
+        let newAcademy = this.academy.clone()
+        this.ssvg.append(newAcademy)
+        newAcademy.transform(buildingPos)
+        console.log(buildingPos, "academy");
+        //this.academy.transform("t-170,270r-110")
       }.bind(this))
     }
 
     renderFactory() {
-      this.academyList.forEach(function(elem){
+      this.factoryList.forEach(function(elem){
         let max = this.positionList.length
         let index = Math.floor(Math.random() * max)
         let buildingPos = this.positionList[index]
         this.positionList.splice(index, 1)
-        this.ssvg.append(this.factory)
-        this.factory.transform(buildingPos)
-        console.log(buildingPos, "pos");
+        let newFactory = this.factory.clone()
+        this.ssvg.append(newFactory)
+        newFactory.transform(buildingPos)
+        console.log(buildingPos, newFactory, "factory");
       }.bind(this))
     }
 
