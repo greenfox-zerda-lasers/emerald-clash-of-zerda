@@ -3,35 +3,36 @@
 <section id="troops">
 
   <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
-  <h1 class="title">{{username}} has<span>{{troops.length}}</span>foxes</h1>
-
+  <h1 class="title"><span>{{troops.length}}</span> foxes</h1>
   <button class="addTroops" ng-click="addTroop()">Add troop</button>
 
   <div class="troopsContainer">
 
     <article class="troop" ng-repeat="troop in troops" >
-      <img src="img/fox1.svg" class="imageHolder"></img>
+      <div class="hpProgress">
+        <span>20</span>
+      </div>
+      <div class="imageHolder"></div>
 
       <div class="troopData">
-        <div class="hp">
-          <div class="data">{{troop.hp}}</div>
-          <img src="img/hp.svg"></img>
+
+        <div class=" data attack">
+          <!-- <img class="attack" src=""></img> -->
+          <span class="data">{{troop.attack}}</span>
         </div>
-        <div class="attack">
-          <div class="data">{{troop.attack}}</div>
-          <img src="img/attack.svg"></img>
+
+        <div class=" data defence">
+          <!-- <img class="defence" src=""></img> -->
+          <span class="data">{{troop.defence}}</span>
         </div>
-        <div class="defence">
-          <div class="data">{{troop.defence}}</div>
-          <img src="img/defence.svg"></img>
+        <div class=" data level">
+          <!-- <img class="level" src=""></img> -->
+          <span class="data">{{troop.level}}</span>
         </div>
-        <div class="level">
-          <div class="data">{{troop.level}}</div>
-          <img src="img/medal.svg"></img>
-        </div>
+        <button class="train" ng-click="trainTroop(troop.id, troop.level)">Train!</button>
       </div>
 
-      <button class="train" ng-click="trainTroop(troop.id, troop.level)">Train Fox</button>
+
 
     </article>
 
