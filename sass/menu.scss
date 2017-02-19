@@ -1,6 +1,5 @@
 #menu-bar {
   height: auto;
-  padding: 5px;
   position: fixed;
   width: 100%;
   z-index: 100;
@@ -10,106 +9,102 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: nowrap;
+    justify-content: space-between;
     margin-left: 10px;
     margin-top: 10px;
     color: white;
 
-    .circle {
-      border-radius: 500px;
-      width: 200px;
-      height: 200px;
-      border: 1px solid white;
-      position: absolute;
-      top: -75px;
-      left: -75px;
-    }
-    .activeScreen {
-      background-color: white;
-      border-radius: 100px;
-      width: 75px;
-      height: 75px;
-      transform-origin: center;
-      transition: all 0.3s;
-      border: 0px solid white;
+    .menuLeft {
+
+      .activeScreen {
+        background-color: white;
+        border-radius: 100px;
+        width: 75px;
+        height: 75px;
+        transform-origin: center;
+        transition: all 0.3s;
+        border: 0px solid white;
+        z-index: 1000;
+      }
 
       .overlay {
         opacity: 0;
         position: absolute;
-        width: 150px;
-        height: 150px;
-        border-radius: 200px;
-        top: -20px;
-        left: -20px;
+        width: 500px;
+        height: 500px;
+        border-radius: 250px;
+        top: -250px;
+        left: -250px;
+        z-index: 0;
       }
 
       .option {
         position: absolute;
         background-color: white;
         border-radius: 100px;
-        width: 45px;
-        height: 45px;
+        width: 70px;
+        height: 70px;
         opacity: 0;
         transition: all 0.5s;
         background-size:cover;
+        z-index: 1000;
       }
 
       .option1 {
-        top: 105px;
-        left: 3px;
+        top: 145px;
+        left: 5px;
       }
 
       .option2 {
-        top: 115px;
-        left: 51px;
+        top: 135px;
+        left: 81px;
       }
 
       .option3 {
-        top: 95px;
-        left: 95px;
+        top: 81px;
+        left: 135px;
       }
 
       .option4 {
-        top: 51px;
-        left: 115px;
-      }
-
-      .option5 {
-        top: 3px;
-        left: 105px;
+        top: 5px;
+        left: 145px;
       }
     }
 
-    .resources {
+
+    .menuRight {
+      width: 70%;
       display: flex;
       flex-direction: row;
-      justify-content: flex-start;
-      width: 10%;
-
-      span {
-        display: inline-block;
-        //width: 25%;
-        height: 50px;
-        width: auto;
-        padding: 5px;
-        padding-right: 10px;
-        padding-left: 20px;
-        vertical-align: top;
-        line-height: 40px;
-      }
-
-      img {
-        width: auto;
-        height: 75px;
-      }
+      flex-wrap: nowrap;
+      justify-content: flex-end;
+      font-size: 1.5em;
     }
+
+
+    span {
+      display: inline-block;
+      height: 100%;
+      width: auto;
+      padding: 5px;
+      padding-right: 10px;
+      padding-left: 20px;
+      padding-top: 15px;
+    }
+
+    img {
+      width: auto;
+      height: 70px;
+    }
+
 
     .drop-down-menu {
 
       .drop-down-menu-icon {
         width: auto;
-        height: 75px;
+        height: 100%;
+        margin-left: 50px;
 
         .drop-down-menu-username {
           display: inline-block;
@@ -118,13 +113,11 @@
           padding: 5px;
           padding-right: 10px;
           vertical-align: top;
-          line-height: 40px;
         }
 
         .drop-down-menu-avatar {
-          width: 75px;
-          height: 75px;
-          // background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+          width: 70px;
+          height: 70px;
           background-image: url("img/fox1.svg");
           background-size:cover;
           background-position: center center;
@@ -160,7 +153,6 @@
           }
         }
       }
-
     }
     .drop-down-overlay {
       z-index: 100;
@@ -169,7 +161,6 @@
       left: 0;
       width: 100%;
       height: 100%;
-      // background: rgba(0, 0, 0, 0.6);
     }
   }
 }

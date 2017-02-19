@@ -4,7 +4,7 @@
 
   <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <h1 class="title"><span>{{troops.length}}</span> foxes</h1>
-  <button class="addTroops" ng-click="addTroop()">Add troop</button>
+  <button class="addTroops" ng-click="addTroop()"></button>
 
   <div class="troopsContainer">
 
@@ -13,19 +13,17 @@
         <span>20</span>
       </div>
       <div class="imageHolder"></div>
-
       <div class="troopData">
 
-        <div class=" data attack">
-          <!-- <img class="attack" src=""></img> -->
+        <div class="data attack">
           <span class="data">{{troop.attack}}</span>
         </div>
 
-        <div class=" data defence">
+        <div class="data defence">
           <!-- <img class="defence" src=""></img> -->
           <span class="data">{{troop.defence}}</span>
         </div>
-        <div class=" data level">
+        <div class="data level">
           <!-- <img class="level" src=""></img> -->
           <span class="data">{{troop.level}}</span>
         </div>
