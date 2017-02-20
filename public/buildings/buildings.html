@@ -12,12 +12,10 @@
   <div class="buildingsContainer">
     <article class="building" ng-repeat="building in buildingsList">
 
-<!--  <div class="hpProgress">
+      <div class="hpProgress">
         <span>{{building.hp}}</span>
-      </div> -->
-      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
-      <div class="bar" style="width: {{bar}}%"></div>
-    </div>
+      </div>
+
       <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
       <div class="bar" style="width: {{bar}}%"></div>
     </div>
@@ -30,27 +28,12 @@
           <span class="data">{{building.level}}</span>
         </div>
 
-      
-<!--   <h1 class="building-title">Buildings</h1>
-  <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
-  <div class="container">
-    <article class="new-building">
-      <h2>New building:</h2>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('farm')" ng-disabled="!BroadcastFactory.events.building.complete">Farm</button>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')" ng-disabled="!BroadcastFactory.events.building.complete">Mine</button>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barracks')" ng-disabled="!BroadcastFactory.events.building.complete">Barracks</button>
-    </article>
-    <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
-      <div class="bar" style="width: {{bar}}%"></div>
-    </div>
-    <article class="building row" ng-repeat="building in buildingsList">
-      <div class="building-item" id="{{building.id}}">
-        <div class="type">{{building.type}}</div>
-        <div class="level">{{building.level}}</div>
-        <div class="hp">{{building.hp}}</div> -->
-      
 
         <button class="upgrade" type="button" name="upgrade" ng-click="upgradeBuilding(building.id, building.level)">Upgrade</button>
+      </div>
+
+      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+        <div class="bar" style="width: {{bar}}%"></div>
       </div>
 
     </article>
