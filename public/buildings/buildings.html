@@ -2,15 +2,15 @@
 
 <section id="buildings-site">
 
-  <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
-    <div class="bar" style="width: {{bar}}%"></div>
-  </div>
-
   <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
 
   <img src="./img/assets/addfactory.svg" class="add factory" ng-click="addNewBuilding('farm')">Farm</img>
   <img src="./img/assets/addmine.svg" class="add mine" ng-click="addNewBuilding('mine')">Mine</img>
   <img src="./img/assets/addacademy.svg" class="add academy"  ng-click="addNewBuilding('barracks')">Barracks</img>
+
+  <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+    <div class="bar" style="width: {{bar}}%"></div>
+  </div>
 
   <div class="buildingsContainer">
     <article class="building" ng-repeat="building in buildingsList">
