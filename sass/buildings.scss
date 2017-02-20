@@ -1,17 +1,38 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 #buildings-site {
-
-  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
-  height: 100%;
+  background-image: url("./img/space_background02-01.jpg");
   background-position: center center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  min-height: 100%;
 
-  span {
+  .error {
     color: white;
     display: block;
     text-align: center;
     padding-bottom: 30px;
   }
+
+
+  .add {
+    position: fixed;
+    width: 75px;
+    height: 75px;
+    border-radius: 100px;
+    top: 250px;
+    left: 85%;
+    &:nth-child(2) {
+      top: 350px;
+    }
+    &:nth-child(3) {
+      top: 450px;
+    }
 
   .progress {
     width: 100%;
@@ -25,82 +46,101 @@
   		background: red;
     }
   }
-
-  .building-title{
-    text-align: center;
-    color: white;
-    padding-bottom: 50px;
-    padding-top: 100px;
-    font-size: 3em;
   }
-  .container {
+
+  .buildingsContainer {
+    width: 60%;
+    height: auto;
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 100px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-left: 8%;
-    padding-right: 8%;
-
-    .new-building {
-      display: flex;
-      flex-direction: row;
-      padding-bottom: 30px;
-      vertical-align: middle;
-      justify-content: space-between;
-
-      h2 {
-        align-self: center;
-        padding-right: 20px;
-        color: white;
-      }
-    }
-
-    .add-button {
-      width: 140px;
-      display: inline-block;
-      outline: none;
-    }
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
 
     .building {
-      margin-bottom: 20px;
-      font-size: 2em;
-
-      .building-item {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-      }
-
-
-      .type {
-        text-transform: capitalize;
-        width: 100%;
-      }
-
-      .hp {
-        flex: 0 0 40px;
-        padding-left: 60px;
-      }
-
-      .level {
-        flex: 0 0 40px;
-        padding-left: 60px;
-      }
-
-      .upgrade {
-        flex: 0 0 50px;
-        margin-left: 30px;
-        outline: none;
-      }
-    }
-
-    .row {
-      background-color: rgba(240, 240, 240, 0.8);
-      border-radius: 10px;
-      padding: 15px;
-      padding-top: 20px;
-      padding-bottom: 20px;
+      width: calc(100% / 4 - 50px);
+      height: 300px;
+      margin: 25px;
+      background-color: white;
       display: flex;
       flex-direction: column;
+
+      .hpProgress {
+        width: 100%;
+        height: 7%;
+        background-color: red;
+        background-image: url();
+        span {
+          color: white;
+          width: 100%;
+          display: inline-block;
+          text-align: left;
+          padding-left: 15px;
+        }
+      }
+
+      .imageHolder {
+        width: 100%;
+        height: 73%;
+        background-color: #132930;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center top;
+      }
+
+      .mine {
+        background-image: url("./img/assets/mine.svg");
+      }
+
+      .townhall {
+        background-image: url("./img/assets/townhall.svg");
+      }
+
+      .farm {
+        background-image: url("./img/assets/factory.svg");
+      }
+
+      .barracks {
+        background-image: url("./img/assets/academy.svg");
+      }
+
+      .type {
+        height: 20px;
+        background-color: pink;
+      }
+
+      .buildingData {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        background-color: white;
+        color: black;
+
+        .data, button {
+          width: 55%;
+
+          img {
+            height: 100%;
+            display: block;
+            border-right: 1px solid black;
+          }
+
+          span {
+            position: relative;
+            top: -50px;
+          }
+        }
+        button {
+          border-width: 0px;
+          background-color: white;
+        }
+      }
     }
   }
 }

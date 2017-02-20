@@ -43,7 +43,7 @@
 	.st37{fill:none;stroke:#D6D6CC;stroke-miterlimit:10;}
 	.st38{fill:none;stroke:#132930;stroke-width:2;stroke-miterlimit:10;}
 	.st39{fill:#262D30;}
-	.st40{opacity:0.1;fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;enable-background:new    ;}
+	.st40{display:inline;opacity:0.1;fill:#FFFFFF;stroke:#FFFFFF;stroke-width:2;stroke-miterlimit:10;enable-background:new    ;}
 </style>
 <g id="background" class="st0">
 	
@@ -750,7 +750,7 @@
 		</g>
 	</g>
 </g>
-<g id="sphere">
+<g id="sphere" class="st0">
 	<path id="burok" class="st40" d="M478,244.7c-1.8-100.5-80.7-181.3-177.7-181.3s-175.8,80.9-177.7,181.3H478z"/>
 </g>
 <g id="planet">

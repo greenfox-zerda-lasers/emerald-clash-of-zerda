@@ -1,6 +1,37 @@
 <header ng-include="'public/menu/menu.html'"></header>
+
 <section id="buildings-site">
-  <h1 class="building-title">Buildings</h1>
+
+
+  <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
+
+  <img src="./img/assets/addfactory.svg" class="add factory" ng-click="addNewBuilding('farm')">Farm</img>
+  <img src="./img/assets/addmine.svg" class="add mine" ng-click="addNewBuilding('mine')">Mine</img>
+  <img src="./img/assets/addacademy.svg" class="add academy"  ng-click="addNewBuilding('barracks')">Barracks</img>
+
+  <div class="buildingsContainer">
+    <article class="building" ng-repeat="building in buildingsList">
+
+<!--  <div class="hpProgress">
+        <span>{{building.hp}}</span>
+      </div> -->
+      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+      <div class="bar" style="width: {{bar}}%"></div>
+    </div>
+      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+      <div class="bar" style="width: {{bar}}%"></div>
+    </div>
+      <div class="imageHolder {{building.type}}"></div>
+      <!-- <div class="type">{{building.type}}</div> -->
+
+      <div class="buildingData" id="{{building.id}}">
+        <div class="data level">
+          <img src=""></img>
+          <span class="data">{{building.level}}</span>
+        </div>
+
+      
+<!--   <h1 class="building-title">Buildings</h1>
   <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <div class="container">
     <article class="new-building">
@@ -16,9 +47,12 @@
       <div class="building-item" id="{{building.id}}">
         <div class="type">{{building.type}}</div>
         <div class="level">{{building.level}}</div>
-        <div class="hp">{{building.hp}}</div>
+        <div class="hp">{{building.hp}}</div> -->
+      
+
         <button class="upgrade" type="button" name="upgrade" ng-click="upgradeBuilding(building.id, building.level)">Upgrade</button>
       </div>
+
     </article>
   </div>
 </section>

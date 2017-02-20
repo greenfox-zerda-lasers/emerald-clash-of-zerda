@@ -5,7 +5,7 @@ main {
 #map {
   height: 15000px;
   width: 20000px;
-  background: url("img/space_background02-01.jpg");
+  background: url("img/map/bg.jpg");
   background-repeat: repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -15,10 +15,11 @@ main {
   .goToMyKingdom {
     position: fixed;
     margin: 10px;
-    top: 70px;
-    left: 10px;
-    width: 50px;
-    height: 50px ;
+    margin-top: 30px;
+    top: calc(100% - 120px);
+    left: 5px;
+    width: 75px;
+    height: 75px ;
     background-image: url("./img/map/target.svg");
     background-position: center center;
     background-repeat: no-repeat;
@@ -28,8 +29,8 @@ main {
 
   select {
     position: fixed;
-    left: 90px;
-    top:85px;
+    left: 300px;
+    top:15px;
     width: 300px;
     height: 40px ;
     line-height: 1em;
@@ -41,7 +42,7 @@ main {
     color: $white;
     font-size: 1em;
     font-weight: bold;
-    z-index: 10;
+    z-index: 200;
     option {
       width: 100px;
       color: black;
@@ -85,8 +86,8 @@ main {
 
   aside {
     position: fixed;
-    top: 200px;
-    left: 10px;
+    top: 250px;
+    left: 5px;
     width: auto;
     height: auto;
     z-index: 10;
@@ -95,17 +96,19 @@ main {
       display: flex;
       flex-direction: row;
       img{
-        width: 50px;
-        height: 50px;
+        width: 75px;
+        height: 75px;
         margin: 10px;
       }
 
       span {
+        min-width: 50px;
         color: white;
         display: inline-block;
         padding-top: 25px;
         padding-left: 10px;
         text-align: center;
+        font-size: 2em;
       }
     }
   }
