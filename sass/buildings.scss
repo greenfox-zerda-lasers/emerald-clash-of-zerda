@@ -19,6 +19,7 @@
     padding-bottom: 30px;
   }
 
+
   .add {
     position: fixed;
     width: 75px;
@@ -32,6 +33,19 @@
     &:nth-child(3) {
       top: 450px;
     }
+
+  .progress {
+    width: 100%;
+  	border: 1px solid black;
+		height: 10px;
+    margin-bottom: 20px;
+
+    .bar {
+      width: 1px;
+			height: 8px;
+  		background: red;
+    }
+  }
   }
 
   .buildingsContainer {

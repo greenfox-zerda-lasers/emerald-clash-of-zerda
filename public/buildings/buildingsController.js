@@ -1,14 +1,11 @@
-angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory){
+angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http', '$location', '$route', '$localStorage', '$rootScope', 'BuildingsFactory', 'MenuFactory', 'BroadcastFactory', function($scope, $http, $location, $route, $localStorage, $rootScope, BuildingsFactory, MenuFactory, BroadcastFactory){
 
   var getBuildings = (function() {
     $scope.buildingsList = BuildingsFactory.query();
     console.log($scope.buildingsList);
   })();
 
-  // var mines = $scope.buildingsList.filter(function (building) {
-  //   console.log(building);
-  // });
-  // console.log(mines);
+  $scope.BroadcastFactory = BroadcastFactory;
 
   $scope.addNewBuilding = function (type) {
 
@@ -17,11 +14,11 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       "type": type
     };
 
-
     BuildingsFactory.save($scope.postData)
       .$promise
       .then( function (response) {
         $scope.buildingsList.push(response);
+        BroadcastFactory.buildingRegister(response);
       })
       .catch( function(error) {
         console.log(error);
@@ -29,6 +26,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
         $scope.error = true;
       });
       $scope.updateResources();
+
   };
 
   $scope.upgradeBuilding = function (id, level) {
@@ -64,4 +62,11 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
       console.log(error);
     });
   };
+
+  $scope.$on('BuildingReg', function(event, data) {
+    $scope.bar = data;
+    console.log(data);
+    $scope.$evalAsync();
+  });
+
 }]);

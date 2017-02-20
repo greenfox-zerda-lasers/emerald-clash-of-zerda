@@ -8,6 +8,8 @@ var ngStorage = require('./lib/ngStorage.js');
 var app = require('./app.js');
 var userFactory = require('./userFactory.js');
 var configFactory = require('./configFactory.js');
+var broadcastFactory = require('./public/events/broadcastFactory.js');
+var progressService = require('./public/events/progressService.js');
 
 var loginController = require('./public/login/loginController.js');
 var loginFactory = require('./public/login/loginFactory.js');
