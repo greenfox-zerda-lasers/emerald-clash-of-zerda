@@ -2,6 +2,9 @@
 
 <section id="buildings-site">
 
+  <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+    <div class="bar" style="width: {{bar}}%"></div>
+  </div>
 
   <span class="error" ng-init="error=false" ng-show="error">{{errorMessage}}</span>
 
@@ -30,10 +33,6 @@
 
 
         <button class="upgrade" type="button" name="upgrade" ng-click="upgradeBuilding(building.id, building.level)">Upgrade</button>
-      </div>
-
-      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
-        <div class="bar" style="width: {{bar}}%"></div>
       </div>
 
     </article>
