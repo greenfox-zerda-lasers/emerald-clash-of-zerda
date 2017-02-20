@@ -1,15 +1,17 @@
 <header ng-include="'public/menu/menu.html'"></header>
 <section id="buildings-site">
-
   <h1 class="building-title">Buildings</h1>
   <span ng-init="error=false" ng-show="error">{{errorMessage}}</span>
   <div class="container">
     <article class="new-building">
       <h2>New building:</h2>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('farm')">Farm</button>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')">Mine</button>
-      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barracks')">Barracks</button>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('farm')" ng-disabled="!BroadcastFactory.events.building.complete">Farm</button>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('mine')" ng-disabled="!BroadcastFactory.events.building.complete">Mine</button>
+      <button class="row add-button" type="button" name="button" ng-click="addNewBuilding('barracks')" ng-disabled="!BroadcastFactory.events.building.complete">Barracks</button>
     </article>
+    <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
+      <div class="bar" style="width: {{bar}}%"></div>
+    </div>
     <article class="building row" ng-repeat="building in buildingsList">
       <div class="building-item" id="{{building.id}}">
         <div class="type">{{building.type}}</div>
