@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 
+// ez minek ide?
+
 #buildings-site {
   background-image: url("./img/space_background02-01.jpg");
   background-position: center center;
@@ -38,7 +40,7 @@
     }
 
   .progress {
-    position: absolute;
+    position: fixed;
     top: 100px;
     width: 300px;
   	border: 1px solid black;
