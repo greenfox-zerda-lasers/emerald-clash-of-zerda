@@ -18,19 +18,19 @@
 
   <aside class="userDetails">
     <div class="sideElem">
-      <img src="./img/map/academy.svg"></img>
+      <img src="./img/assets/academynobg.svg"></img>
       <span>{{academyNum}}</span>
     </div>
     <div class="sideElem">
-      <img src="./img/map/factory.svg"></img>
+      <img src="./img/assets/factorynobg.svg"></img>
       <span>{{factoryNum}}</span>
     </div>
     <div class="sideElem">
-      <img src="./img/map/mine.svg"></img>
+      <img src="./img/assets/minenobg.svg"></img>
       <span>{{mineNum}}</span>
     </div>
     <div class="sideElem">
-      <img src="./img/icons/fox_nobg-01.svg"></img>
+      <img src="./img/assets/troopsnobg2.svg"></img>
       <span>{{troops}}</span>
     </div>
   </aside>
@@ -38,9 +38,11 @@
   <div class="availableTroops" ng-show="showTroops">
     <h3>Select foxes</h3>
     <div class="troopsContainer">
-        <div class="troop troop{{troop.id}}" ng-repeat="troop in myTroops" ng-click ="selectTroop(troop.id)">
-        <div class="badge"></div>
-        <div class="progress"></div>
+      <div class="troop troop{{troop.id}}" ng-repeat="troop in myTroops" ng-click ="selectTroop(troop.id)">
+        <div class="progress" style="width:{{troop.hp}}%;">
+          <!-- <div class="hp" style="width: {{troop.hp}}%;"></div> -->
+        </div>
+        <div class="badge">{{troop.level}}</div>
       </div>
     </div>
     <button class="startBattleButton">start battle</button>

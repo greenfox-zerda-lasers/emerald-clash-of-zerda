@@ -34,12 +34,12 @@ angular
 
     for(var i = 0; i <screens.length; i++) {
       if(path.includes(screens[i]) ) {
-        button.style.backgroundImage = 'url(' + './img/icons/' + screens[i] + '_icon-01.svg' + ')'
+        button.style.backgroundImage = 'url(' + './img/assets/' + screens[i] + '.svg' + ')'
         screens.splice(i, 1)
       }
     }
     options.forEach(function(elem, index){
-      elem.style.backgroundImage = 'url(' + './img/icons/' + screens[index] + '_icon-01.svg' + ')'
+      elem.style.backgroundImage = 'url(' + './img/assets/' + screens[index] + '.svg' + ')'
       elem.id  =  "button" + screens[index]
     })
   })()

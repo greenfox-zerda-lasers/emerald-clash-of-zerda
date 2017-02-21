@@ -290,7 +290,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   $scope.selectTroop = function(troopId){
       console.log("select troop");
       attackerTroops.push(troopId)
-      document.querySelector(".troop" + troopId).style.border = "4px solid orange"
+      document.querySelector(".troop" + troopId).style.boxShadow = "0px 0px 0px 2px orange"
   }
 
   $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
@@ -298,13 +298,14 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     let attackData = {
       "attackerTroops" : attackerTroops,
       "attackerId" : attackerId,
-      "defenderTroops" : defenderTroops,
-      "defenderId" : defenderId
+      // "defenderTroops" : defenderTroops,
+      // "defenderId" : defenderId
     }
     console.log(attackData, "attackdata");
     mapFactory.attack.save(attackData)
       .$promise
       .then(function(response) {
+        console.log(response, "attackresponse");
       })
       .catch( function(error) {
         console.log(error);

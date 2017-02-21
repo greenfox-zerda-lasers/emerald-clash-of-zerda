@@ -17,11 +17,9 @@
 
       <div class="hpProgress">
         <span>{{building.hp}}</span>
+        <div class="hpActual" style="width: {{building.hp}}%;"></div>
       </div>
 
-      <div class="progress" ng-show="!BroadcastFactory.events.building.complete">
-      <div class="bar" style="width: {{bar}}%"></div>
-    </div>
       <div class="imageHolder {{building.type}}"></div>
       <!-- <div class="type">{{building.type}}</div> -->
 

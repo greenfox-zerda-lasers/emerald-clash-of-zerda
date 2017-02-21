@@ -89,7 +89,7 @@ main {
     top: 250px;
     left: 5px;
     width: auto;
-    height: auto;
+    height: 400px;
     z-index: 10;
 
     .sideElem {
@@ -145,34 +145,53 @@ main {
   }
   .availableTroops {
     background-color: rgba(75, 75, 75, 0.6);
-    border-radius: 20px;
-    width: 240px;
+    border-radius: 10px;
+    width: 300px;
     height: 400px;
     height: auto;
     position: fixed;
     top: 250px;
-    left: 150px;
+    left: 185px;
     z-index: 50;
     padding: 10px;
-    text-align: center;
+    //text-align: center;
     color: white;
 
     .troopsContainer {
       width: 100%;
       height: 300px;
       overflow-y: scroll;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      align-items: center;
+      align-items: left;
       padding-bottom: 10px;
       .troop {
-        width: 50px;
-        height: 50px;
-        background-color: white;
+        background-image: url("./img/assets/troopbg.svg");
+        display: inline-block;
+        width: 75px;
+        height: 75px;
         border-radius: 5px;
-        margin: 5px;
+        margin: 7px;
+        margin-bottom: 15px;
+        padding: 1px;
+        padding-left: 2px;
+        padding-right: 2px;
+
+        .progress {
+          width: 100%;
+          height: 4px;
+          border-radius: 3px;
+          background-color: $lightBlue;
+        }
+
+        .badge {
+          width: 20px;
+          height: 20px;
+          background-color: $mediumOrange;
+          color: black;
+          border-radius: 10px;
+          position: relative;
+          top: calc(100% - 10px);
+          text-align: center;
+        }
       }
     }
 
@@ -193,9 +212,10 @@ main {
     .startBattleButton {
       width: 95%;
       height: 25px;
-      margin-top: 10px;
+      margin-top: 20px;
       margin-bottom: 10px;
       border-radius: 5px;
+      background-color: white;
     }
   }
 }

@@ -69,4 +69,5 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
     $scope.$evalAsync();
   });
 
+
 }]);
