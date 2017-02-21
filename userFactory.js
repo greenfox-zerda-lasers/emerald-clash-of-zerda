@@ -1,7 +1,8 @@
 angular
   .module("ClashApp")
   .factory("UserFactory",
-    function($localStorage, $location) {
+    function($http, $localStorage, $location) {
+      $http.defaults.headers.common['Authorization'] = $localStorage.userObj.token;
       return {
         loggedIn: function() {
           if ($localStorage.userObj.token === false) {

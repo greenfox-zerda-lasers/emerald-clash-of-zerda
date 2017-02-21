@@ -7,8 +7,8 @@ angular
         apiURL = "http://localhost:8000/";
         console.log("config - local");
       } else {
-        apiURL = "http://localhost:8000/";
-        console.log("config - local");
+        apiURL = "https://pacific-bastion-75389.herokuapp.com/";
+        console.log("config - heroku");
         // apiURL = "https://pacific-bastion\-75389.herokuapp.com/";
         // console.log("config - heroku");
       };
