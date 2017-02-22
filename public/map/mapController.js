@@ -1,5 +1,6 @@
 
-angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory', function($scope, $http, $localStorage, $location, $resource, mapFactory){
+angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory',
+function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
 
   let getKingdoms = (function() {
@@ -216,15 +217,15 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   //******************************BATTLE*************************
 
   $scope.showEnemy = false
-  $scope.showAttack = false
+
 
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
       document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(252, 110, 35, 0.2)"
-      //document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
+      console.log("sekectenemy");
+      document.querySelector("#kingdom" + userid + " .attackButton").style.display = "inline-block"
       showDetails(userid)
       $scope.showEnemy = true
-      this.showAttack = true
     }
   }
 
@@ -251,15 +252,14 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   $scope.showTroops = false
 
   $scope.attack = function(defenderId) {
-    console.log(defenderId, "attack")
     $scope.getTroops(defenderId)
-    $scope.showAttack = false
+    document.querySelector("#kingdom" + defenderId + " .attackButton").style.display = "none"
+    console.log(document.querySelector("#kingdom" + defenderId + " .attackButton"));
   }
 
   let attackerTroops = []
 
   $scope.getTroops = function(defenderId) {
-
     mapFactory.search.query({kingdom: $localStorage.userObj.kingdom})
       .$promise
       .then( function(response) {
@@ -275,29 +275,56 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   }
 
   $scope.selectTroop = function(troopId){
-      console.log("select troop");
+    let troop = document.querySelector(".troop" + troopId)
+    if(troop.classList.contains("selectedTroop")) {
+      troop.classList.remove("selectedTroop")
+      let index = attackerTroops.indexOf(troopId)
+      attackerTroops.splice(index)
+    } else {
       attackerTroops.push(troopId)
-      document.querySelector(".troop" + troopId).style.boxShadow = "0px 0px 0px 2px orange"
+      troop.classList.add("selectedTroop")
+    }
   }
 
   $scope.startBattle = function(defenderId) {
     let attackData = {
-      //"user_id" : $localStorage.userObj.userId,
       "opponent" : defenderId,
       "troops" : attackerTroops.join(",")
-      // "defenderTroops" : defenderTroops,
-      // "defenderId" : defenderId
     }
-    console.log(attackData, "attackdata");
+    $scope.showTroops = false
+    document.querySelector("#kingdom" + defenderId + " .attackButton").style.display = "none"
     mapFactory.attack.save(attackData)
       .$promise
       .then(function(response) {
-        console.log(response, "attackresponse");
+        renderBattleInfo(response)
       })
       .catch( function(error) {
         console.log(error);
       })
   }
+
+  $scope.attackEnded = false
+
+  let renderBattleInfo = function(response) {
+    console.log(response, "battle");
+    if(response.attacker.damage >= response.attacker.damage) {
+      $scope.battleResult = "Huhuu, you won!"
+    } else {
+      $scope.battleResult = "Sorry! You lost!"
+    }
+    $scope.damageResult = response.attacker.damage
+    $scope.troopsResult = response.attacker.troopsLost.length
+    $scope.defendedKingdom = response.defender.user.kingdom
+
+    let battleWindow = document.querySelector(".battleResult")
+    battleWindow.style.left = String(window.innerWidth/2 - 200) + "px"
+    battleWindow.style.top = String(window.innerHeight -200) + "px"
+    console.log(String(window.innerWidth/2), "left");
+
+    $scope.showEnemy = false
+    $scope.attackEnded = true
+  }
+
   //ez nem joo
   let clickOut = function() {
     let enemy = document.querySelector(".svgContainer")
@@ -308,7 +335,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     overlay.addEventListener("click", function(event) {
         overlay.classList.remove("overlay")
         $scope.showEnemy = false
-        $scope.showAttack = false
     })
   }
 

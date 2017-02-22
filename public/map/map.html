@@ -3,10 +3,9 @@
 <section id="map">
 
   <div class="svgContainer {{elem.id}}" id="kingdom{{elem.id}}" ng-repeat="elem in kingdoms" ng-click="selectEnemy(elem.id)">
-    <div class=attackButton ng-show="showAttack" ng-data="{{elem.id}}" ng-click="attack(elem.id)">
+    <div class="attackButton" ng-click="attack(elem.id)">
       <img src="./img/icons/attack_button-01.svg"></img>
       <span>Attack!</span>
-      {{elem.id}}
     </div>
   </div>
 
@@ -81,6 +80,16 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="battleResult" ng-show="attackEnded">
+    <div class="close"></div>
+    <div class="result">
+      <div class="icon"></div>
+      <h2>{{battleResult}}</h2>
+    </div>
+    <p class="damage">You caused {{damageResult}} damage to {{defendedKingdom}}</p>
+    <p class="troops">{{troopsResult}} foxes died during the battle</p>
   </div>
 
 
