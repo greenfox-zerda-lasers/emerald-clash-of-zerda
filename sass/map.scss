@@ -48,7 +48,12 @@ main {
       color: black;
       background-color: rgba(255, 255, 255, 0.5);
     }
+
+    option:first-child {
+      display: none;
+    }
   }
+
 
   .ui-widget-content:hover {
     cursor: move; /* fallback if grab cursor is unsupported */
