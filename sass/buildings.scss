@@ -36,12 +36,14 @@
     &:nth-child(3) {
       top: 450px;
     }
+  }
 
   .progress {
-    position: absolute;
-    top: 100px;
-    width: 300px;
-  	border: 1px solid black;
+    position: relative;
+    top: 120px;
+    left: 22%;
+    width: 55%;
+  	border: 1px solid #132930;
 		height: 10px;
     margin-bottom: 20px;
 
@@ -50,7 +52,6 @@
 			height: 8px;
   		background: red;
     }
-  }
   }
 
   .buildingsContainer {

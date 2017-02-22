@@ -16,11 +16,13 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // angularos cuccok
-      './node_modules/angular/angular.js',                             // angular
+      'dist/bundle.js',
       './node_modules/angular-ui-router/release/angular-ui-router.js', // ui-router
-      './node_modules/angular-mocks/angular-mocks.js',     
-      'test/*.js',
-      'login/*.js'
+      './node_modules/angular-mocks/angular-mocks.js',
+      'public/leaderboard/*.js',
+      'public/**/*.html',
+      '*.html',
+      'test/*.js'
 
       // ide kell az összes teszet és js amit tesztelünk
 
@@ -35,6 +37,11 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'public/**/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+      moduleName: 'templates',
     },
 
 

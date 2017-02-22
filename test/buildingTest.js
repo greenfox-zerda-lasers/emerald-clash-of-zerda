@@ -1,7 +1,7 @@
 'use strict';
 
-describe('Testing LeaderboardController', function () {
-  var LeaderboardController;
+describe('Testing BuildingsController', function () {
+  var BuildingsController;
   var compile;
   var scope;
   var rootscope;
@@ -18,18 +18,18 @@ describe('Testing LeaderboardController', function () {
       compile = _$compile_;
       rootscope = _$rootScope_;
       scope = rootscope.$new();
-      $httpBackend.when('GET', 'http://localhost:8000/leaderboard').respond(200);
-      LeaderboardController = $controller('LeaderboardController', {$scope: scope});
+      $httpBackend.when('GET', 'http://localhost:8000/0/buildings').respond(200);
+      BuildingsController = $controller('BuildingsController', {$scope: scope});
       scope.$digest();
-      element = $templateCache.get('public/leaderboard/leaderboard.html');
+      element = $templateCache.get('public/buildings/buildings.html');
       compiledElement = compile(element)(rootscope);
-      console.log("da controller", LeaderboardController);
+      console.log("da controller", BuildingsController);
     });
   });
 
   describe('xxx', function () {
-    it('LeaderboardController should be defined', function () {
-      expect(LeaderboardController).toBeDefined();
+    it('BuildingsController should be defined', function () {
+      expect(BuildingsController.addNewBuilding).toBeDefined();
     });
   });
 
