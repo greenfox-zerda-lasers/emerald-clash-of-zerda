@@ -96,7 +96,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         this.renderFactory()
         this.renderAcademy()
         console.log($localStorage.userObj.userId, "localstorage")
-        this.renderSideBar()
+        // this.renderSideBar()
       })
 
       this.mineList = []
@@ -112,6 +112,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           this.academyList.push(elem)
         }
       }.bind(this))
+      this.renderSideBar()
     }
 
 
@@ -225,8 +226,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
-      //document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 0, 0, 0.2)"
-      document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
+      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(252, 110, 35, 0.2)"
+      //document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
       showDetails(userid)
       $scope.showEnemy = true
     }
@@ -352,7 +353,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     $scope.stationLevel = station[0].level
   }
 
-
+  $(function() {
+    $( "#automplete-1" ).autocomplete({
+      source: $scope.kingdoms
+    })
+  })
 
   $scope.selectKingdom = function() {
     var selected = "#kingdom" + $scope.selected
@@ -373,6 +378,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     toNode: function (selector) {
       let coords = this.getCoords(selector);
       window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
+    },
+
+    home: function() {
+      let selector = "#kingdom" + $localStorage.userObj.userId
+      this.toNode(selector)
     }
   };
 

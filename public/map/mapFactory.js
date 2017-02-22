@@ -4,8 +4,7 @@ angular
    function($resource, $localStorage) {
      return {
         user: $resource('http://localhost:8000/kingdom/:id/',
-          {id: "@id"}
-          //{id: $localStorage.userObj.userId}
+        {id: "@id"}
         ),
         search: $resource('http://localhost:8000/search?q=:kingdom',
           {kingdom: "@kingdom"}
@@ -13,7 +12,7 @@ angular
         attack: $resource('http://localhost:8000/:id/attack',
           {id: $localStorage.userObj.userId}
         ),
-        building: $resource('http://localhost:8000/kingdom/:id/buildings/:building_id',
+       building: $resource('http://localhost:8000/kingdom/:id/buildings/:building_id',
           {id: $localStorage.userObj.userId, building_id: "@building_id"},
           {
             "update": { method: 'PUT'}

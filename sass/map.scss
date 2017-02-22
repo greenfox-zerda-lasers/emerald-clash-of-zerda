@@ -82,6 +82,14 @@ main {
     position: fixed;;
     top: 40%;
     left: calc(50% + 400px);
+
+    span {
+      position: relative;
+      font-size: 0.8em;
+      top: -55px;
+      left: 45px;
+      color: rgba(255, 255, 255, 0.8)
+    }
   }
 
   aside {
@@ -115,34 +123,40 @@ main {
 
   .enemyDetails {
     width: 40vw;
-    height: 12vh;
+    height: 15vh;
     position: fixed;
     left: calc(100vw - 70vw);
-    top:calc(100vh - 14vh);
-    //background-color: $mediumBlack;
-    background-color: rgba(75, 75, 75, 0.6);
+    top:calc(100vh - 17.5vh);
     border-radius: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     color: white;
 
-    h1 {}
+    h3 {
+      padding-bottom: 10px;
+    }
     .buildings {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;;
       width: 100%;
       .detail {
         display: flex;
         flex-direction: column;
         img {
-          width: 50px;
+          width: 70px;
+          margin: 10px;
+        }
+        span {
+          background-color: $mediumOrange;
+          border-radius: 2px;
         }
       }
     }
   }
+
   .availableTroops {
     background-color: rgba(75, 75, 75, 0.6);
     border-radius: 10px;
