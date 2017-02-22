@@ -9,7 +9,7 @@ angular
         search: $resource('http://localhost:8000/search?q=:kingdom',
           {kingdom: "@kingdom"}
         ),
-        attack: $resource('http://localhost:8000/:id/attack',
+        attack: $resource('http://localhost:8000/kingdom/:id/attack',
           {id: $localStorage.userObj.userId}
         ),
        building: $resource('http://localhost:8000/kingdom/:id/buildings/:building_id',
