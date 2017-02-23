@@ -3,11 +3,12 @@ angular
  .factory("mapFactory",
    function($resource, $localStorage) {
      return {
-        user: $resource('http://localhost:8000/kingdom/:id/',
-          {id: "@id"}
-          //{id: $localStorage.userObj.userId}
+        // user: $resource('http://localhost:8000/kingdom/:id/',
+        // {id: "@id"}
+        user: $resource('https://pacific-bastion-75389.herokuapp.com/kingdom'
         ),
         search: $resource('http://localhost:8000/search?q=:kingdom',
+        //search: $resource('https://pacific-bastion-75389.herokuapp.com/search?q=:kingdom',
           {kingdom: "@kingdom"}
         ),
         attack: $resource('http://localhost:8000/:id/attack',

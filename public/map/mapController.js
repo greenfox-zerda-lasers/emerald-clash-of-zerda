@@ -56,7 +56,8 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     }
 
     getData() {
-      this.kingdomData = mapFactory.user.get({id: this.id})
+      // this.kingdomData = mapFactory.user.get({id: this.id})
+      this.kingdomData = mapFactory.user.get()
         .$promise
         .then( function(response) {
           this.loadSVG(response)
@@ -233,7 +234,7 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   }
 
   let showDetails = function(userid) {
-    mapFactory.user.get({id: userid})
+    mapFactory.user.get()
       .$promise
       .then( function(response) {
         $scope.kingdom = response.user.kingdom

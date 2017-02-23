@@ -60,11 +60,12 @@ angular
   }
 
   var renderMenuResources = (function() {
-    $scope.resources = MenuFactory.query()
+    // $scope.resources = MenuFactory.query()
+    $scope.resources = MenuFactory.get()
       .$promise
       .then(function(result) {
-        $scope.food = result[0].amount;
-        $scope.gold = result[1].amount;
+        $scope.food = result.resources[0].amount;
+        $scope.gold = result.resources[1].amount;
       }).catch( function(error) {
         console.log(error);
       });
