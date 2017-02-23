@@ -27,7 +27,7 @@ angular.module("ClashApp").controller("LoginController", ['$scope', '$http', '$l
         };
         console.log($localStorage.userObj);
         $http.defaults.headers.common['Authorization'] = $localStorage.userObj.token;
-        $location.path('/overview');
+        $location.path('/map');
         // $location.path('/map');
       })
       .catch( function(error) {

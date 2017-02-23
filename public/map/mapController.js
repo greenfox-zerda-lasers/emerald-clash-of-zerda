@@ -1,5 +1,6 @@
 
-angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory', function($scope, $http, $localStorage, $location, $resource, mapFactory){
+angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$localStorage', '$location', '$resource', 'mapFactory',
+function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
 
   let getKingdoms = (function() {
@@ -96,7 +97,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         this.renderFactory()
         this.renderAcademy()
         console.log($localStorage.userObj.userId, "localstorage")
-        this.renderSideBar()
       })
 
       this.mineList = []
@@ -112,11 +112,11 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
           this.academyList.push(elem)
         }
       }.bind(this))
+      this.renderSideBar()
     }
 
 
     checkPosition() {
-      console.log("checkPosition");
       let object = document.querySelector('#kingdom'+this.id)
       //ajax get user location: {x: null, y: null}
       let location = {x: null, y: null}
@@ -146,14 +146,12 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
 
     setPosition(xPos, yPos, object) {
-      console.log("setPosition");
       object.style.left = String(xPos) + "px"
       object.style.top = String(yPos) + "px"
       this.updatePosition()
       $scope.scrollToKingdom.toNode("#kingdom" + String($localStorage.userObj.userId))
       var myKingdom = document.querySelector('#kingdom' + String($localStorage.userObj.userId))
       myKingdom.style.zIndex = "1"
-      console.log(this.id, xPos, yPos)
     }
 
 
@@ -167,7 +165,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       $(".ui-widget-content").draggable();
     }
 
-
     //dinamikusra
     renderSideBar() {
       if(this.id == $localStorage.userObj.userId) {
@@ -180,7 +177,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     }
 
     renderAcademy() {
-      console.log(this.academyList.length, "academy");
       this.academyList.forEach(function(elem){
         let max = this.positionList.length
         let index = Math.floor(Math.random() * max)
@@ -189,8 +185,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         let newAcademy = this.academy.clone()
         this.ssvg.append(newAcademy)
         newAcademy.transform(buildingPos)
-        console.log(buildingPos, "academy");
-        //this.academy.transform("t-170,270r-110")
       }.bind(this))
     }
 
@@ -203,7 +197,6 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
         let newFactory = this.factory.clone()
         this.ssvg.append(newFactory)
         newFactory.transform(buildingPos)
-        console.log(buildingPos, newFactory, "factory");
       }.bind(this))
     }
 
@@ -223,12 +216,15 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
 
   $scope.showEnemy = false
 
+
   $scope.selectEnemy = function(userid) {
     if(userid != $localStorage.userObj.userId) {
-      //document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(255, 0, 0, 0.2)"
-      document.querySelector("#kingdom" + userid).style.border = "4px solid #FC6E23"
+      document.querySelector("#kingdom" + userid).style.backgroundColor = "rgba(252, 110, 35, 0.2)"
+      console.log("sekectenemy");
+      document.querySelector("#kingdom" + userid + " .attackButton").style.display = "inline-block"
       showDetails(userid)
       $scope.showEnemy = true
+      $scope.attackEnded = false
     }
   }
 
@@ -253,26 +249,16 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
   }
 
   $scope.showTroops = false
-  $scope.attack = function(id, kingdom) {
-    console.log(id, "attack")
-    $scope.getTroops(id, kingdom)
+
+  $scope.attack = function(defenderId) {
+    $scope.getTroops(defenderId)
+    document.querySelector("#kingdom" + defenderId + " .attackButton").style.display = "none"
+    console.log(document.querySelector("#kingdom" + defenderId + " .attackButton"));
   }
 
   let attackerTroops = []
 
-  $scope.getTroops = function(defenderId, defenderKingdom) {
-    let defenderTroops
-    let attackerId = $localStorage.userObj.userId
-    mapFactory.search.query({kingdom: defenderKingdom})
-      .$promise
-      .then( function(response) {
-        defenderTroops = response[0].troops
-        console.log(defenderTroops, "deftroop");
-      })
-      .catch( function(error) {
-        console.log(error);
-      })
-
+  $scope.getTroops = function(defenderId) {
     mapFactory.search.query({kingdom: $localStorage.userObj.kingdom})
       .$promise
       .then( function(response) {
@@ -283,34 +269,64 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       })
       $scope.showTroops = true
       document.querySelector(".startBattleButton").addEventListener("click", function(event) {
-        $scope.startBattle(attackerId, defenderId, defenderTroops)
+        $scope.startBattle(defenderId)
       })
   }
 
   $scope.selectTroop = function(troopId){
-      console.log("select troop");
+    let troop = document.querySelector(".troop" + troopId)
+    if(troop.classList.contains("selectedTroop")) {
+      troop.classList.remove("selectedTroop")
+      let index = attackerTroops.indexOf(troopId)
+      attackerTroops.splice(index)
+    } else {
       attackerTroops.push(troopId)
-      document.querySelector(".troop" + troopId).style.boxShadow = "0px 0px 0px 2px orange"
+      troop.classList.add("selectedTroop")
+    }
   }
 
-  $scope.startBattle = function(attackerId, defenderId, defenderTroops) {
-    console.log(attackerTroops, "attackertroops");
+  $scope.startBattle = function(defenderId) {
     let attackData = {
-      "attackerTroops" : attackerTroops,
-      "attackerId" : attackerId,
-      // "defenderTroops" : defenderTroops,
-      // "defenderId" : defenderId
+      "opponent" : defenderId,
+      "troops" : attackerTroops.join(",")
     }
-    console.log(attackData, "attackdata");
+    $scope.showTroops = false
+    document.querySelector("#kingdom" + defenderId + " .attackButton").style.display = "none"
     mapFactory.attack.save(attackData)
       .$promise
       .then(function(response) {
-        console.log(response, "attackresponse");
+        renderBattleInfo(response, defenderId)
       })
       .catch( function(error) {
         console.log(error);
       })
   }
+
+  $scope.attackEnded = false
+
+  let renderBattleInfo = function(response, defenderId) {
+    const icon = document.querySelector(".icon")
+    document.querySelector("#kingdom" + defenderId).style.backgroundColor = "rgba(252, 110, 35, 0)"
+    if(response.attacker.damage >= response.attacker.damage) {
+      $scope.battleResult = "Huhuu, you won!"
+      icon.classList.add("winIcon")
+    } else {
+      $scope.battleResult = "Sorry! You lost!"
+      icon.classList.add("lostIcon")
+    }
+    $scope.damageResult = response.attacker.damage
+    $scope.troopsResult = response.attacker.troopsLost.length
+    $scope.defendedKingdom = response.defender.user.kingdom
+
+    let battleWindow = document.querySelector(".battleResult")
+    battleWindow.style.left = String(window.innerWidth/2 - 200) + "px"
+    battleWindow.style.top = String(window.innerHeight -200) + "px"
+
+    $scope.showEnemy = false
+    $scope.attackEnded = true
+  }
+
+
   //ez nem joo
   let clickOut = function() {
     let enemy = document.querySelector(".svgContainer")
@@ -328,31 +344,35 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     let mines = building.filter(function(elem){
       return elem.type === "mine"
     })
-    $scope.mineNum = mines.length
+    $scope.mineNumEnemy = mines.length
   }
 
   let isFactory = function(building) {
     let factories = building.filter(function(elem){
       return elem.type === "farm"
     })
-    $scope.factoryNum = factories.length
+    $scope.factoryNumEnemy = factories.length
   }
 
   let isAcademy = function(building) {
     let academies = building.filter(function(elem){
       return elem.type === "barracks"
     })
-    $scope.academyNum = academies.length
+    $scope.academyNumEnemy = academies.length
   }
 
   let stationLevel = function(building) {
     let station = building.filter(function(elem){
       return elem.type === "townhall"
     })
-    $scope.stationLevel = station[0].level
+    $scope.stationLevelEnemy = station[0].level
   }
 
-
+  $(function() {
+    $( "#automplete-1" ).autocomplete({
+      source: $scope.kingdoms
+    })
+  })
 
   $scope.selectKingdom = function() {
     var selected = "#kingdom" + $scope.selected
@@ -373,10 +393,13 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
     toNode: function (selector) {
       let coords = this.getCoords(selector);
       window.scroll({top: coords.y, left: coords.x, behavior: 'smooth'});
+    },
+
+    home: function() {
+      let selector = "#kingdom" + $localStorage.userObj.userId
+      this.toNode(selector)
     }
   };
-
-
 
 //background scroll
   var bg = document.querySelector("#map")
@@ -387,77 +410,5 @@ angular.module("ClashApp").controller("MapController", ['$scope', '$http', '$loc
       bg.style.backgroundPosition = positionX + "px " + positionY + "px"
     })
   }
-
-
-
-  //master-rol attack
-//   $scope.selectEnemy = function(event) {
-//     if(event.target.classList.contains("kingdomEnemy")) {
-//       //event.target.style.backgroundColor = "blue"
-
-//        mapFactory.search.query({kingdom: event.target.innerHTML}).$promise.then(function(result) {
-//          console.log(result, "result")
-//          $scope.kingdomName = result[0].user.kingdom
-//          $scope.points = result[0].user.points
-//          $scope.troops = result[0].troops.length
-//          $scope.buildingsList = result[0].buildings
-//          $scope.showInfo = true
-
-//          $scope.attack = function() {
-//            $scope.opponent = {"opponent": event.target.id}
-//            console.log(event.target.id, "attack")
-//            mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
-//            })
-//          }
-//        })
-//     }
-
-
-//ADD NEW BUILDING bad request
-  // $scope.addNewMine = function() {
-  //   var postData = {
-  //     "user_id": String($localStorage.userObj.userId),
-  //     "type": "mine"
-  //   };
-  //   mapFactory.building.save(postData)
-  //     .$promise.then( function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch( function(error) {
-  //       console.log(error);
-  //     });
-  // }
-  //
-  //
-  // $scope.addNewFactory = function() {
-  //   var postData = {
-  //     "user_id": String($localStorage.userObj.userId),
-  //     "type": "farm"
-  //   };
-  //   mapFactory.building.save(postData)
-  //     .$promise.then( function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch( function(error) {
-  //       console.log(error);
-  //     });
-  // }
-  //
-  // $scope.addNewAcademy = function() {
-  //   var postData = {
-  //     "user_id": String($localStorage.userObj.userId),
-  //     "type": "barracks"
-  //   };
-  //   mapFactory.building.save(postData)
-  //     .$promise.then( function (response) {
-  //       console.log(response);
-  //     })
-  //     .catch( function(error) {
-  //       console.log(error);
-  //     });
-  // }
-
-
-
 
 }]);

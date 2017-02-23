@@ -3,17 +3,20 @@
 <section id="map">
 
   <div class="svgContainer {{elem.id}}" id="kingdom{{elem.id}}" ng-repeat="elem in kingdoms" ng-click="selectEnemy(elem.id)">
+    <div class="attackButton" ng-click="attack(elem.id)">
+      <img src="./img/icons/attack_button-01.svg"></img>
+      <span>Attack!</span>
+    </div>
   </div>
-  <img class="attackButton" src="./img/icons/attack_button-01.svg" ng-show="showEnemy" ng-click="attack(elem.id, elem.kingdom)"></img>
 
 
-  <div class="focusKingdom">
-    <div class="goToMyKingdom" type="button" name="button" ng-click="scrollToKingdom.toNode('#kingdom0')"></div>
-    <select class="goToKingdom" ng-model="selected" ng-change="selectKingdom()">
-      <option value="select">Select Kingdom</option>
-      <option value="{{user.id}}" ng-repeat="user in kingdoms" >{{user.kingdom}}</option>
-    </select>
-  </div>
+
+  <div class="goToMyKingdom" type="button" name="button" ng-click="scrollToKingdom.home()"></div>
+
+  <select class="goToKingdom" ng-model="selected" ng-change="selectKingdom()">
+    <option value="select">Select Kingdom</option>
+    <option value="{{user.id}}" ng-repeat="user in kingdoms" >{{user.kingdom}}</option>
+  </select>
 
 
   <aside class="userDetails">
@@ -49,35 +52,44 @@
   </div>
 
   <div class="enemyDetails" ng-show="showEnemy">
-    <!-- <img class="avatar" src=""></img>
-    <h1>{{kingdom}}</h1> -->
+    <h3>About {{kingdom}}</h3>
     <div class="buildings">
       <div class="detail">
-        <img src="./img/map/station.svg"></img>
-        <span>level {{stationLevel}}</span>
+        <img src="./img/assets/townhall.svg"></img>
+        <span>level {{stationLevelEnemy}}</span>
       </div>
 
       <div class="detail">
-        <img src="./img/fox1.svg"></img>
+        <img src="./img/assets/troopbg.svg"></img>
         <span>{{troopsNum}}</span>
       </div>
 
       <div class="detail">
-        <img src="./img/map/academy.svg"></img>
-        <span>{{academyNum}}</span>
+        <img src="./img/assets/academy.svg"></img>
+        <span>{{academyNumEnemy}}</span>
       </div>
 
       <div class="detail">
-        <img src="./img/map/factory.svg"></img>
-        <span>{{factoryNum}}</span>
+        <img src="./img/assets/factory.svg"></img>
+        <span>{{factoryNumEnemy}}</span>
       </div>
 
       <div class="detail">
-        <img src="./img/map/mine.svg"></img>
-        <span>{{mineNum}}</span>
+        <img src="./img/assets/mine.svg"></img>
+        <span>{{mineNumEnemy}}</span>
       </div>
     </div>
 
+  </div>
+
+  <div class="battleResult" ng-show="attackEnded">
+    <div class="close" ng-click="attackEnded = false"></div>
+    <div class="result">
+      <div class="icon"></div>
+      <h2>{{battleResult}}</h2>
+    </div>
+    <p class="damage">You caused {{damageResult}} damage to {{defendedKingdom}}</p>
+    <p class="troops">{{troopsResult}} foxes died during the battle</p>
   </div>
 
 

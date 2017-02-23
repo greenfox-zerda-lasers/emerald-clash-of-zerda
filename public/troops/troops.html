@@ -10,21 +10,23 @@
 
     <article class="troop" ng-repeat="troop in troops" >
       <div class="hpProgress">
-        <span>20</span>
+        <span>{{troop.hp}}</span>
+        <div class="hpActual" style="width: {{troop.hp}}%"></div>
       </div>
       <div class="imageHolder"></div>
       <div class="troopData">
 
         <div class="data attack">
+          <img class="level" src="./img/assets/attack.svg"></img>
           <span class="data">{{troop.attack}}</span>
         </div>
 
         <div class="data defence">
-          <!-- <img class="defence" src=""></img> -->
+          <img class="level" src="./img/assets/defence.svg"></img>
           <span class="data">{{troop.defence}}</span>
         </div>
         <div class="data level">
-          <!-- <img class="level" src=""></img> -->
+          <img class="level" src="./img/assets/level2-01.svg"></img>
           <span class="data">{{troop.level}}</span>
         </div>
         <button class="train" ng-click="trainTroop(troop.id, troop.level)">Train!</button>

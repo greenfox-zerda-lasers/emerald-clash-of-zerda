@@ -76,6 +76,7 @@ main {
     display: inline-block;
     border-radius: 600px;
     box-sizing: content-box;
+    transition: all 0.3s;
   }
 
   .attackButton {
@@ -87,6 +88,15 @@ main {
     position: fixed;;
     top: 40%;
     left: calc(50% + 400px);
+    display: none;
+
+    span {
+      position: relative;
+      font-size: 0.8em;
+      top: -55px;
+      left: 45px;
+      color: rgba(255, 255, 255, 0.8)
+    }
   }
 
   aside {
@@ -120,34 +130,40 @@ main {
 
   .enemyDetails {
     width: 40vw;
-    height: 12vh;
+    height: 15vh;
     position: fixed;
     left: calc(100vw - 70vw);
-    top:calc(100vh - 14vh);
-    //background-color: $mediumBlack;
-    background-color: rgba(75, 75, 75, 0.6);
+    top:calc(100vh - 19vh);
     border-radius: 20px;
     text-align: center;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     color: white;
 
-    h1 {}
+    h3 {
+      padding-bottom: 10px;
+    }
     .buildings {
       display: flex;
       flex-direction: row;
-      justify-content: space-around;
+      justify-content: space-between;;
       width: 100%;
       .detail {
         display: flex;
         flex-direction: column;
         img {
-          width: 50px;
+          width: 70px;
+          margin: 10px;
+        }
+        span {
+          background-color: $mediumOrange;
+          border-radius: 2px;
         }
       }
     }
   }
+
   .availableTroops {
     background-color: rgba(75, 75, 75, 0.6);
     border-radius: 10px;
@@ -198,6 +214,9 @@ main {
           text-align: center;
         }
       }
+      .selectedTroop {
+        box-shadow: 0px 0px 0px 2px orange;
+      }
     }
 
     ::-webkit-scrollbar {
@@ -221,6 +240,66 @@ main {
       margin-bottom: 10px;
       border-radius: 5px;
       background-color: white;
+      border-width: 0px;
+      transition: all 0.2s;
+      &:hover {
+        background-color: $lightOrange;
+        color: white;
+      }
+    }
+  }
+
+  .battleResult {
+    position: fixed;
+    background-color: rgba(50, 50, 50, 0.7);
+    width: 400px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+    color: white;
+
+    .close {
+      position: relative;
+      background-image: url("./img/assets/close.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      left: calc(100% - 15px);
+      top: -5px;
+      z-index: 100;
+    }
+
+    .result {
+      margin-bottom: 15px;
+      margin-top: 10px;
+      height: 50px;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      display: inline-block;
+      left: calc(100% - 25px);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .winIcon {
+      background-image: url("./img/assets/win.svg");
+    }
+
+    .lostIcon {
+      background-image: url("./img/assets/lost.svg")
+    }
+
+    h2 {
+      display: inline-block;
+      vertical-align: top;
+      padding-top: 10px;
+      padding-left: 10px;
     }
   }
 }
