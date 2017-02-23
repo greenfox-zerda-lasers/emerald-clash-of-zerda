@@ -71,6 +71,7 @@ main {
     display: inline-block;
     border-radius: 600px;
     box-sizing: content-box;
+    transition: all 0.3s;
   }
 
   .attackButton {
@@ -234,6 +235,12 @@ main {
       margin-bottom: 10px;
       border-radius: 5px;
       background-color: white;
+      border-width: 0px;
+      transition: all 0.2s;
+      &:hover {
+        background-color: $lightOrange;
+        color: white;
+      }
     }
   }
 
@@ -256,6 +263,7 @@ main {
       height: 20px;
       left: calc(100% - 15px);
       top: -5px;
+      z-index: 100;
     }
 
     .result {
@@ -265,16 +273,28 @@ main {
     }
 
     .icon {
-      //margin-top: 20px;
       width: 50px;
       height: 50px;
-      background-color: green;
       display: inline-block;
       left: calc(100% - 25px);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+
+    .winIcon {
+      background-image: url("./img/assets/win.svg");
+    }
+
+    .lostIcon {
+      background-image: url("./img/assets/lost.svg")
     }
 
     h2 {
       display: inline-block;
+      vertical-align: top;
+      padding-top: 10px;
+      padding-left: 10px;
     }
   }
 }

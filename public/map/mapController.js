@@ -165,7 +165,6 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
       $(".ui-widget-content").draggable();
     }
 
-
     //dinamikusra
     renderSideBar() {
       if(this.id == $localStorage.userObj.userId) {
@@ -186,7 +185,6 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
         let newAcademy = this.academy.clone()
         this.ssvg.append(newAcademy)
         newAcademy.transform(buildingPos)
-        //this.academy.transform("t-170,270r-110")
       }.bind(this))
     }
 
@@ -226,6 +224,7 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
       document.querySelector("#kingdom" + userid + " .attackButton").style.display = "inline-block"
       showDetails(userid)
       $scope.showEnemy = true
+      $scope.attackEnded = false
     }
   }
 
@@ -296,7 +295,7 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
     mapFactory.attack.save(attackData)
       .$promise
       .then(function(response) {
-        renderBattleInfo(response)
+        renderBattleInfo(response, defenderId)
       })
       .catch( function(error) {
         console.log(error);
@@ -305,12 +304,15 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
 
   $scope.attackEnded = false
 
-  let renderBattleInfo = function(response) {
-    console.log(response, "battle");
+  let renderBattleInfo = function(response, defenderId) {
+    const icon = document.querySelector(".icon")
+    document.querySelector("#kingdom" + defenderId).style.backgroundColor = "rgba(252, 110, 35, 0)"
     if(response.attacker.damage >= response.attacker.damage) {
       $scope.battleResult = "Huhuu, you won!"
+      icon.classList.add("winIcon")
     } else {
       $scope.battleResult = "Sorry! You lost!"
+      icon.classList.add("lostIcon")
     }
     $scope.damageResult = response.attacker.damage
     $scope.troopsResult = response.attacker.troopsLost.length
@@ -319,11 +321,11 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
     let battleWindow = document.querySelector(".battleResult")
     battleWindow.style.left = String(window.innerWidth/2 - 200) + "px"
     battleWindow.style.top = String(window.innerHeight -200) + "px"
-    console.log(String(window.innerWidth/2), "left");
 
     $scope.showEnemy = false
     $scope.attackEnded = true
   }
+
 
   //ez nem joo
   let clickOut = function() {
@@ -399,8 +401,6 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
     }
   };
 
-
-
 //background scroll
   var bg = document.querySelector("#map")
   if(bg) {
@@ -410,30 +410,5 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
       bg.style.backgroundPosition = positionX + "px " + positionY + "px"
     })
   }
-
-
-
-  //master-rol attack
-//   $scope.selectEnemy = function(event) {
-//     if(event.target.classList.contains("kingdomEnemy")) {
-//       //event.target.style.backgroundColor = "blue"
-
-//        mapFactory.search.query({kingdom: event.target.innerHTML}).$promise.then(function(result) {
-//          $scope.kingdomName = result[0].user.kingdom
-//          $scope.points = result[0].user.points
-//          $scope.troops = result[0].troops.length
-//          $scope.buildingsList = result[0].buildings
-//          $scope.showInfo = true
-
-//          $scope.attack = function() {
-//            $scope.opponent = {"opponent": event.target.id}
-//            console.log(event.target.id, "attack")
-//            mapFactory.attack.save($scope.opponent).$promise.then(function(result) {
-//            })
-//          }
-//        })
-//     }
-
-
 
 }]);
