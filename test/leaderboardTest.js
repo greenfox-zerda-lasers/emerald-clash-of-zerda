@@ -11,7 +11,6 @@ describe('Testing LeaderboardController', function () {
 
   beforeEach(function () {
     module('ClashApp', 'templates');
-    // angular.mock.module('ClashApp', 'templates');
 
     inject(function ($controller, $httpBackend, _$compile_, _$rootScope_, $templateCache) {
       httpBackend = $httpBackend;
@@ -23,7 +22,7 @@ describe('Testing LeaderboardController', function () {
       scope.$digest();
       element = $templateCache.get('public/leaderboard/leaderboard.html');
       compiledElement = compile(element)(rootscope);
-      console.log("da controller", LeaderboardController);
+      console.log("leaderboard controller", LeaderboardController);
     });
   });
 

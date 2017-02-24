@@ -10,7 +10,7 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
   $scope.addNewBuilding = function (type) {
 
     $scope.postData = {
-      "user_id": $localStorage.userObj.userId,
+      // "user_id": $localStorage.userObj.userId,
       "type": type
     };
 

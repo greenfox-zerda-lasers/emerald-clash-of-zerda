@@ -8,12 +8,12 @@ describe('Testing BuildingsController', function () {
   var element;
   var compiledElement;
   var httpBackend;
+  var localStorage;
 
   beforeEach(function () {
     module('ClashApp', 'templates');
-    // angular.mock.module('ClashApp', 'templates');
 
-    inject(function ($controller, $httpBackend, _$compile_, _$rootScope_, $templateCache) {
+    inject(function ($controller, $httpBackend, _$compile_, _$rootScope_, $templateCache, $localStorage) {
       httpBackend = $httpBackend;
       compile = _$compile_;
       rootscope = _$rootScope_;
@@ -27,9 +27,9 @@ describe('Testing BuildingsController', function () {
     });
   });
 
-  describe('xxx', function () {
+  describe('test', function () {
     it('BuildingsController should be defined', function () {
-      expect(BuildingsController.addNewBuilding).toBeDefined();
+      expect(BuildingsController).toBeDefined();
     });
   });
 
