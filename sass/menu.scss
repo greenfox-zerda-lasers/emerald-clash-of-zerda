@@ -25,6 +25,7 @@
         transition: all 0.3s;
         border: 0px solid white;
         z-index: 1000;
+        text-align: center;
       }
 
       .overlay {
@@ -70,6 +71,15 @@
       }
     }
 
+    .profileMenu {
+      width: 50px;
+      height: 50px;
+      border-radius: 50px;
+      background-image: url("./img/assets/back.svg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
 
     .menuRight {
       margin-right: 10px;

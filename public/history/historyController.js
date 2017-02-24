@@ -7,8 +7,8 @@ angular.module("ClashApp").controller("HistoryController", ['$scope', '$http', '
       $scope.battleList = response;
     })
     .catch( function (error) {
-      console.log(error);
-    });
-  })();
+      console.log(error)
+    })
+  })()
 
-}]);
+}])
