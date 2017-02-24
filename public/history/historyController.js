@@ -8,5 +8,3 @@ angular.module("ClashApp").controller("HistoryController", ['$scope', '$http', '
   .catch( function (error) {
     console.log(error);
   });
-
-}]);
