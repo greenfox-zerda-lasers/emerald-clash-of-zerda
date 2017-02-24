@@ -36,6 +36,7 @@ angular
         }
       }
     }
+
     options.forEach(function(elem, index){
       elem.style.backgroundImage = 'url(' + './img/assets/' + screens[index] + '.svg' + ')'
       elem.id  =  "button" + screens[index]
@@ -67,19 +68,19 @@ angular
         $scope.food = result[0].amount;
         $scope.gold = result[1].amount;
       }).catch( function(error) {
-        console.log(error);
-      });
-  })();
+        console.log(error)
+      })
+  })()
 
   $rootScope.$on('sendFood', function(event, args) {
     $scope.food = args
-  });
+  })
   $rootScope.$on('sendGold', function(event, args) {
     $scope.gold = args
-  });
+  })
 
   $scope.logOut = function() {
-    $localStorage.userObj = {};
-  };
+    $localStorage.userObj = {}
+  }
 
-}]);
+}])

@@ -1,6 +1,6 @@
 #history-page {
 
-  background-image: url("./img/map/bg.jpg");
+  background-image: url("./img/bg3-01.png");
   min-height: 100%;
   background-attachment: fixed;
   background-position: center center;
@@ -8,16 +8,18 @@
   background-size: cover;
 
   .history-title {
+    font-weight: normal;
     text-align: center;
     color: white;
-    padding-bottom: 50px;
+    padding-bottom: 75px;
     padding-top: 100px;
     font-size: 3em;
   }
 
   .container {
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 25%;
+    padding-right: 25%;
+    font-weight: 100;
 
     li {
       list-style: none;
@@ -25,12 +27,14 @@
     }
 
     .battle-item {
+      background-color: rgba(19, 41, 48, 0.6);
+      border-radius: 10px;
       display: flex;
       justify-content: center;
       flex-direction: row;
       align-items: center;
       counter-reset: order;
-      padding-bottom: 15px;
+      margin-bottom: 15px;
 
       .attacker-info {
         display: flex;
@@ -53,7 +57,7 @@
 
       .battle-result {
         display: flex;
-        background-color: rgba(50, 50, 50, 0.6);
+        //background-color: rgba(50, 50, 50, 0.6);
         border-radius: 10px;
         padding: 15px;
         padding-top: 20px;
@@ -65,7 +69,7 @@
           .avatar {
             width: 50px;
             height: 50px;
-            background-image: url("https://image.flaticon.com/icons/svg/221/221704.svg");
+            background-image: url("./img/assets/win.svg");
             background-size:cover;
             background-position: center center;
           }
@@ -75,7 +79,7 @@
           width: 50px;
           height: 50px;
           // background-image: url("https://image.flaticon.com/icons/svg/225/225481.svg");
-          background-image: url("https://image.flaticon.com/icons/svg/225/225482.svg");
+          background-image: url("./img/assets/arrow.svg");
           background-size:cover;
           background-position: center center;
         }
@@ -86,7 +90,7 @@
           .avatar {
             width: 50px;
             height: 50px;
-            background-image: url("http://www.flaticon.com/premium-icon/icons/svg/219/219553.svg");
+            background-image: url("./img/assets/lost.svg");
             background-size:cover;
             background-position: center center;
           }

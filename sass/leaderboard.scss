@@ -1,15 +1,16 @@
 #leaderboard-page {
 
-  background-image: url("./img/map/bg.jpg");
+  background-image: url("./img/bg2-01.png");
   min-height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
 
   .leaderboard-title {
+    font-weight: normal;
     text-align: center;
     color: white;
-    padding-bottom: 50px;
+    padding-bottom: 75px;
     padding-top: 100px;
     font-size: 3em;
   }
@@ -35,7 +36,7 @@
         .avatar {
           width: 50px;
           height: 50px;
-          background-image: url("http://image.flaticon.com/icons/svg/194/194638.svg");
+          background-image: url("./img/assets/troops.svg");
           background-size:cover;
           background-position: center center;
           display: inline-block;

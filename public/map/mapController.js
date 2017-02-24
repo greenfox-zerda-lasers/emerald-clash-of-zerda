@@ -128,20 +128,6 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
         let xPos = (Math.random() * (20000-1200) + 600) //- this.width - 200
         let yPos = (Math.random() * (15000-1200) + 600) //- this.height - 200
         this.setPosition(xPos, yPos, object)
-
-      //   for(var i = 0; i < enemyLocation.length; i++) {
-      //
-      //     if((xPos +this.width < enemyLocation[i].x && yPos + this.height < enemyLocation[i].y) || (xPos > enemyLocation[i].x +enemyWidth && yPos > enemyLocation[i].y +enemyHeight)) {
-      //       this.setPosition(xPos, yPos, object)
-      //     } else {
-      //       // this.checkPosition()
-      //
-      //     }
-      //   }
-      // } else {
-      //   let xPos = location.x
-      //   let yPos = location.y
-      // }
     }
 
 
@@ -165,7 +151,6 @@ function($scope, $http, $localStorage, $location, $resource, mapFactory){
       $(".ui-widget-content").draggable();
     }
 
-    //dinamikusra
     renderSideBar() {
       if(this.id == $localStorage.userObj.userId) {
         $scope.myName = this.kingdomName
