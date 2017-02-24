@@ -1,6 +1,6 @@
 #profile-page {
 
-  background-image: url("http://www.babaimage.com/images/download-wallpaper-1920x1080-minimalism-sky-clouds-sun-mountains.jpg");
+  background-image: url("./img/map/bg.jpg");
   height: 100%;
   background-position: center center;
   background-repeat: no-repeat;
@@ -11,6 +11,7 @@
     justify-content: center;
     flex-direction: column;
     padding-top: 100px;
+
 
     .profile-title{
       text-align: center;
@@ -25,13 +26,12 @@
   .avatar {
     width: 150px;
     height: 150px;
-    background-image: url("https://image.flaticon.com/icons/svg/149/149076.svg");
+    background-image: url("./img/assets/troops.svg");
     background-size:cover;
     background-position: center center;
     display: inline-block;
     align-self: center;
     padding-bottom: 30px;
-    border: 2px solid black;
     border-radius: 50%;
     position: relative;
   }

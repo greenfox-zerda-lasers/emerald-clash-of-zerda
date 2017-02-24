@@ -2,7 +2,7 @@
 
   <div class="menu">
 
-    <div class="menuLeft">
+    <div class="menuLeft" ng-show="show">
       <div class="activeScreen" ng-click="closeMenu()"></div>
       <div class="option option1"  ng-click="goToScreen($event)"></div>
       <div class="option option2" ng-click="goToScreen($event)"></div>
@@ -11,6 +11,7 @@
       <!-- <div class="overlay"></div> -->
     </div>
 
+    <div class="profileMenu" ng-show="profile" ng-click="goBackToMain()"></div>
 
     <div class="menuRight">
         <span>{{food}}</span>

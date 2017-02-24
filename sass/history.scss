@@ -1,7 +1,8 @@
 #history-page {
 
-  background-image: url("./img/space_background02-01.jpg");
+  background-image: url("./img/map/bg.jpg");
   min-height: 100%;
+  background-attachment: fixed;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -29,6 +30,7 @@
       flex-direction: row;
       align-items: center;
       counter-reset: order;
+      padding-bottom: 15px;
 
       .attacker-info {
         display: flex;
@@ -51,7 +53,7 @@
 
       .battle-result {
         display: flex;
-        background-color: rgba(240, 240, 240, 0.4);
+        background-color: rgba(50, 50, 50, 0.6);
         border-radius: 10px;
         padding: 15px;
         padding-top: 20px;
