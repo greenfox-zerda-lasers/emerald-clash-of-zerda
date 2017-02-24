@@ -2,7 +2,6 @@ angular.module("ClashApp").controller("BuildingsController", ['$scope', '$http',
 
   var getBuildings = (function() {
     $scope.buildingsList = BuildingsFactory.query();
-    console.log($scope.buildingsList);
   })();
 
   $scope.BroadcastFactory = BroadcastFactory;
